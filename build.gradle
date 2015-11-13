@@ -1,0 +1,18 @@
+apply plugin: 'eclipse'
+
+ext.mainSrcFolder = file('src/main/minecraft')
+
+ext.mainFile = new File(mainSrcFolder, '/ApertureCraft Vanilla.txt')
+//ext.mainFile = new File(mainSrcFolder, '/ACV_online.txt')
+
+ext.outputFolder = file('build/py')
+
+task clean << {
+    delete file('build')
+}
+
+task build(type: JavaExec) {
+    main = 'de.adrodoc55.minecraft.mpl.Main'
+    args = [ mainFile, outputFolder]
+    classpath = files('C:/Users/adrian/Programme/workspace/MplGenerator/build/libs/MplGenerator.jar')
+}
