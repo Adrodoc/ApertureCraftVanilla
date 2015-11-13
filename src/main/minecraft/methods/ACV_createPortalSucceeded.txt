@@ -1,0 +1,5 @@
+impulse: /setblock ~ ~ ~-1 stone
+
+# TODO: playsound
+
+/execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ redstone_block

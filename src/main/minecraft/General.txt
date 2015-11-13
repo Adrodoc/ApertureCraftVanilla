@@ -1,0 +1,155 @@
+Befehle der Version 8.0.0
+
+# Param & Return Types:
+# AS = ArmorStand
+# SCV = Scoreboard Value
+# SC = Scoreboard
+# ASwS = ArmorStands with Score
+# ASwT = ArmorStands with Tag
+# dAS = Directional ArmorStand
+# IF = ItemFrame
+
+# TODO: alle ASwS durch ASwT ersetzen
+
+# direction:
+# 5 = Floor Portal
+# 4 = Ceiling Portal
+# 3 = North Portal
+# 2 = West Portal
+# 1 = South Portal
+# 0 = East Portal
+
+# directionMask:
+# 32-63 = Floor Portal
+# 16-32 = Ceiling Portal
+# 8-15 = North Portal
+# 4-7 = West Portal
+# 2-3 = South Portal
+# 1 = East Portal
+
+# bool:
+# <= 0 = false
+# >= 1 = true
+
+# color:
+# 0 = Blue
+# 1 = Orange
+# 2 = Purple
+# 3 = Red
+
+Scoreboards:
+Portal
+ACV_Internal
+ACV_Interface
+ACV_COLOR
+ACV_TP
+ACV_TP_UNEVEN
+ACV_CONSTANT
+ACV_CUBE_ID
+
+/scoreboard objectives add Portal dummy
+/scoreboard objectives add ACV_Internal dummy
+/scoreboard objectives add ACV_Interface dummy
+/scoreboard objectives add ACV_COLOR dummy
+/scoreboard objectives add ACV_DIRECTION dummy
+/scoreboard objectives add ACV_CONSTANT dummy
+/scoreboard players set 2 ACV_CONSTANT 2
+/scoreboard players set 4 ACV_CONSTANT 4
+/scoreboard players set 5 ACV_CONSTANT 5
+/scoreboard objectives add ACV_TP_FROM dummy
+/scoreboard objectives add ACV_TP_UNEVEN dummy
+/scoreboard objectives add ACV_TP_TO dummy
+/scoreboard objectives add ACV_TP_IR dummy
+/scoreboard objectives add ACV_TP_OR dummy
+/scoreboard objectives add ACV_TP_ER dummy
+/scoreboard objectives add ACV_TP_AR dummy
+/scoreboard objectives add ACV_CUBE_ID dummy
+
+
+
+
+
+Control_Panel {
+
+Equipment {
+
+/give @p minecraft:bow 1 0 {Unbreakable:1,ench:[{id:48,lvl:6},{id:51,lvl:1}],HideFlags:5,display:{Name:"Blue Portalgun",Lore:["Makes blue Portals!"]}}
+/give @p minecraft:bow 1 0 {Unbreakable:1,ench:[{id:48,lvl:7},{id:51,lvl:1}],HideFlags:5,display:{Name:"Orange Portalgun",Lore:["Doesn't make blue Portals!"]}}
+/give @p minecraft:bow 1 0 {Unbreakable:1,ench:[{id:48,lvl:8},{id:51,lvl:1}],HideFlags:5,display:{Name:"Purple Portalgun",Lore:["Makes purple Portals!"]}}
+/give @p minecraft:bow 1 0 {Unbreakable:1,ench:[{id:48,lvl:9},{id:51,lvl:1}],HideFlags:5,display:{Name:"Red Portalgun",Lore:["Makes red Portals!"]}}
+/give @p minecraft:arrow 1 0 {display:{Name:"Picking up Cubes",Lore:["Hold this to pick up the closest Cube"]}}
+/replaceitem entity @p slot.armor.feet minecraft:chainmail_boots 1 0 {Unbreakable:1,ench:[{id:2,lvl:1}],HideFlags:5,display:{Name:"Long Fall Boots",Lore:["No more Falldamage!"]}}
+
+Equipment }
+
+Block_Option {
+/clone ~-3 ~-2 ~-1 ~3 ~-1 ~-1 0 1 1
+/fill 0 1 2 6 2 2 minecraft:air
+/tellraw @a [{"text":"[","color":"gold"},{"text":"Info","color":"gold","italic":"true"},{"text":"] ","color":"gold"},{"text":"Block-Option confirmed","color":"yellow"}]
+Block_Option }
+
+MEG_SPAWN_DELETE {
+/give @p minecraft:spawn_egg 1 0 {EntityTag:{id:"Squid"},display:{Name:"spawnMeg",Lore:["Use this to spawn","a Material Emancipation Grid"]}}
+/give @p minecraft:spawn_egg 1 0 {EntityTag:{id:"Squid"},display:{Name:"deleteMeg",Lore:["Use this to delete","a Material Emancipation Grid"]}}
+MEG_SPAWN_DELETE }
+
+Portalsystem_on_off {
+/execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ stone
+/execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ stone
+
+/execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+
+Portalsystem_on_off }
+
+Lightbridges_on_off {
+/execute @e[name=ACV_lightBridges] ~ ~ ~ /setblock ~ ~ ~ stone
+/execute @e[name=ACV_antiBridges] ~ ~ ~ /setblock ~ ~ ~ stone
+
+/execute @e[name=ACV_lightBridges] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/execute @e[name=ACV_antiBridges] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+
+Lightbridges_on_off }
+
+Cubes_on_off {
+/execute @e[name=ACV_cubes] ~ ~ ~ /setblock ~ ~ ~ stone
+
+/execute @e[name=ACV_cubes] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+
+Cubes_on_off }
+
+Lasers_on_off {
+/execute @e[name=ACV_lasers] ~ ~ ~ /setblock ~ ~ ~ stone
+
+/execute @e[name=ACV_lasers] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+
+Lasers_on_off }
+
+Meg_on_off {
+/execute @e[name=ACV_meg] ~ ~ ~ /setblock ~ ~ ~ stone
+
+/execute @e[name=ACV_meg] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+
+Meg_on_off }
+
+MegSpawnAndDelete_on_off {
+/execute @e[name=ACV_megSpawnAndDelete] ~ ~ ~ /setblock ~ ~ ~ stone
+
+/execute @e[name=ACV_megSpawnAndDelete] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+
+MegSpawnAndDelete_on_off }
+
+Spawn_normal_Cube {
+/summon ArmorStand ~ ~-1.6 ~1 {CustomName:"Weighted_Storage_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{Damage:6,id:"stone"}],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
+Spawn_normal_Cube}
+
+Spawn_redirecting_Cube {
+/summon ArmorStand ~ ~-1.6 ~1 {CustomName:"Weighted_Storage_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{id:"dispenser"}],Tags:["ACV_Redirecting"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
+Spawn_redirecting_Cube}
+
+Control_Panel }
+
+
+
+
+

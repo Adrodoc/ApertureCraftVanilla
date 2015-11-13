@@ -1,0 +1,9 @@
+
+repeat: /execute @e[type=Creeper,name=ACV_MEG] ~ ~ ~ /kill @e[name=Weighted_Storage_Cube,r=0]
+
+/scoreboard players tag @a add ACV_Blue {Inventory:[{id:"minecraft:bow",tag:{ench:[{id:48,lvl:6}]}}}
+/scoreboard players tag @a add ACV_Orange {Inventory:[{id:"minecraft:bow",tag:{ench:[{id:48,lvl:7}]}}}
+/scoreboard players tag @a add ACV_Purple {Inventory:[{id:"minecraft:bow",tag:{ench:[{id:48,lvl:8}]}}}
+/scoreboard players tag @a add ACV_Red {Inventory:[{id:"minecraft:bow",tag:{ench:[{id:48,lvl:9}]}}]}
+
+
