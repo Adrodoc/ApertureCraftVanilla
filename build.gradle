@@ -14,5 +14,5 @@ task clean << {
 task build(type: JavaExec) {
     main = 'de.adrodoc55.minecraft.mpl.Main'
     args = [ mainFile, outputFolder]
-    classpath = files('C:/Users/adrian/Programme/workspace/MplGenerator/build/libs/MplGenerator.jar')
+    classpath = files('libs/MplGenerator.jar')
 }
