@@ -160,8 +160,11 @@ ACV_remote_deleteAllPortals {
 /scoreboard players set @e[name=ACV_deletePortal_PARAM_orange] ACV_COLOR 1
 /scoreboard players set @e[name=ACV_deletePortal_PARAM_purple] ACV_COLOR 2
 /scoreboard players set @e[name=ACV_deletePortal_PARAM_red] ACV_COLOR 3
-/execute @e[name=loadChunks] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/execute @e[name=ACV_loadChunks] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/summon ArmorStand ~ ~ ~1 {CustomName:"ACV_loadChunks_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
+/setblock ~ ~ ~-1 stone
+/execute @e[name=ACV_deletePortal] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 
 ACV_remote_deleteAllPortals }
 
