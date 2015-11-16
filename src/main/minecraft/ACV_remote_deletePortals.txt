@@ -1,0 +1,19 @@
+# Description: Deletes all Portals specified by the Params
+# Params: ASwT-ACV_deletePortal_PARAM_blue, ASwT-ACV_deletePortal_PARAM_orange, ASwT-ACV_deletePortal_PARAM_purple, ASwT-ACV_deletePortal_PARAM_red
+# Return:
+
+
+
+impulse: /setblock ~ ~ ~-1 stone
+
+/scoreboard players set @e[name=ACV_deletePortal_PARAM_blue] ACV_COLOR 0
+/scoreboard players set @e[name=ACV_deletePortal_PARAM_orange] ACV_COLOR 1
+/scoreboard players set @e[name=ACV_deletePortal_PARAM_purple] ACV_COLOR 2
+/scoreboard players set @e[name=ACV_deletePortal_PARAM_red] ACV_COLOR 3
+/execute @e[name=ACV_loadChunks] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/summon ArmorStand ${1} {CustomName:"ACV_loadChunks_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+
+$ pass
+
+impulse: /setblock ${-1} stone
+/execute @e[name=ACV_deletePortal] ~ ~ ~ /setblock ~ ~ ~ redstone_block
