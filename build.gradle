@@ -1,5 +1,9 @@
 apply plugin: 'eclipse'
 
+task wrapper(type: Wrapper) {
+    gradleVersion = 2.8
+}
+
 ext.mainSrcFolder = file('src/main/minecraft')
 
 ext.mainFile = new File(mainSrcFolder, '/ApertureCraft Vanilla.txt')
