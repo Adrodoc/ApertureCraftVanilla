@@ -37,17 +37,7 @@ Befehle der Version 8.0.0
 # 2 = Purple
 # 3 = Red
 
-Scoreboards:
-Portal
-ACV_Internal
-ACV_Interface
-ACV_COLOR
-ACV_TP
-ACV_TP_UNEVEN
-ACV_CONSTANT
-ACV_CUBE_ID
-
-/scoreboard objectives add Portal dummy
+# /scoreboard objectives add Portal dummy
 /scoreboard objectives add ACV_Internal dummy
 /scoreboard objectives add ACV_Interface dummy
 /scoreboard objectives add ACV_COLOR dummy
@@ -66,71 +56,15 @@ ACV_CUBE_ID
 /scoreboard objectives add ACV_CUBE_ID dummy
 
 
+Gel Placement:
+/summon Item ~ ~-2 ~ {CustomName:"BlueGel",Age:-32768,PickupDelay:32767,Item:{Count:1,Damage:11,id:35}}
+/summon Item ~ ~-2 ~ {CustomName:"OrangeGel",Age:-32768,PickupDelay:32767,Item:{Count:1,Damage:1,id:35}}
 
-
-
-Control_Panel {
-
-Equipment {
-
-/give @p minecraft:bow 1 0 {Unbreakable:1,ench:[{id:48,lvl:6},{id:51,lvl:1}],HideFlags:5,display:{Name:"Blue Portalgun",Lore:["Makes blue Portals!"]}}
-/give @p minecraft:bow 1 0 {Unbreakable:1,ench:[{id:48,lvl:7},{id:51,lvl:1}],HideFlags:5,display:{Name:"Orange Portalgun",Lore:["Doesn't make blue Portals!"]}}
-/give @p minecraft:bow 1 0 {Unbreakable:1,ench:[{id:48,lvl:8},{id:51,lvl:1}],HideFlags:5,display:{Name:"Purple Portalgun",Lore:["Makes purple Portals!"]}}
-/give @p minecraft:bow 1 0 {Unbreakable:1,ench:[{id:48,lvl:9},{id:51,lvl:1}],HideFlags:5,display:{Name:"Red Portalgun",Lore:["Makes red Portals!"]}}
-/give @p minecraft:arrow 1 0 {display:{Name:"Picking up Cubes",Lore:["Hold this to pick up the closest Cube"]}}
-/replaceitem entity @p slot.armor.feet minecraft:chainmail_boots 1 0 {Unbreakable:1,ench:[{id:2,lvl:1}],HideFlags:5,display:{Name:"Long Fall Boots",Lore:["No more Falldamage!"]}}
-
-Equipment }
-
-Block_Option {
-/clone ~-3 ~-2 ~-1 ~3 ~-1 ~-1 0 1 1
-/fill 0 1 2 6 2 2 minecraft:air
-/tellraw @a [{"text":"[","color":"gold"},{"text":"Info","color":"gold","italic":"true"},{"text":"] ","color":"gold"},{"text":"Block-Option confirmed","color":"yellow"}]
-Block_Option }
 
 MEG_SPAWN_DELETE {
 /give @p minecraft:spawn_egg 1 0 {EntityTag:{id:"Squid"},display:{Name:"spawnMeg",Lore:["Use this to spawn","a Material Emancipation Grid"]}}
 /give @p minecraft:spawn_egg 1 0 {EntityTag:{id:"Squid"},display:{Name:"deleteMeg",Lore:["Use this to delete","a Material Emancipation Grid"]}}
 MEG_SPAWN_DELETE }
-
-Portalsystem_on_off {
-/execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ stone
-/execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ stone
-
-/execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-/execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-
-Portalsystem_on_off }
-
-Lightbridges_on_off {
-/execute @e[name=ACV_lightBridges] ~ ~ ~ /setblock ~ ~ ~ stone
-/execute @e[name=ACV_antiBridges] ~ ~ ~ /setblock ~ ~ ~ stone
-
-/execute @e[name=ACV_lightBridges] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-/execute @e[name=ACV_antiBridges] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-
-Lightbridges_on_off }
-
-Cubes_on_off {
-/execute @e[name=ACV_cubes] ~ ~ ~ /setblock ~ ~ ~ stone
-
-/execute @e[name=ACV_cubes] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-
-Cubes_on_off }
-
-Lasers_on_off {
-/execute @e[name=ACV_lasers] ~ ~ ~ /setblock ~ ~ ~ stone
-
-/execute @e[name=ACV_lasers] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-
-Lasers_on_off }
-
-Meg_on_off {
-/execute @e[name=ACV_meg] ~ ~ ~ /setblock ~ ~ ~ stone
-
-/execute @e[name=ACV_meg] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-
-Meg_on_off }
 
 MegSpawnAndDelete_on_off {
 /execute @e[name=ACV_megSpawnAndDelete] ~ ~ ~ /setblock ~ ~ ~ stone
@@ -139,33 +73,123 @@ MegSpawnAndDelete_on_off {
 
 MegSpawnAndDelete_on_off }
 
+
+
+Control_Panel {
+
+Block_Option {
+/setblock ~ ~3 ~ standing_sign 8 replace {Text2:"{\"text\":\"Block-Option\",\"color\":\"black\",\"bold\":\"true\"}"}
+
+/clone ~-3 ~-2 ~-1 ~3 ~-1 ~-1 0 1 1
+/fill 0 1 2 6 2 2 minecraft:air
+/tellraw @a [{"text":"[","color":"gold"},{"text":"Info","color":"gold","italic":"true"},{"text":"] ","color":"gold"},{"text":"Block-Option confirmed","color":"yellow"}]
+Block_Option }
+
+Smooth_Teleport {
+/setblock ~ ~6 ~ standing_sign 8 replace {Text1:"{\"text\":\"Smooth Teleport\"}",Text2:"{\"text\":\"on\",\"color\":\"dark_green\"}",Text3:"{\"text\":\"|\",\"color\":\"black\"}",Text4:"{\"text\":\"off\",\"color\":\"dark_red\"}"}
+
+/execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ stone
+/entitydata @e[name=ACV_teleportation] {CustomName:"ACV_smoothTeleportation"}
+/entitydata @e[name=ACV_simpleTeleportation] {CustomName:"ACV_teleportation"}
+
+/execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ stone
+/entitydata @e[name=ACV_teleportation] {CustomName:"ACV_simpleTeleportation"}
+/entitydata @e[name=ACV_smoothTeleportation] {CustomName:"ACV_teleportation"}
+
+/execute @e[name=ACV_online] ~ ~ ~ detect ~ ~ ~ redstone_block 0 /execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+Smooth_Teleport }
+
+Portalsystem_on_off {
+/execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ stone
+/execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ stone
+
+/execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/tellraw @a {"text":"","extra":[{"text":"Welcome to","color":"gold"},{"text":" ApertureCraft Vanilla\n","color":"dark_aqua"},{"text":"   Version: ","color":"gold"},{"text":"8.0.0\n","color":"dark_aqua","italic":"true"},{"text":"   made by ","color":"yellow","italic":"true"},{"text":"Adrodoc55\n","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"Click to open YouTube Channel","color":"red"}},"clickEvent":{"action":"open_url","value":"https://www.youtube.com/user/Adrodoc55"}}]}
+/setblock ~ ~ ~ redstone_block
+/fill ~ ~ ~ ~1 ~ ~ air
+Portalsystem_on_off }
+
+Lightbridges_on_off {
+/execute @e[name=ACV_lightBridges] ~ ~ ~ /setblock ~ ~ ~ stone
+/execute @e[name=ACV_antiBridges] ~ ~ ~ /setblock ~ ~ ~ stone
+
+/execute @e[name=ACV_lightBridges] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/execute @e[name=ACV_antiBridges] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+Lightbridges_on_off }
+
+Gels_on_off {
+/setblock ~ ~5 ~ standing_sign 8 replace {Text1:"{\"text\":\"Gels\",\"color\":\"yellow\",\"bold\":\"true\"}",Text2:"{\"text\":\"on\",\"color\":\"dark_green\"}",Text3:"{\"text\":\"|\",\"color\":\"black\"}",Text4:"{\"text\":\"off\",\"color\":\"dark_red\"}"}
+
+/execute @e[name=ACV_gels] ~ ~ ~ /setblock ~ ~ ~ stone
+
+/execute @e[name=ACV_gels] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+Gels_on_off }
+
+Cubes_on_off {
+/execute @e[name=ACV_cubes] ~ ~ ~ /setblock ~ ~ ~ stone
+
+/execute @e[name=ACV_cubes] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+Cubes_on_off }
+
+Lasers_on_off {
+/execute @e[name=ACV_lasers] ~ ~ ~ /setblock ~ ~ ~ stone
+
+/execute @e[name=ACV_lasers] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+Lasers_on_off }
+
+Meg_on_off {
+/setblock ~ ~4 ~ minecraft:standing_sign 8 replace {Text1:"Material",Text2:"Emancipation Grill",Text3:"{\"text\":\"on\",\"color\":\"dark_green\"}",Text4:"{\"text\":\"off\",\"color\":\"dark_red\"}"}
+
+/execute @e[name=ACV_meg] ~ ~ ~ /setblock ~ ~ ~ stone
+
+/execute @e[name=ACV_meg] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+Meg_on_off }
+
+Custom_Cursor_() {
+/setblock ~ ~6 ~ standing_sign 8 replace {Text1:"{\"text\":\"Custom Cursor \",\"color\":\"black\",\"extra\":[{\"text\":\"(\",\"color\":\"blue\",\"bold\":\"true\"},{\"text\":\")\",\"color\":\"gold\",\"bold\":\"true\"}]}",Text2:"{\"text\":\"on\",\"color\":\"dark_green\"}",Text3:"{\"text\":\"|\",\"color\":\"black\"}",Text4:"{\"text\":\"off\",\"color\":\"dark_red\"}"}
+
+
+Custom_Cursor_() }
+
+Equipment {
+/setblock ~ ~4 ~ standing_sign 8 replace {Text2:"{\"text\":\"Equipment\",\"color\":\"dark_purple\",\"bold\":\"true\"}"}
+
+/give @p minecraft:bow 1 0 {Unbreakable:1,ench:[{id:48,lvl:6},{id:51,lvl:1}],HideFlags:5,display:{Name:"Blue Portalgun",Lore:["Makes blue Portals!"]}}
+/give @p minecraft:bow 1 0 {Unbreakable:1,ench:[{id:48,lvl:7},{id:51,lvl:1}],HideFlags:5,display:{Name:"Orange Portalgun",Lore:["Doesn't make blue Portals!"]}}
+/give @p minecraft:bow 1 0 {Unbreakable:1,ench:[{id:48,lvl:8},{id:51,lvl:1}],HideFlags:5,display:{Name:"Purple Portalgun",Lore:["Makes purple Portals!"]}}
+/give @p minecraft:bow 1 0 {Unbreakable:1,ench:[{id:48,lvl:9},{id:51,lvl:1}],HideFlags:5,display:{Name:"Red Portalgun",Lore:["Makes red Portals!"]}}
+/give @p minecraft:arrow 1 0 {display:{Name:"Picking up Cubes",Lore:["Hold this to pick up the closest Cube"]}}
+/replaceitem entity @p slot.armor.feet minecraft:chainmail_boots 1 0 {Unbreakable:1,ench:[{id:2,lvl:1}],HideFlags:5,display:{Name:"Long Fall Boots",Lore:["No more Falldamage!"]}}
+Equipment }
+
+Delete_all_Portals {
+/execute @e[name=ACV_remote_deleteAllPortals] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+Delete_all_Portals }
+
+Kill_all_Cubes {
+/kill @e[name=Weighted_Storage_Cube]
+Kill_all_Cubes}
+
 Spawn_normal_Cube {
-/summon ArmorStand ~ ~-1.6 ~1 {CustomName:"Weighted_Storage_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{Damage:6,id:"stone"}],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
+/summon ArmorStand ~ ~-0.6 ~1 {CustomName:"Weighted_Storage_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{Damage:6,id:"stone"}],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
 Spawn_normal_Cube}
 
 Spawn_redirecting_Cube {
-/summon ArmorStand ~ ~-1.6 ~1 {CustomName:"Weighted_Storage_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{id:"dispenser"}],Tags:["ACV_Redirecting"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
+/summon ArmorStand ~ ~-0.6 ~1 {CustomName:"Weighted_Storage_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{id:"dispenser"}],Tags:["ACV_Redirecting"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
 Spawn_redirecting_Cube}
 
+Special_Thanks {
+/setblock ~ ~7 ~ standing_sign 0 replace {Text1:"{\"text\":\"Special Thanks\",\"bold\":\"true\"}",Text2:"{\"text\":\"click on the \",\"extra\":[{\"text\":\"red\",\"color\":\"red\"}]}",Text3:"names for more",Text4:"information"}
+/setblock ~ ~6 ~ wall_sign 3 replace {Text1:"{\"text\":\"Adrodoc55\",\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tellraw @a {\\\"text\\\":\\\"\\\",\\\"extra\\\":[{\\\"text\\\":\\\"Check out \\\",\\\"color\\\":\\\"yellow\\\"},{\\\"text\\\":\\\"Adrodoc55's\\\",\\\"color\\\":\\\"gold\\\"},{\\\"text\\\":\\\" YouTube-Channel by clicking \\\",\\\"color\\\":\\\"yellow\\\"},{\\\"text\\\":\\\"here\\\",\\\"color\\\":\\\"aqua\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"open_url\\\",\\\"value\\\":\\\"https://www.youtube.com/user/Adrodoc55\\\"}}]}\"}}",Text3:"because I wanted",Text4:"to thank myself"}
+/setblock ~ ~4 ~ wall_sign 3 replace {Text1:"{\"text\":\"The Farlanders\",\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tellraw @a {\\\"text\\\":\\\"\\\",\\\"extra\\\":[{\\\"text\\\":\\\"Check out \\\",\\\"color\\\":\\\"yellow\\\"},{\\\"text\\\":\\\"The Farlander's\\\",\\\"color\\\":\\\"gold\\\"},{\\\"text\\\":\\\" Video by clicking \\\",\\\"color\\\":\\\"yellow\\\"},{\\\"text\\\":\\\"here\\\",\\\"color\\\":\\\"aqua\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"open_url\\\",\\\"value\\\":\\\"http://youtu.be/jSiP51XKK1Q\\\"}}]}\"}}",Text3:"for the whole",Text4:"Idea"}
+/setblock ~ ~4 ~ wall_sign 3 replace {Text1:"{\"text\":\"Dragnoz\",\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tellraw @a {\\\"text\\\":\\\"\\\",\\\"extra\\\":[{\\\"text\\\":\\\"Check out \\\",\\\"color\\\":\\\"yellow\\\"},{\\\"text\\\":\\\"Dragnoz's\\\",\\\"color\\\":\\\"gold\\\"},{\\\"text\\\":\\\" Video by clicking \\\",\\\"color\\\":\\\"yellow\\\"},{\\\"text\\\":\\\"here\\\",\\\"color\\\":\\\"aqua\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"open_url\\\",\\\"value\\\":\\\"http://youtu.be/J0ulXBtxQvo\\\"}}]}\"}}",Text3:"for floor and",Text4:"ceiling Portals"}
+/setblock ~ ~4 ~ wall_sign 3 replace {Text1:"{\"text\":\"SimplySarc\",\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tellraw @a {\\\"text\\\":\\\"\\\",\\\"extra\\\":[{\\\"text\\\":\\\"Check out \\\",\\\"color\\\":\\\"yellow\\\"},{\\\"text\\\":\\\"SimplySarc's\\\",\\\"color\\\":\\\"gold\\\"},{\\\"text\\\":\\\" Video by clicking \\\",\\\"color\\\":\\\"yellow\\\"},{\\\"text\\\":\\\"here\\\",\\\"color\\\":\\\"aqua\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"open_url\\\",\\\"value\\\":\\\"http://youtu.be/O8dv9P49cKk\\\"}}]}\"}}",Text3:"for the",Text4:"Chunk-Loader"}
+/setblock ~ ~4 ~ wall_sign 3 replace {Text1:"{\"text\":\"NanoRex\",\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tellraw @a {\\\"text\\\":\\\"\\\",\\\"extra\\\":[{\\\"text\\\":\\\"Check out \\\",\\\"color\\\":\\\"yellow\\\"},{\\\"text\\\":\\\"NanoRex's\\\",\\\"color\\\":\\\"gold\\\"},{\\\"text\\\":\\\" Video by clicking \\\",\\\"color\\\":\\\"yellow\\\"},{\\\"text\\\":\\\"here\\\",\\\"color\\\":\\\"aqua\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"open_url\\\",\\\"value\\\":\\\"http://youtu.be/lyROYbzLCZ0\\\"}}]}\"}}",Text3:"for the Material",Text4:"Emancipation Grid"}
+/setblock ~ ~4 ~ wall_sign 3 replace {Text1:"{\"text\":\"thebradqq\",\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tellraw @a {\\\"text\\\":\\\"\\\",\\\"extra\\\":[{\\\"text\\\":\\\"Check out \\\",\\\"color\\\":\\\"yellow\\\"},{\\\"text\\\":\\\"thebradqq's\\\",\\\"color\\\":\\\"gold\\\"},{\\\"text\\\":\\\" Video by clicking \\\",\\\"color\\\":\\\"yellow\\\"},{\\\"text\\\":\\\"here\\\",\\\"color\\\":\\\"aqua\\\",\\\"clickEvent\\\":{\\\"action\\\":\\\"open_url\\\",\\\"value\\\":\\\"http://youtu.be/NgqGcRD1Ys4\\\"}}]}\"}}",Text3:"for the",Text4:"Custom Cursor"}
+
+Special_Thanks }
+
 Control_Panel }
-
-
-ACV_remote_deleteAllPortals {
-
-/summon ArmorStand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM_blue",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/summon ArmorStand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM_orange",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/summon ArmorStand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM_purple",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/summon ArmorStand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM_red",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/scoreboard players set @e[name=ACV_deletePortal_PARAM_blue] ACV_COLOR 0
-/scoreboard players set @e[name=ACV_deletePortal_PARAM_orange] ACV_COLOR 1
-/scoreboard players set @e[name=ACV_deletePortal_PARAM_purple] ACV_COLOR 2
-/scoreboard players set @e[name=ACV_deletePortal_PARAM_red] ACV_COLOR 3
-/execute @e[name=ACV_loadChunks] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-/summon ArmorStand ~ ~ ~1 {CustomName:"ACV_loadChunks_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-
-/setblock ~ ~ ~-1 stone
-/execute @e[name=ACV_deletePortal] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-
-ACV_remote_deleteAllPortals }
 
 
