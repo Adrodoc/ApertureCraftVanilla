@@ -20,3 +20,9 @@ task build(type: JavaExec) {
     args = [ mainFile, outputFolder]
     classpath = files('libs/MplGenerator.jar')
 }
+
+task publish(type: Copy) {
+	dependsOn build
+	from outputFolder
+	into new File('C:/Users/Adrian/Minecraft/MCEdit.v1.4.0.1.Win.64bit/stock-filters')
+}
