@@ -60,6 +60,11 @@ Gel Placement:
 /summon Item ~ ~-2 ~ {CustomName:"BlueGel",Age:-32768,PickupDelay:32767,Item:{Count:1,Damage:11,id:35}}
 /summon Item ~ ~-2 ~ {CustomName:"OrangeGel",Age:-32768,PickupDelay:32767,Item:{Count:1,Damage:1,id:35}}
 
+Portal Spawner:
+/summon ArmorStand ~ ~-1 ~ {CustomName:"ACV_remote_createPortal_PARAM",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/scoreboard players set Color ACV_Interface 0
+/execute @e[name=ACV_remote_createPortal] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+
 MEG_SPAWN_DELETE {
 /give @p minecraft:spawn_egg 1 0 {EntityTag:{id:"Squid"},display:{Name:"spawnMeg",Lore:["Use this to spawn","a Material Emancipation Grid"]}}
 /give @p minecraft:spawn_egg 1 0 {EntityTag:{id:"Squid"},display:{Name:"deleteMeg",Lore:["Use this to delete","a Material Emancipation Grid"]}}
