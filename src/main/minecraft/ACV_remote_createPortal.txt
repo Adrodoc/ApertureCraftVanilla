@@ -16,6 +16,7 @@ $ pass
 
 impulse: /setblock ${-1} stone
 /kill @e[name=ACV_online,r=2]
+/kill @e[name=ACV_Main]
 /entitydata @e[name=ACV_online_intercepted] {CustomName:"ACV_online"}
 /scoreboard players operation Color ACV_Internal = Color ACV_Interface
 /entitydata @e[name=ACV_remote_createPortal_PARAM] {CustomName:"ACV_Main"}
