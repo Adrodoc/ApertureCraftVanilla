@@ -13,6 +13,9 @@ $ include("ACV_remote_deletePortals.txt", at(10, 0, 2))
 $ include("ACV_remote_deleteAllPortals.txt", at(11, 0, 2))
 $ include("ACV_remote_createPortal.txt", at(12, 0, 2))
 
+$ include("ACV_setupScoreboards.txt", at(14, 0, 2))
+$ include("ACV_deleteScoreboards.txt", at(15, 0, 2))
+
 $ include("ACV_teleportation.txt", at(0, 6, 2))
 $ include("ACV_smoothTeleportation.txt", at(1, 6, 2))
 $ include("ACV_lightBridges.txt", at(4, 6, 2))
