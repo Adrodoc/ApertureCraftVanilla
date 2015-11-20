@@ -47,8 +47,8 @@ Befehle der Version 8.0.0
 /say @e[tag=ACV_remote_interface]
 
 Gel Placement:
-/summon Item ~ ~-2 ~ {CustomName:"ACV_BlueGel",Age:-32768,PickupDelay:32767,Item:{Count:1,Damage:11,id:35}}
-/summon Item ~ ~-2 ~ {CustomName:"ACV_OrangeGel",Age:-32768,PickupDelay:32767,Item:{Count:1,Damage:1,id:35}}
+/summon Item ~-1 ~-1 ~-1 {CustomName:"ACV_BlueGel",Age:-32768,PickupDelay:32767,Item:{Count:1,Damage:11,id:"minecraft:wool"}}
+/summon Item ~ ~-2 ~ {CustomName:"ACV_OrangeGel",Age:-32768,PickupDelay:32767,Item:{Count:1,Damage:1,id:"minecraft:wool"}}
 
 Portal Spawner:
 /summon ArmorStand ~ ~-1 ~ {CustomName:"ACV_remote_createPortal_PARAM",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}

@@ -13,3 +13,4 @@ impulse: /setblock ~ ~ ~-1 stone
 /scoreboard objectives remove ACV_TP_ER
 /scoreboard objectives remove ACV_TP_AR
 /scoreboard objectives remove ACV_CUBE_ID
+/scoreboard objectives remove OnGround
