@@ -1,0 +1,16 @@
+ApertureCraft Vanilla ist ein Open Source Projekt auf Github (https://github.com/Adrodoc55/ApertureCraftVanilla)
+Dort kannst du Fehler melden und nach Updates ausschau halten.
+
+Wenn du eine Map mit ApertureCraft Vanilla bauen möchtest, solltest du dir den Mapmaker Helper anschauen (https://github.com/Adrodoc55/MapMakerHelper)
+
+Um die richtige Minecraft Version zu erhalten drücke im Minecraft-Launcher auf "Edit Profile" und wähle anschließend bei "Use version:" die gewünschte Version aus.
+
+Speichere den Ordner: "ApertureCraftVanilla-v?.?.?" unter: "C:\Users\YOUR USERNAME\AppData\Roaming\.minecraft\saves"
+Zu dem Ordner Roaming kann man auch gelangen, indem man "Windowstaste"+"R" drückt und "%appdata%" eingibt
+
+Für das Exportieren der Schaltung in eine andere vorhandene Welt, befolge folgende Schritte:
+1.Speichere die Maps 0 bis 7 im Ordner data im Ordner der Ziel-Welt. NICHT umbenennen!
+  Normalerweise findet man den Ordner der Ziel-Welt unter: "C:\Users\YOUR USERNAME\AppData\Roaming\.minecraft\saves".
+  Zu dem Ordner Roaming kann man auch gelangen, indem man "Windowstaste"+"R" drückt und "%appdata%" eingibt
+
+2.Importiere die Schematik mit MCEdit "http://www.mcedit.net/" in die Ziel-Welt, NICHT rotieren, idealerweise in die Spawn-Chunks.
