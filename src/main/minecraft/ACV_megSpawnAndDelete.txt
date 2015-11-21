@@ -1,5 +1,0 @@
-
-repeat: /execute @e[type=Squid,name=spawnMeg] ~ ~ ~ /summon Creeper ~ ~ ~ {CustomName:"ACV_MEG",CustomNameVisible:0b,Invulnerable:1b,NoAI:1b,powered:1b,PersistenceRequired:1b,ActiveEffects:[{Amplifier:1,Duration:1000000,Id:14,ShowParticles:0b}]}
-/tp @e[type=Squid,name=spawnMeg] ~ -100 ~
-/execute @e[type=Squid,name=deleteMeg] ~ ~ ~ /tp @e[name=ACV_MEG,r=0] ~ -100 ~
-/tp @e[type=Squid,name=deleteMeg] ~ -100 ~
