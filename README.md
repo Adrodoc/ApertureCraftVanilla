@@ -1,6 +1,6 @@
 # ApertureCraft Vanilla
 ApertureCraft Vanilla is a Minecraft Vanilla Mod that implements almost all Elements of the Game Portal 2.
-This includes Portals, Light Bridges, Cubes, Lasers and Gels.
+This includes four Portals, Light Bridges, Laser, Weighted Storage Cubes, Discouragement Redirection Cubes, Material Emancipation Grills, Repulsion and Propulsion Gel.
 
 The Source-Code consists of Minecraft specific Commands.
 
