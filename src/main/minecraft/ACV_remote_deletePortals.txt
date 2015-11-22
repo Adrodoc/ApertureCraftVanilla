@@ -1,5 +1,5 @@
 # Description: Deletes all Portals specified by the Params
-# Params: AS-ACV_deletePortals_PARAM_blue, AS-ACV_deletePortals_PARAM_orange, AS-ACV_deletePortals_PARAM_purple, AS-ACV_deletePortals_PARAM_red
+# Params: AS-ACV_remote_deletePortals_PARAM_blue, AS-ACV_remote_deletePortals_PARAM_orange, AS-ACV_remote_deletePortals_PARAM_purple, AS-ACV_remote_deletePortals_PARAM_red
 # Return:
 
 
