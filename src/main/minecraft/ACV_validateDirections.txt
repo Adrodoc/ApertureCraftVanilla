@@ -8,7 +8,7 @@ impulse: /setblock ~ ~ ~-1 stone
 /scoreboard players set DV_DIRECTION_MASK ACV_Internal 0
 /summon ArmorStand ${2} {CustomName:"ACV_validateDirections_for",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[name=ACV_validateDirections_for] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-$ pass
+$ skip
 
 
 # Description: Validates all Direction given by ASwT-ACV_DV_PARAM.

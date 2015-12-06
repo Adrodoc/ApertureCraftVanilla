@@ -13,7 +13,7 @@ impulse: /setblock ~ ~ ~-1 stone
 /execute @e[name=ACV_loadChunks] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 /summon ArmorStand ${1} {CustomName:"ACV_loadChunks_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
-$ pass
+$ skip
 
 impulse: /setblock ${-1} stone
 /execute @e[name=ACV_deletePortal] ~ ~ ~ /setblock ~ ~ ~ redstone_block

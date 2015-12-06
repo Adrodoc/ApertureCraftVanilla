@@ -8,7 +8,7 @@ impulse: /setblock ~ ~ ~-1 stone
 /execute @e[name=ACV_loadChunks] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 /execute @e[name=ACV_validateDirections] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 /summon ArmorStand ${1} {CustomName:"ACV_validateDirections_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-$ pass
+$ skip
 impulse: /setblock ${-1} stone
 /testfor @e[type=ArmorStand,tag=ACV_DV_RESULT]
 conditional: /summon ArmorStand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
@@ -17,7 +17,7 @@ conditional: /execute @e[name=ACV_deletePortal] ~ ~ ~ /setblock ~ ~ ~ redstone_b
 conditional: /summon ArmorStand ${3} {CustomName:"ACV_deletePortal_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /blockdata ${-1} {SuccessCount:1}
 conditional: /execute @e[name=ACV_createPortalFailed] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-$ pass
+$ skip
 impulse: /setblock ${-1} stone
 
 

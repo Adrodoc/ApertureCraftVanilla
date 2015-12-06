@@ -12,7 +12,7 @@ conditional: /setblock ${4} redstone_block
 /entitydata @e[name=ACV_online] {CustomName:"ACV_online_intercepted"}
 /summon ArmorStand ${1} {CustomName:"ACV_online",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
-$ pass
+$ skip
 
 impulse: /setblock ${-1} stone
 /kill @e[name=ACV_online,r=2]
@@ -23,7 +23,7 @@ impulse: /setblock ${-1} stone
 /execute @e[name=ACV_processMain] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 /summon ArmorStand ${1} {CustomName:"ACV_createPortal",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
-$ pass
+$ skip
 
 impulse: /setblock ${-1} stone
 /kill @e[name=ACV_createPortal,r=2]

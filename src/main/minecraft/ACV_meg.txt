@@ -13,7 +13,7 @@ repeat: /execute @e[type=Creeper,name=ACV_MEG] ~ ~ ~ /kill @e[name=Weighted_Stor
 /execute @e[name=ACV_MEG] ~ ~ ~ /scoreboard players tag @a[r=0] add ACV_megDeletePortal_PARAM
 conditional: /setblock ${1} redstone_block
 
-$ pass
+$ skip
 
 impulse: /setblock ${-1} stone
 
