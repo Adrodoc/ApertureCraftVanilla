@@ -1,8 +1,6 @@
 apply plugin: 'eclipse'
 
-task wrapper(type: Wrapper) {
-    gradleVersion = 2.8
-}
+task wrapper(type: Wrapper) { gradleVersion = 2.8 }
 
 ext.mainSrcFolder = file('src/main/minecraft')
 
@@ -11,18 +9,16 @@ ext.mainFile = new File(mainSrcFolder, '/ApertureCraft Vanilla.txt')
 
 ext.outputFolder = file('build/py')
 
-task clean << {
-    delete file('build')
-}
+task clean << { delete file('build') }
 
 task build(type: JavaExec) {
-    main = 'de.adrodoc55.minecraft.mpl.Main'
-    args = [ mainFile, outputFolder]
-    classpath = files('libs/MplGenerator.jar')
+  main = 'de.adrodoc55.minecraft.mpl.Main'
+  args = [mainFile, outputFolder]
+  classpath = files(file('libs').listFiles())
 }
 
 task publish(type: Copy) {
-	dependsOn build
-	from outputFolder
-	into new File('C:/Users/Adrian/Minecraft/MCEdit.v1.4.0.1.Win.64bit/stock-filters')
+  dependsOn build
+  from outputFolder
+  into new File('C:/Users/Adrian/Minecraft/MCEdit.v1.4.0.1.Win.64bit/stock-filters')
 }
