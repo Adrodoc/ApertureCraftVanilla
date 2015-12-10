@@ -10,7 +10,8 @@ repeat: /execute @e[type=ArmorStand,name=ACV_AntiBridge_Stopping] ~ ~ ~ /entityd
 /execute @e[type=ArmorStand,name=ACV_AntiBridge] ~ ~ ~ /kill @e[name=ACV_BridgeCross,r=0,c=1]
 /execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~ ~ /kill @e[name=ACV_BridgeBelow,r=0]
 /execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~1 ~ /kill @e[name=ACV_BridgeBelow,r=0]
-/execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~ ~ /execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=ACV_Keep36,r=0,c=1] ~ ~ ~ /setblock ~ ~ ~ minecraft:piston_extension # Not: /fill ~ ~ ~ ~ ~ ~ minecraft:piston_extension 0 replace minecraft:carpet 3 due to https://bugs.mojang.com/browse/MC-61864
+# /setblock ~ ~ ~ minecraft:piston_extension Not: /fill ~ ~ ~ ~ ~ ~ minecraft:piston_extension 0 replace minecraft:carpet 3 due to https://bugs.mojang.com/browse/MC-61864
+/execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~ ~ /execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=ACV_Keep36,r=0,c=1] ~ ~ ~ /setblock ~ ~ ~ minecraft:piston_extension
 /execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~ ~ /fill ~ ~ ~ ~ ~ ~ minecraft:air 0 replace minecraft:carpet 3
 /execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~ ~ /fill ~ ~-1 ~ ~ ~-1 ~ minecraft:air 0 replace minecraft:piston_extension
 /tp @e[type=ArmorStand,name=ACV_AntiBridge,rym=45,ry=135] ~-1 ~ ~
