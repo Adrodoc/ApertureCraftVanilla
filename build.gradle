@@ -1,6 +1,6 @@
 apply plugin: 'eclipse'
 
-task wrapper(type: Wrapper) { gradleVersion = 2.8 }
+task wrapper(type: Wrapper) { gradleVersion = 2.9 }
 
 ext.mainSrcFolder = file('src/main/minecraft')
 
