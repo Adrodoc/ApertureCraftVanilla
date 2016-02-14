@@ -1,4 +1,5 @@
-impulse: /setblock ~ ~ ~-1 stone
+process ACV_setupScoreboards (
+/setblock ~ ~ ~-1 stone
 
 /scoreboard objectives add ACV_Internal dummy
 /scoreboard objectives add ACV_Interface dummy
@@ -17,3 +18,4 @@ impulse: /setblock ~ ~ ~-1 stone
 /scoreboard objectives add ACV_TP_AR dummy
 /scoreboard objectives add ACV_CUBE_ID dummy
 /scoreboard objectives add OnGround dummy
+)

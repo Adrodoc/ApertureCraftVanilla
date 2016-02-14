@@ -4,7 +4,7 @@
 
 
 
-impulse: /setblock ~ ~ ~-1 stone
+process ACV_calculateLightBridges (
 /execute @e[name=ACV_PortalIn,tag=ACV_CLB_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ /execute @e[name=ACV_LightBridgeEnd,tag=!ACV_BlueOrange,r=0] ~ ~ ~ /summon ArmorStand ~ ~ ~ {CustomName:"ACV_LightBridge_WIP",Tags:["ACV_BlueOrange"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[name=ACV_PortalIn,tag=ACV_CLB_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ /execute @e[name=ACV_LightBridgeEnd,tag=!ACV_BlueOrange,r=0] ~ ~ ~ /summon ArmorStand ~ ~ ~ {CustomName:"ACV_AntiBridge_WIP",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
@@ -15,3 +15,4 @@ impulse: /setblock ~ ~ ~-1 stone
 /execute @e[name=ACV_LightBridgeEnd,tag=ACV_PurpleRed] ~ ~ ~ /scoreboard players tag @e[name=ACV_LightBridge_WIP,r=0] add ACV_PurpleRed
 
 /scoreboard players tag @e remove ACV_CLB_PARAM
+)

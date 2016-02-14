@@ -4,21 +4,21 @@
 
 
 
-impulse: /setblock ~ ~ ~-1 stone
-/execute @e[name=ACV_loadChunks] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-/execute @e[name=ACV_validateDirections] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-/summon ArmorStand ${1} {CustomName:"ACV_validateDirections_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-$ skip
-impulse: /setblock ${-1} stone
+process ACV_createPortal (
+start ACV_loadChunks
+start ACV_validateDirections
+/summon ArmorStand ${this + 1} {CustomName:"ACV_validateDirections_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+skip
+impulse: /setblock ${this - 1} stone
 /testfor @e[type=ArmorStand,tag=ACV_DV_RESULT]
 conditional: /summon ArmorStand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 conditional: /scoreboard players operation @e[name=ACV_deletePortal_PARAM] ACV_COLOR = Color ACV_Internal
-conditional: /execute @e[name=ACV_deletePortal] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-conditional: /summon ArmorStand ${3} {CustomName:"ACV_deletePortal_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/blockdata ${-1} {SuccessCount:1}
-conditional: /execute @e[name=ACV_createPortalFailed] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-$ skip
-impulse: /setblock ${-1} stone
+conditional: start ACV_deletePortal
+conditional: /summon ArmorStand ${this + 3} {CustomName:"ACV_deletePortal_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/blockdata ${this - 1} {SuccessCount:1}
+conditional: start ACV_createPortalFailed
+skip
+impulse: /setblock ${this - 1} stone
 
 
 
@@ -151,7 +151,7 @@ conditional: /execute @e[name=ACV_PortalIn,score_ACV_COLOR_min=3,score_ACV_COLOR
 conditional: /testfor @e[name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=0]
 conditional: /testfor @e[name=ACV_PortalIn,score_ACV_COLOR_min=1,score_ACV_COLOR=1]
 conditional: /execute @e[name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ /fill ~ ~ ~ ~ ~1 ~ piston_extension
-/blockdata ${-1} {SuccessCount:2}
+/blockdata ${this - 1} {SuccessCount:2}
 conditional: /scoreboard players test Color ACV_Internal 0 1
 conditional: /execute @e[type=ArmorStand,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ /setblock ~ ~2 ~ barrier
 
@@ -159,16 +159,17 @@ conditional: /execute @e[type=ArmorStand,name=ACV_PortalDisplay,score_ACV_COLOR_
 conditional: /testfor @e[name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=2]
 conditional: /testfor @e[name=ACV_PortalIn,score_ACV_COLOR_min=3,score_ACV_COLOR=3]
 conditional: /execute @e[name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ /fill ~ ~ ~ ~ ~1 ~ piston_extension
-/blockdata ${-1} {SuccessCount:2}
+/blockdata ${this - 1} {SuccessCount:2}
 conditional: /scoreboard players test Color ACV_Internal 2 3
 conditional: /execute @e[type=ArmorStand,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ /setblock ~ ~2 ~ barrier
 //OPEN_CONNECTION }
 
 
 
-/execute @e[name=ACV_createPortalSucceeded] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+start ACV_createPortalSucceeded
 /scoreboard players test Color ACV_Internal 0 1
 conditional: /scoreboard players tag @e[name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=1] add ACV_CLB_PARAM
 /scoreboard players test Color ACV_Internal 2 3
 conditional: /scoreboard players tag @e[name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=3] add ACV_CLB_PARAM
-/execute @e[name=ACV_calculateLightBridges] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+start ACV_calculateLightBridges
+)

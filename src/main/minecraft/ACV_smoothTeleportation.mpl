@@ -1,4 +1,5 @@
-repeat: /scoreboard players reset @e ACV_TP_FROM
+repeat process ACV_smoothTeleportation (
+/scoreboard players reset @e ACV_TP_FROM
 /scoreboard players reset @e ACV_TP_UNEVEN
 /scoreboard players reset @e ACV_TP_TO
 /scoreboard players reset @e ACV_TP_IR
@@ -75,3 +76,4 @@ repeat: /scoreboard players reset @e ACV_TP_FROM
 /tp @a[score_ACV_TP_TO_min=0,score_ACV_TP_AR_min=1,score_ACV_TP_AR=1] ~ ~ ~ 180 ~
 /tp @a[score_ACV_TP_TO_min=0,score_ACV_TP_AR_min=2,score_ACV_TP_AR=2] ~ ~ ~ -90 ~
 /tp @a[score_ACV_TP_TO_min=0,score_ACV_TP_AR_min=3,score_ACV_TP_AR=3] ~ ~ ~ 0 ~
+)

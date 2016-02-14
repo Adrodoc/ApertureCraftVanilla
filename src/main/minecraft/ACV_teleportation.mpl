@@ -1,4 +1,5 @@
-repeat: /scoreboard players reset @e ACV_TP_FROM
+repeat process ACV_teleportation (
+/scoreboard players reset @e ACV_TP_FROM
 /scoreboard players reset @e ACV_TP_UNEVEN
 /scoreboard players reset @e ACV_TP_TO
 
@@ -16,3 +17,4 @@ repeat: /scoreboard players reset @e ACV_TP_FROM
 /tp @e[score_ACV_TP_TO_min=1,score_ACV_TP_TO=1] @e[name=ACV_PortalOut,score_ACV_COLOR_min=1,score_ACV_COLOR=1]
 /tp @e[score_ACV_TP_TO_min=2,score_ACV_TP_TO=2] @e[name=ACV_PortalOut,score_ACV_COLOR_min=2,score_ACV_COLOR=2]
 /tp @e[score_ACV_TP_TO_min=3,score_ACV_TP_TO=3] @e[name=ACV_PortalOut,score_ACV_COLOR_min=3,score_ACV_COLOR=3]
+)

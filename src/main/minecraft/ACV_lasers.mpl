@@ -1,5 +1,6 @@
 # /entitydata @e[name=Weighted_Storage_Cube] {Rotation:[1:0.0f]}
-repeat: /tp @e[name=Weighted_Storage_Cube] ~ ~ ~ ~ 0
+repeat process ACV_lasers (
+/tp @e[name=Weighted_Storage_Cube] ~ ~ ~ ~ 0
 
 /scoreboard players tag @e[name=ACV_Laser] remove ACV_InCube
 /scoreboard players tag @e[name=ACV_Laser] remove ACV_EnteringCube
@@ -32,3 +33,4 @@ repeat: /tp @e[name=Weighted_Storage_Cube] ~ ~ ~ ~ 0
 /execute @e[name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ minecraft:air 0 /scoreboard players tag @e[name=ACV_Laser,r=1,c=1] add ACV_InAir
 /execute @e[name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ minecraft:piston_extension 0 /scoreboard players tag @e[name=ACV_Laser,r=1,c=1] add ACV_InAir
 /kill @e[name=ACV_Laser,tag=!ACV_InAir]
+)

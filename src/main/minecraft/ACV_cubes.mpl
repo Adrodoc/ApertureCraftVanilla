@@ -1,4 +1,5 @@
-repeat: /execute @e[name=Weighted_Storage_Cube] ~ ~ ~ detect ~ ~1 ~ minecraft:lava -1 /kill @e[r=0,c=1]
+repeat process ACV_cubes (
+/execute @e[name=Weighted_Storage_Cube] ~ ~ ~ detect ~ ~1 ~ minecraft:lava -1 /kill @e[r=0,c=1]
 
 /execute @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:air 0 /tp @e[r=0,c=1] ~ ~-0.25 ~
 /execute @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:stone_pressure_plate -1 /tp @e[r=0,c=1] ~ ~-0.25 ~
@@ -71,3 +72,4 @@ repeat: /execute @e[name=Weighted_Storage_Cube] ~ ~ ~ detect ~ ~1 ~ minecraft:la
 # /execute @e[name=Weighted_Storage_Cube,tag=ACV_Held] ~ ~ ~ /tp @a[tag=ACV_HoldingCube,r=2,c=-1]
 # /entitydata @e[name=Weighted_Storage_Cube,tag=!ACV_Held] {CustomName:"Weighted_Storage_Cube_Ground",NoGravity:0}
 # /execute @a[tag=ACV_CanPickupCube] ~ ~ ~ /entitydata @e[name=Weighted_Storage_Cube_Ground,r=3,c=1] {CustomName:"Weighted_Storage_Cube"}
+)

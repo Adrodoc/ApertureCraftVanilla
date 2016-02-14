@@ -1,4 +1,5 @@
-repeat: /execute @e[type=ArmorStand,name=ACV_AntiBridge_Stopping] ~ ~ ~ /entitydata @e[name=ACV_AntiBridge_WIP,r=0] {CustomName:"ACV_AntiBridge"}
+repeat process ACV_antiBridges (
+/execute @e[type=ArmorStand,name=ACV_AntiBridge_Stopping] ~ ~ ~ /entitydata @e[name=ACV_AntiBridge_WIP,r=0] {CustomName:"ACV_AntiBridge"}
 /kill @e[type=ArmorStand,name=ACV_AntiBridge_Stopping]
 /scoreboard players tag @e[type=ArmorStand,name=ACV_AntiBridge] remove ACV_InCarpet
 /execute @e[type=ArmorStand,name=ACV_AntiBridge] ~ ~ ~ detect ~ ~ ~ minecraft:carpet 3 /scoreboard players tag @e[type=ArmorStand,name=ACV_AntiBridge,r=0,c=1] add ACV_InCarpet
@@ -20,3 +21,4 @@ repeat: /execute @e[type=ArmorStand,name=ACV_AntiBridge_Stopping] ~ ~ ~ /entityd
 /tp @e[type=ArmorStand,name=ACV_AntiBridge,rym=-45,ry=45] ~ ~ ~1
 
 /execute @e[type=ArmorStand,name=ACV_AntiBridge] ~ ~ ~ /kill @e[name=ACV_LightBridgeEnd,r=0]
+)

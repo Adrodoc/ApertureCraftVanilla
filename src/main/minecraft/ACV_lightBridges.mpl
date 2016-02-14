@@ -1,4 +1,5 @@
-repeat: /kill @e[type=ArmorStand,name=ACV_LightBridge,rxm=-90,rx=-1]
+repeat process ACV_lightBridges (
+/kill @e[type=ArmorStand,name=ACV_LightBridge,rxm=-90,rx=-1]
 /kill @e[type=ArmorStand,name=ACV_LightBridge,rxm=1,rx=90]
 /scoreboard players tag @e[type=ArmorStand,name=ACV_LightBridge] remove ACV_InAir
 /execute @e[type=ArmorStand,name=ACV_LightBridge] ~ ~ ~ detect ~ ~ ~ minecraft:air 0 /scoreboard players tag @e[type=ArmorStand,name=ACV_LightBridge,r=0,c=1] add ACV_InAir
@@ -18,3 +19,4 @@ conditional: /execute @e[name=ACV_calculateLightBridges] ~ ~ ~ /setblock ~ ~ ~ r
 /tp @e[type=ArmorStand,name=ACV_LightBridge,rym=-45,ry=45] ~ ~ ~1
 
 /entitydata @e[name=ACV_LightBridge_WIP] {CustomName:"ACV_LightBridge"}
+)

@@ -4,7 +4,7 @@
 
 
 
-impulse: /setblock ~ ~ ~-1 stone
+process ACV_processMain (
 
 /kill @e[name=ACV_Up]
 /kill @e[name=ACV_Down]
@@ -26,4 +26,5 @@ impulse: /setblock ~ ~ ~-1 stone
 
 
 
-/execute @e[name=ACV_createPortal] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+start ACV_createPortal
+)

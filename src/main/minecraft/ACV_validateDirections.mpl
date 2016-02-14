@@ -4,11 +4,11 @@
 
 
 
-impulse: /setblock ~ ~ ~-1 stone
+process ACV_validateDirections (
 /scoreboard players set DV_DIRECTION_MASK ACV_Internal 0
-/summon ArmorStand ${2} {CustomName:"ACV_validateDirections_for",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/summon ArmorStand ${this + 2} {CustomName:"ACV_validateDirections_for",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[name=ACV_validateDirections_for] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-$ skip
+skip
 
 
 # Description: Validates all Direction given by ASwT-ACV_DV_PARAM.
@@ -21,10 +21,10 @@ $ skip
 repeat: /scoreboard players tag @e remove ACV_DV_CURRENT
 /scoreboard players tag @e[c=1,tag=ACV_DV_PARAM] add ACV_DV_CURRENT
 /scoreboard players tag @e[tag=ACV_DV_CURRENT] remove ACV_DV_PARAM
-/blockdata ${-1} {SuccessCount:1}
+/blockdata ${this - 1} {SuccessCount:1}
 conditional: /execute @e[name=ACV_validateDirections_for] ~ ~ ~ /setblock ~ ~ ~ stone
 conditional: /kill @e[name=ACV_validateDirections_for]
-conditional: /execute @e[name=ACV_validateDirections_for_return] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+conditional: start ACV_validateDirections_for_return
 
 /scoreboard players set DV_VALID ACV_Internal 0
 
@@ -183,7 +183,7 @@ conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=ItemFrame,nam
 conditional: /scoreboard players test DV_PV_VALID ACV_Internal 1 1
 conditional: /scoreboard players test DV_NFV_VALID ACV_Internal 1 1
 # Deprecated: conditional: /scoreboard players set DV_VALID ACV_Internal 1
-/blockdata ${-1} {SuccessCount:1}
+/blockdata ${this - 1} {SuccessCount:1}
 conditional: /kill @e[tag=ACV_DV_CURRENT]
 
 /execute @e[tag=ACV_DV_CURRENT,name=ACV_Up] ~ ~ ~ /scoreboard players add DV_DIRECTION_MASK ACV_Internal 32
@@ -200,3 +200,4 @@ conditional: /kill @e[tag=ACV_DV_CURRENT]
 #/execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /execute @e[type=ItemFrame,r=0] ~ ~ ~ /kill @e[type=ArmorStand,name=ACV_Main]
 
 // for }
+)

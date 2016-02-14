@@ -1,4 +1,5 @@
-impulse: /setblock ~ ~ ~-1 stone
+process ACV_deleteScoreboards (
+/setblock ~ ~ ~-1 stone
 
 /scoreboard objectives remove ACV_Internal
 /scoreboard objectives remove ACV_Interface
@@ -14,3 +15,4 @@ impulse: /setblock ~ ~ ~-1 stone
 /scoreboard objectives remove ACV_TP_AR
 /scoreboard objectives remove ACV_CUBE_ID
 /scoreboard objectives remove OnGround
+)
