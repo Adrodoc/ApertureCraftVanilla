@@ -21,8 +21,7 @@ skip
 repeat: /scoreboard players tag @e remove ACV_DV_CURRENT
 /scoreboard players tag @e[c=1,tag=ACV_DV_PARAM] add ACV_DV_CURRENT
 /scoreboard players tag @e[tag=ACV_DV_CURRENT] remove ACV_DV_PARAM
-/blockdata ${this - 1} {SuccessCount:1}
-conditional: /execute @e[name=ACV_validateDirections_for] ~ ~ ~ /setblock ~ ~ ~ stone
+invert: /execute @e[name=ACV_validateDirections_for] ~ ~ ~ /setblock ~ ~ ~ stone
 conditional: /kill @e[name=ACV_validateDirections_for]
 conditional: start ACV_validateDirections_for_return
 
@@ -171,20 +170,16 @@ conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=ItemFrame,nam
 # Params: AS-ACV_Main, AS-ACV_DV_CURRENT
 # Return: SCV-bool-DV_NFV_VALID
 // NOT_FLOOR_VALIDATION {
-
 /execute @e[tag=ACV_DV_CURRENT,name=ACV_Up] ~ ~ ~ /scoreboard players set DV_NFV_VALID ACV_Internal 1
 /execute @e[tag=ACV_DV_CURRENT,name=!ACV_Up] ~ ~ ~ /scoreboard players set DV_NFV_VALID ACV_Internal 0
 /execute @e[tag=ACV_DV_CURRENT,name=!ACV_Up] ~ ~ ~ /execute @e[name=ACV_Main] ~ ~ ~ detect ~ ~-1 ~ minecraft:air 0 /scoreboard players set DV_NFV_VALID ACV_Internal 1
 /execute @e[tag=ACV_DV_CURRENT,name=!ACV_Up] ~ ~ ~ /execute @e[name=ACV_Main] ~ ~ ~ detect ~ ~-1 ~ minecraft:carpet -1 /scoreboard players set DV_NFV_VALID ACV_Internal 1
-
 // NOT_FLOOR_VALIDATION }
 
 /scoreboard players test DV_SV_VALID ACV_Internal 1 1
 conditional: /scoreboard players test DV_PV_VALID ACV_Internal 1 1
 conditional: /scoreboard players test DV_NFV_VALID ACV_Internal 1 1
-# Deprecated: conditional: /scoreboard players set DV_VALID ACV_Internal 1
-/blockdata ${this - 1} {SuccessCount:1}
-conditional: /kill @e[tag=ACV_DV_CURRENT]
+invert: /kill @e[tag=ACV_DV_CURRENT]
 
 /execute @e[tag=ACV_DV_CURRENT,name=ACV_Up] ~ ~ ~ /scoreboard players add DV_DIRECTION_MASK ACV_Internal 32
 /execute @e[tag=ACV_DV_CURRENT,name=ACV_Down] ~ ~ ~ /scoreboard players add DV_DIRECTION_MASK ACV_Internal 16
@@ -195,7 +190,7 @@ conditional: /kill @e[tag=ACV_DV_CURRENT]
 
 
 
-# TODO: Portal Ãœberlappung verhindern
+# TODO: Portal Überlappung verhindern
 #/execute @e[type=ArmorStand,name=ACV_Main] ~ ~-1 ~ /execute @e[type=ItemFrame,r=0] ~ ~ ~ /kill @e[type=ArmorStand,name=ACV_Main]
 #/execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /execute @e[type=ItemFrame,r=0] ~ ~ ~ /kill @e[type=ArmorStand,name=ACV_Main]
 

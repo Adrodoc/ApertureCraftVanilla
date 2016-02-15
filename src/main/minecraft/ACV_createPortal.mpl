@@ -13,8 +13,7 @@ conditional: /summon ArmorStand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM",Tags:
 conditional: /scoreboard players operation @e[name=ACV_deletePortal_PARAM] ACV_COLOR = Color ACV_Internal
 conditional: start ACV_deletePortal
 conditional: /summon ArmorStand ${this + 3} {CustomName:"ACV_deletePortal_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/blockdata ${this - 1} {SuccessCount:1}
-conditional: start ACV_createPortalFailed
+invert: start ACV_createPortalFailed
 skip
 impulse: /setblock ${this - 1} stone
 
@@ -149,16 +148,16 @@ conditional: /execute @e[name=ACV_PortalIn,score_ACV_COLOR_min=3,score_ACV_COLOR
 conditional: /testfor @e[name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=0]
 conditional: /testfor @e[name=ACV_PortalIn,score_ACV_COLOR_min=1,score_ACV_COLOR=1]
 conditional: /execute @e[name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ /fill ~ ~ ~ ~ ~1 ~ piston_extension
-/blockdata ${this - 1} {SuccessCount:2}
-conditional: /scoreboard players test Color ACV_Internal 0 1
+# If only one of the portals exists set the surface to barrier if is a horizontal portal
+invert: /scoreboard players test Color ACV_Internal 0 1
 conditional: /execute @e[type=ArmorStand,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ /setblock ~ ~2 ~ barrier
 
 /scoreboard players test Color ACV_Internal 2 3
 conditional: /testfor @e[name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=2]
 conditional: /testfor @e[name=ACV_PortalIn,score_ACV_COLOR_min=3,score_ACV_COLOR=3]
 conditional: /execute @e[name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ /fill ~ ~ ~ ~ ~1 ~ piston_extension
-/blockdata ${this - 1} {SuccessCount:2}
-conditional: /scoreboard players test Color ACV_Internal 2 3
+# If only one of the portals exists set the surface to barrier if is a horizontal portal
+invert: /scoreboard players test Color ACV_Internal 2 3
 conditional: /execute @e[type=ArmorStand,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ /setblock ~ ~2 ~ barrier
 //OPEN_CONNECTION }
 

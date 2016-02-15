@@ -1,6 +1,7 @@
 process ACV_createPortalSucceeded (
 
+start ACV_online
+
 # TODO: playsound
 
-/execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 )
