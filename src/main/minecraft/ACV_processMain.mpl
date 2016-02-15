@@ -1,9 +1,6 @@
 # Description: Processes the AS-ACV_Main regarding the SCV-color-Color
 # Params: AS-ACV_Main, SCV-color-Color
 # Return:
-
-
-
 process ACV_processMain (
 
 /kill @e[name=ACV_Up]
@@ -23,8 +20,6 @@ process ACV_processMain (
 
 /execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /scoreboard players tag @e[type=ArmorStand,r=0] add ACV_DV_PARAM
 /scoreboard players tag @e[type=ArmorStand,name=ACV_Main] remove ACV_DV_PARAM
-
-
 
 start ACV_createPortal
 )

@@ -1,10 +1,8 @@
 # Description:
 # Params: AS-ACV_Main, dASwT-ACV_DV_PARAM, SCV-color-Color
 # Return: ASwS-ACV_COLOR, IFwS-ACV_COLOR
-
-
-
 process ACV_createPortal (
+
 start ACV_loadChunks
 start ACV_validateDirections
 /summon ArmorStand ${this + 1} {CustomName:"ACV_validateDirections_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
