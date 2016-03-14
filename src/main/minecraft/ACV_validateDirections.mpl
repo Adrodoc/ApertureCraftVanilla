@@ -190,7 +190,7 @@ invert: /kill @e[tag=ACV_DV_CURRENT]
 
 
 
-# TODO: Portal Überlappung verhindern
+# TODO: Portal Ãœberlappung verhindern
 #/execute @e[type=ArmorStand,name=ACV_Main] ~ ~-1 ~ /execute @e[type=ItemFrame,r=0] ~ ~ ~ /kill @e[type=ArmorStand,name=ACV_Main]
 #/execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /execute @e[type=ItemFrame,r=0] ~ ~ ~ /kill @e[type=ArmorStand,name=ACV_Main]
 

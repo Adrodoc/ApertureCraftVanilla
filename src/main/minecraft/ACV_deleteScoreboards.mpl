@@ -1,6 +1,4 @@
 process ACV_deleteScoreboards (
-/setblock ~ ~ ~-1 stone
-
 /scoreboard objectives remove ACV_Internal
 /scoreboard objectives remove ACV_Interface
 /scoreboard objectives remove ACV_COLOR

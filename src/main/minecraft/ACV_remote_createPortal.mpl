@@ -5,8 +5,6 @@
 
 
 process ACV_remote_createPortal (
-/setblock ~ ~ ~-1 stone
-
 /execute @e[name=ACV_online] ~ ~ ~ /testforblock ~ ~ ~ redstone_block
 conditional: /setblock ${this + 4} redstone_block
 /execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ stone

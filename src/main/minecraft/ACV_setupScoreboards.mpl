@@ -1,6 +1,4 @@
 process ACV_setupScoreboards (
-/setblock ~ ~ ~-1 stone
-
 /scoreboard objectives add ACV_Internal dummy
 /scoreboard objectives add ACV_Interface dummy
 /scoreboard objectives add ACV_COLOR dummy

@@ -5,8 +5,8 @@ repeat process ACV_lasers (
 /scoreboard players tag @e[name=ACV_Laser] remove ACV_InCube
 /scoreboard players tag @e[name=ACV_Laser] remove ACV_EnteringCube
 /scoreboard players tag @e[name=ACV_Laser] remove ACV_InAir
-/execute @e[name=ACV_Laser] ~ ~ ~ /particle reddust ~ ~ ~ 0.1 0.1 0.1 0 10 force
-/execute @e[name=Weighted_Storage_Cube,tag=ACV_Redirecting] ~ ~2 ~ /scoreboard players tag @e[name=ACV_Laser,r=0] add ACV_InCube
+/execute @e[name=ACV_Laser] ~ ~ ~ particle reddust ~ ~ ~ 0.1 0.1 0.1 0 10 force
+/execute @e[name=Weighted_Storage_Cube,tag=ACV_Redirecting] ~ ~2 ~ scoreboard players tag @e[name=ACV_Laser,dx=0] add ACV_InCube
 /tp @e[name=ACV_Laser,rym=169,ry=-168,rxm=0,rx=0] ~0 ~ ~-0.5
 /tp @e[name=ACV_Laser,rym=-167,ry=-146,rxm=0,rx=0] ~0.1913417161825448858642299920152 ~ ~-0.46193976625564337806409159469839
 /tp @e[name=ACV_Laser,rym=-145,ry=-123,rxm=0,rx=0] ~0.35355339059327376220042218105242 ~ ~-0.35355339059327376220042218105242
@@ -25,12 +25,12 @@ repeat process ACV_lasers (
 /tp @e[name=ACV_Laser,rym=147,ry=168,rxm=0,rx=0] ~-0.1913417161825448858642299920152 ~ ~-0.46193976625564337806409159469839
 /tp @e[name=ACV_Laser,rxm=1,rx=90] ~ ~-0.5 ~
 /tp @e[name=ACV_Laser,rxm=-90,rx=-1] ~ ~0.5 ~
-/execute @e[name=Weighted_Storage_Cube,tag=ACV_Redirecting] ~ ~1.5 ~ /scoreboard players tag @e[name=ACV_Laser,tag=!ACV_InCube,r=0] add ACV_EnteringCube
-/execute @e[name=Weighted_Storage_Cube,tag=ACV_Redirecting] ~ ~1.5 ~ /tp @e[name=ACV_Laser,tag=ACV_EnteringCube,r=0] @e[name=Weighted_Storage_Cube,r=2,c=1]
-/execute @e[name=Weighted_Storage_Cube,tag=ACV_Redirecting] ~ ~ ~ /tp @e[name=ACV_Laser,tag=ACV_EnteringCube,r=0] ~ ~1.7 ~
-/execute @e[name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ minecraft:carpet 3 /scoreboard players tag @e[name=ACV_Laser,r=1,c=1] add ACV_InAir
-/execute @e[name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ minecraft:carpet 9 /scoreboard players tag @e[name=ACV_Laser,r=1,c=1] add ACV_InAir
-/execute @e[name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ minecraft:air 0 /scoreboard players tag @e[name=ACV_Laser,r=1,c=1] add ACV_InAir
-/execute @e[name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ minecraft:piston_extension 0 /scoreboard players tag @e[name=ACV_Laser,r=1,c=1] add ACV_InAir
+/execute @e[name=Weighted_Storage_Cube,tag=ACV_Redirecting] ~ ~1.5 ~ scoreboard players tag @e[name=ACV_Laser,tag=!ACV_InCube,dx=0] add ACV_EnteringCube
+/execute @e[name=Weighted_Storage_Cube,tag=ACV_Redirecting] ~ ~1.5 ~ tp @e[name=ACV_Laser,tag=ACV_EnteringCube,dx=0] @e[name=Weighted_Storage_Cube,r=2,c=1]
+/execute @e[name=Weighted_Storage_Cube,tag=ACV_Redirecting] ~ ~ ~ tp @e[name=ACV_Laser,tag=ACV_EnteringCube,dx=0] ~ ~1.7 ~
+/execute @e[name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ minecraft:carpet 3 scoreboard players tag @e[r=1,c=1] add ACV_InAir
+/execute @e[name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ minecraft:carpet 9 scoreboard players tag @e[r=1,c=1] add ACV_InAir
+/execute @e[name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ minecraft:air 0 scoreboard players tag @e[r=1,c=1] add ACV_InAir
+/execute @e[name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ minecraft:piston_extension 0 scoreboard players tag @e[r=1,c=1] add ACV_InAir
 /kill @e[name=ACV_Laser,tag=!ACV_InAir]
 )

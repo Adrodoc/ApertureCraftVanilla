@@ -12,7 +12,7 @@ repeat process ACV_smoothTeleportation (
 /scoreboard players set @a[rym=-135,ry=-45] ACV_TP_ER 2
 /scoreboard players set @a[rym=-45,ry=45] ACV_TP_ER 3
 
-/execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @e[name=!ACV_PortalIn,r=0] ACV_TP_FROM = @e[name=ACV_PortalIn,r=0,c=1] ACV_COLOR
+/execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @e[tag=!ACV_TpProof,dx=0] ACV_TP_FROM = @e[r=0,c=1] ACV_COLOR
 /scoreboard players reset @e[name=ACV_LightBridge] ACV_TP_FROM
 /scoreboard players reset @e[name=ACV_LightBridgeEnd] ACV_TP_FROM
 /scoreboard players reset @e[name=ACV_AntiBridge] ACV_TP_FROM
@@ -22,8 +22,8 @@ repeat process ACV_smoothTeleportation (
 /scoreboard players add @e[score_ACV_TP_UNEVEN_min=0,score_ACV_TP_UNEVEN=0] ACV_TP_TO 1
 /scoreboard players remove @e[score_ACV_TP_UNEVEN_min=1,score_ACV_TP_UNEVEN=1] ACV_TP_TO 1
 
-# /execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @e[score_ACV_TP_TO_min=0,name=!ACV_PortalIn,r=0] ACV_TP_IR = @e[name=ACV_PortalIn,r=0,c=1] ACV_DIRECTION
-/execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @a[score_ACV_TP_TO_min=0,name=!ACV_PortalIn,r=0] ACV_TP_IR = @e[name=ACV_PortalIn,r=0,c=1] ACV_DIRECTION
+# /execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @e[score_ACV_TP_TO_min=0,tag=!ACV_TpProof,dx=0] ACV_TP_IR = @e[r=0,c=1] ACV_DIRECTION
+/execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @a[score_ACV_TP_TO_min=0,tag=!ACV_TpProof,dx=0] ACV_TP_IR = @e[r=0,c=1] ACV_DIRECTION
 
 
 
@@ -34,7 +34,7 @@ repeat process ACV_smoothTeleportation (
 # /tp @e[score_ACV_TP_TO_min=3,score_ACV_TP_TO=3] @e[name=ACV_PortalOut,score_ACV_COLOR_min=3,score_ACV_COLOR=3]
 
 # Bug Workaround: https://bugs.mojang.com/browse/MC-89667
-#/execute @e[name=ACV_PortalOut] ~ ~ ~ /scoreboard players operation @e[score_ACV_TP_TO_min=0,name=!ACV_PortalOut,r=0] ACV_TP_OR = @e[name=ACV_PortalOut,r=0,c=1] ACV_DIRECTION
+#/execute @e[name=ACV_PortalOut] ~ ~ ~ /scoreboard players operation @e[score_ACV_TP_TO_min=0,tag=!ACV_TpProof,dx=0] ACV_TP_OR = @e[r=0,c=1] ACV_DIRECTION
 /scoreboard players operation @a[score_ACV_TP_TO_min=0,score_ACV_TP_TO=0] ACV_TP_OR = @e[name=ACV_PortalOut,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ACV_DIRECTION
 /scoreboard players operation @a[score_ACV_TP_TO_min=1,score_ACV_TP_TO=1] ACV_TP_OR = @e[name=ACV_PortalOut,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ACV_DIRECTION
 /scoreboard players operation @a[score_ACV_TP_TO_min=2,score_ACV_TP_TO=2] ACV_TP_OR = @e[name=ACV_PortalOut,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ACV_DIRECTION

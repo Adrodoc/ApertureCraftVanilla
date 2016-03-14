@@ -1,4 +1,7 @@
-project ACV
+project ACV (
+
+orientation "zyx"
+
 # Setup
 include "ACV_setupScoreboards.mpl"
 include "ACV_deleteScoreboards.mpl"
@@ -20,3 +23,4 @@ include "ACV_cubes.mpl"
 include "ACV_lasers.mpl"
 include "ACV_meg.mpl"
 include "ACV_gels.mpl"
+)
