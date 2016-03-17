@@ -1,4 +1,4 @@
-Befehle der Version 8.0.0
+Befehle der Version 8.1.0
 
 # Param & Return Types:
 # AS = ArmorStand
@@ -88,7 +88,7 @@ Install {
 /setblock ~ ~ ~-1 redstone_block
 /setblock ~ ~1 ~ stone
 Install }
-
+8
 Uninstall {
 /setblock ~ ~ ~-1 stone
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"red","extra":[{"text":"Starting Uninstallation","color":"yellow"}]}
@@ -147,7 +147,7 @@ Portalsystem_on_off {
 
 /execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 /execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-/tellraw @a {"text":"","extra":[{"text":"Welcome to","color":"gold"},{"text":" ApertureCraft Vanilla\n","color":"dark_aqua"},{"text":"   Version: ","color":"gold"},{"text":"8.0.1\n","color":"dark_aqua","italic":"true"},{"text":"   made by ","color":"yellow","italic":"true"},{"text":"Adrodoc55\n","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"Click to open YouTube Channel","color":"red"}},"clickEvent":{"action":"open_url","value":"https://www.youtube.com/user/Adrodoc55"}},{"text":"\nVisit me on ","color":"yellow"},{"text":"[Github]","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"Click to open Github","color":"red"}},"clickEvent":{"action":"open_url","value":"https://github.com/Adrodoc55/ApertureCraftVanilla"}},{"text":" to report Bugs and check for Updates\n","color":"yellow"}]}
+/tellraw @a {"text":"","extra":[{"text":"Welcome to","color":"gold"},{"text":" ApertureCraft Vanilla\n","color":"dark_aqua"},{"text":"   Version: ","color":"gold"},{"text":"8.1.0\n","color":"dark_aqua","italic":"true"},{"text":"   made by ","color":"yellow","italic":"true"},{"text":"Adrodoc55\n","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"Click to open YouTube Channel","color":"red"}},"clickEvent":{"action":"open_url","value":"https://www.youtube.com/user/Adrodoc55"}},{"text":"\nVisit me on ","color":"yellow"},{"text":"[Github]","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"Click to open Github","color":"red"}},"clickEvent":{"action":"open_url","value":"https://github.com/Adrodoc55/ApertureCraftVanilla"}},{"text":" to report Bugs and check for Updates\n","color":"yellow"}]}
 /setblock ~ ~ ~ redstone_block
 /fill ~ ~ ~ ~1 ~ ~ air
 /tellraw @a {"text":"ApertureCraft Vanilla has been installed. Please restart the System to enable it!","color":"red"}
