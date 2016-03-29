@@ -46,23 +46,23 @@ impulse: /setblock ${this - 1} stone
 
 /execute @e[name=ACV_South] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~0.46875 /summon ArmorStand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_TpProof],Rotation:[0:0f,1:0f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[name=ACV_South] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~0.46875 /summon ArmorStand ~ ~ ~-1 {CustomName:"ACV_PortalIn",Tags:[ACV_TpProof],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[name=ACV_South] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Facing:0b,Invulnerable:1b}
-/execute @e[name=ACV_South] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Facing:0b,Invulnerable:1b}
+/execute @e[name=ACV_South] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Facing:0b,Invulnerable:1b,Glowing:1b}
+/execute @e[name=ACV_South] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Facing:0b,Invulnerable:1b,Glowing:1b}
 
 /execute @e[name=ACV_East] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~0.46875 ~ ~ /summon ArmorStand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_TpProof],Rotation:[0:-90f,1:0f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[name=ACV_East] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~0.46875 ~ ~ /summon ArmorStand ~-1 ~ ~ {CustomName:"ACV_PortalIn",Tags:[ACV_TpProof],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[name=ACV_East] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Facing:3b,Invulnerable:1b}
-/execute @e[name=ACV_East] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Facing:3b,Invulnerable:1b}
+/execute @e[name=ACV_East] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Facing:3b,Invulnerable:1b,Glowing:1b}
+/execute @e[name=ACV_East] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Facing:3b,Invulnerable:1b,Glowing:1b}
 
 /execute @e[name=ACV_North] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~-0.46875 /summon ArmorStand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_TpProof],Rotation:[0:180f,1:0f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[name=ACV_North] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~-0.46875 /summon ArmorStand ~ ~ ~1 {CustomName:"ACV_PortalIn",Tags:[ACV_TpProof],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[name=ACV_North] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Facing:2b,Invulnerable:1b}
-/execute @e[name=ACV_North] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Facing:2b,Invulnerable:1b}
+/execute @e[name=ACV_North] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Facing:2b,Invulnerable:1b,Glowing:1b}
+/execute @e[name=ACV_North] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Facing:2b,Invulnerable:1b,Glowing:1b}
 
 /execute @e[name=ACV_West] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~-0.46875 ~ ~ /summon ArmorStand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_TpProof],Rotation:[0:90f,1:0f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[name=ACV_West] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~-0.46875 ~ ~ /summon ArmorStand ~1 ~ ~ {CustomName:"ACV_PortalIn",Tags:[ACV_TpProof],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[name=ACV_West] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Facing:1b,Invulnerable:1b}
-/execute @e[name=ACV_West] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Facing:1b,Invulnerable:1b}
+/execute @e[name=ACV_West] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Facing:1b,Invulnerable:1b,Glowing:1b}
+/execute @e[name=ACV_West] ~ ~ ~ /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~ ~ /summon ItemFrame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Facing:1b,Invulnerable:1b,Glowing:1b}
 
 # Set the scores to -1 so -1 can be used as a constant since there is no variable tunneling
 /execute @e[type=ItemFrame,name=ACV_PortalMain] ~ ~-0.43 ~ /scoreboard players set @e[type=ArmorStand,name=ACV_PortalOut,dx=0] ACV_COLOR -1
