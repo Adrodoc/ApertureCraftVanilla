@@ -88,7 +88,7 @@ Install {
 /setblock ~ ~ ~-1 redstone_block
 /setblock ~ ~1 ~ stone
 Install }
-8
+
 Uninstall {
 /setblock ~ ~ ~-1 stone
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"red","extra":[{"text":"Starting Uninstallation","color":"yellow"}]}
