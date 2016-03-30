@@ -8,16 +8,19 @@ start ACV_validateDirections
 /summon ArmorStand ${this + 1} {CustomName:"ACV_validateDirections_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 skip
 impulse: /setblock ${this - 1} stone
-/testfor @e[type=ArmorStand,tag=ACV_DV_RESULT]
-conditional: /summon ArmorStand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-conditional: /scoreboard players operation @e[name=ACV_deletePortal_PARAM] ACV_COLOR = Color ACV_Internal
-conditional: start ACV_deletePortal
-conditional: /summon ArmorStand ${this + 2} {CustomName:"ACV_deletePortal_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-invert: start ACV_createPortalFailed
-skip
-impulse: /setblock ${this - 1} stone
+if not: /testfor @e[type=ArmorStand,tag=ACV_DV_RESULT]
+then (
+  start ACV_createPortalFailed
+) else (
+  start ACV_createNewPortal
+)
+)
 
-
+process ACV_createNewPortal (
+/summon ArmorStand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/scoreboard players operation @e[name=ACV_deletePortal_PARAM] ACV_COLOR = Color ACV_Internal
+start ACV_deletePortal
+waitfor
 
 # Description: Creates a Portal
 # Params: AS-ACV_Main, dAS, SCV-color-Color

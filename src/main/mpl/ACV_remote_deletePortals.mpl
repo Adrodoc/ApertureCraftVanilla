@@ -9,4 +9,6 @@ process ACV_remote_deletePortals (
 start ACV_loadChunks
 waitfor
 start ACV_deletePortal
+waitfor
+notify
 )

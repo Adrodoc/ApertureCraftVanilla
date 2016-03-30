@@ -31,7 +31,5 @@ process ACV_deletePortal (
 # Kill the Params
 /kill @e[tag=ACV_deletePortal_PARAM]
 
-# Return
-/execute @e[name=ACV_deletePortal_return] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-/kill @e[name=ACV_deletePortal_return]
+notify
 )
