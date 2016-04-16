@@ -5,8 +5,8 @@ process ACV_setupScoreboards (
 /scoreboard objectives add ACV_DIRECTION dummy
 /scoreboard objectives add ACV_CONSTANT dummy
 /scoreboard players set 2 ACV_CONSTANT 2
-/scoreboard players set 4 ACV_CONSTANT 4
 /scoreboard players set 5 ACV_CONSTANT 5
+/scoreboard players set 16 ACV_CONSTANT 16
 /scoreboard objectives add ACV_TP_FROM dummy
 /scoreboard objectives add ACV_TP_UNEVEN dummy
 /scoreboard objectives add ACV_TP_TO dummy
