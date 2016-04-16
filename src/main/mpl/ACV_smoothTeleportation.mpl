@@ -5,36 +5,29 @@ repeat process ACV_smoothTeleportation (
 /scoreboard players reset @e ACV_TP_IR
 /scoreboard players reset @e ACV_TP_OR
 /scoreboard players reset @e ACV_TP_ER
-/scoreboard players reset @e ACV_TP_AR
-
-/scoreboard players set @a[rym=-45,ry=45] ACV_TP_ER 0
-/scoreboard players set @a[rym=45,ry=135] ACV_TP_ER 4
-/scoreboard players set @a[rym=135,ry=-135] ACV_TP_ER 8
-/scoreboard players set @a[rym=-135,ry=-45] ACV_TP_ER 12
-
-/scoreboard players set @e[name=ACV_Laser,rym=-10,ry=11,rxm=0,rx=0] ACV_TP_ER 0
-/scoreboard players set @e[name=ACV_Laser,rym=12,ry=33,rxm=0,rx=0] ACV_TP_ER 1
-/scoreboard players set @e[name=ACV_Laser,rym=34,ry=56,rxm=0,rx=0] ACV_TP_ER 2
-/scoreboard players set @e[name=ACV_Laser,rym=57,ry=78,rxm=0,rx=0] ACV_TP_ER 3
-/scoreboard players set @e[name=ACV_Laser,rym=79,ry=101,rxm=0,rx=0] ACV_TP_ER 4
-/scoreboard players set @e[name=ACV_Laser,rym=102,ry=123,rxm=0,rx=0] ACV_TP_ER 5
-/scoreboard players set @e[name=ACV_Laser,rym=124,ry=146,rxm=0,rx=0] ACV_TP_ER 6
-/scoreboard players set @e[name=ACV_Laser,rym=147,ry=168,rxm=0,rx=0] ACV_TP_ER 7
-/scoreboard players set @e[name=ACV_Laser,rym=169,ry=-168,rxm=0,rx=0] ACV_TP_ER 8
-/scoreboard players set @e[name=ACV_Laser,rym=-167,ry=-146,rxm=0,rx=0] ACV_TP_ER 9
-/scoreboard players set @e[name=ACV_Laser,rym=-145,ry=-123,rxm=0,rx=0] ACV_TP_ER 10
-/scoreboard players set @e[name=ACV_Laser,rym=-122,ry=-101,rxm=0,rx=0] ACV_TP_ER 11
-/scoreboard players set @e[name=ACV_Laser,rym=-100,ry=-78,rxm=0,rx=0] ACV_TP_ER 12
-/scoreboard players set @e[name=ACV_Laser,rym=-77,ry=-56,rxm=0,rx=0] ACV_TP_ER 13
-/scoreboard players set @e[name=ACV_Laser,rym=-55,ry=-33,rxm=0,rx=0] ACV_TP_ER 14
-/scoreboard players set @e[name=ACV_Laser,rym=-32,ry=-11,rxm=0,rx=0] ACV_TP_ER 15
-
 
 /execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @e[tag=!ACV_TpProof,dy=0] ACV_TP_FROM = @e[r=0,c=1] ACV_COLOR
 
 /scoreboard players reset @e[name=ACV_LightBridge] ACV_TP_FROM
 /scoreboard players reset @e[name=ACV_LightBridgeEnd] ACV_TP_FROM
 /scoreboard players reset @e[name=ACV_AntiBridge] ACV_TP_FROM
+
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=-10,ry=11] ACV_TP_ER 0
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=12,ry=33] ACV_TP_ER 1
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=34,ry=56] ACV_TP_ER 2
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=57,ry=78] ACV_TP_ER 3
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=79,ry=101] ACV_TP_ER 4
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=102,ry=123] ACV_TP_ER 5
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=124,ry=146] ACV_TP_ER 6
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=147,ry=168] ACV_TP_ER 7
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=169,ry=-168] ACV_TP_ER 8
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=-167,ry=-146] ACV_TP_ER 9
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=-145,ry=-123] ACV_TP_ER 10
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=-122,ry=-101] ACV_TP_ER 11
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=-100,ry=-78] ACV_TP_ER 12
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=-77,ry=-56] ACV_TP_ER 13
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=-55,ry=-33] ACV_TP_ER 14
+/scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=-32,ry=-11] ACV_TP_ER 15
 
 # Calulate the target portal
 /execute @e[score_ACV_TP_FROM_min=0] ~ ~ ~ /scoreboard players operation @e[r=0,c=1] ACV_TP_TO = @e[r=0,c=1] ACV_TP_FROM
@@ -73,11 +66,14 @@ repeat process ACV_smoothTeleportation (
 # rotdiff = 0
 # wenn od > 3
 # rot = pd
-/execute @e[score_ACV_TP_IR_min=0,score_ACV_TP_OR_min=0] ~ ~ ~ /scoreboard players operation @e[r=0,c=1,score_ACV_TP_ER_min=-128] ACV_TP_ER -= @e[r=0,c=1] ACV_TP_IR
-/execute @e[score_ACV_TP_IR_min=0,score_ACV_TP_OR_min=0] ~ ~ ~ /scoreboard players add @e[r=0,c=1,score_ACV_TP_ER_min=-128] ACV_TP_ER 24
-/execute @e[score_ACV_TP_IR_min=0,score_ACV_TP_OR_min=0] ~ ~ ~ /scoreboard players operation @e[r=0,c=1,score_ACV_TP_ER_min=-128] ACV_TP_ER %= 16 ACV_CONSTANT
+/execute @e[score_ACV_TP_IR_min=0,score_ACV_TP_OR_min=0] ~ ~ ~ /scoreboard players operation @e[r=0,c=1] ACV_TP_ER -= @e[r=0,c=1] ACV_TP_IR
+/execute @e[score_ACV_TP_IR_min=0,score_ACV_TP_OR_min=0] ~ ~ ~ /scoreboard players add @e[r=0,c=1] ACV_TP_ER 24
+/execute @e[score_ACV_TP_IR_min=0,score_ACV_TP_OR_min=0] ~ ~ ~ /scoreboard players operation @e[r=0,c=1] ACV_TP_ER %= 16 ACV_CONSTANT
 # when IR is up or down, but not OR
 /execute @e[score_ACV_TP_IR=-1,score_ACV_TP_OR_min=0] ~ ~ ~ /scoreboard players set @e[r=0,c=1] ACV_TP_ER 0
+
+# Lightbridges may not be rotated, because the idle bridge is a fresh summon that always looks south
+/scoreboard players set @e[tag=ACV_RotationProof] ACV_TP_ER 0
 
 
 

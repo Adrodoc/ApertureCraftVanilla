@@ -13,7 +13,6 @@ process ACV_setupScoreboards (
 /scoreboard objectives add ACV_TP_IR dummy
 /scoreboard objectives add ACV_TP_OR dummy
 /scoreboard objectives add ACV_TP_ER dummy
-/scoreboard objectives add ACV_TP_AR dummy
 /scoreboard objectives add ACV_CUBE_ID dummy
 /scoreboard objectives add OnGround dummy
 )
