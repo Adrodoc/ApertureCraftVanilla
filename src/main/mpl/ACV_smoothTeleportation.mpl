@@ -8,6 +8,7 @@ repeat process ACV_smoothTeleportation (
 
 /execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @e[tag=!ACV_TpProof,dy=0] ACV_TP_FROM = @e[r=0,c=1] ACV_COLOR
 
+# Only idle bridges and stopping anti bridges may be teleported
 /scoreboard players reset @e[name=ACV_LightBridge] ACV_TP_FROM
 /scoreboard players reset @e[name=ACV_LightBridgeEnd] ACV_TP_FROM
 /scoreboard players reset @e[name=ACV_AntiBridge] ACV_TP_FROM
@@ -77,7 +78,7 @@ repeat process ACV_smoothTeleportation (
 
 
 
-# Teleport the player to the other portal
+# Teleport the entity to the other portal
 
 # Bug Workaround: https://bugs.mojang.com/browse/MC-89667
 /tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_TO=0] @e[name=ACV_PortalOut,score_ACV_COLOR_min=0,score_ACV_COLOR=0]

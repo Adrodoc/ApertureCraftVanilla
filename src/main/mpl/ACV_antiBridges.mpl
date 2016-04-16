@@ -1,5 +1,8 @@
 repeat process ACV_antiBridges (
-/execute @e[type=ArmorStand,name=ACV_AntiBridge_Stopping] ~ ~ ~ entitydata @e[name=ACV_AntiBridge_WIP,dx=0] {CustomName:"ACV_AntiBridge"}
+
+# Wake up all idle anti bridges
+/execute @e[type=ArmorStand,name=ACV_AntiBridge_Stopping] ~ ~ ~ entitydata @e[name=ACV_AntiBridge_Idle,dx=0] {CustomName:"ACV_AntiBridge"}
+
 /kill @e[type=ArmorStand,name=ACV_AntiBridge_Stopping]
 /scoreboard players tag @e[type=ArmorStand,name=ACV_AntiBridge] remove ACV_InCarpet
 /execute @e[type=ArmorStand,name=ACV_AntiBridge] ~ ~ ~ detect ~ ~ ~ minecraft:carpet 3 scoreboard players tag @e[r=0,c=1] add ACV_InCarpet

@@ -20,5 +20,6 @@ conditional: start ACV_calculateLightBridges
 /tp @e[type=ArmorStand,name=ACV_LightBridge,rym=-135,ry=-45] ~1 ~ ~
 /tp @e[type=ArmorStand,name=ACV_LightBridge,rym=-45,ry=45] ~ ~ ~1
 
-/entitydata @e[name=ACV_LightBridge_WIP] {CustomName:"ACV_LightBridge"}
+# Wake up all idle light bridges
+/entitydata @e[name=ACV_LightBridge_Idle] {CustomName:"ACV_LightBridge"}
 )
