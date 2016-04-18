@@ -12,7 +12,7 @@ process ACV_processMain (
 
 # TODO: Werte (0.95) kontrollieren
 /execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /summon ArmorStand ~ ~0.9 ~ {CustomName:"ACV_Up",NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
-/execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /summon ArmorStand ~ ~-0.95 ~ {CustomName:"ACV_Down",NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
+/execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /summon ArmorStand ~ ~-2.9 ~ {CustomName:"ACV_Down",NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
 /execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /summon ArmorStand ~ ~ ~0.95 {CustomName:"ACV_South",NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
 /execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /summon ArmorStand ~0.95 ~ ~ {CustomName:"ACV_East",NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
 /execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /summon ArmorStand ~ ~ ~-0.95 {CustomName:"ACV_North",NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
