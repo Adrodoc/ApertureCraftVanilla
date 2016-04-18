@@ -18,7 +18,7 @@ process ACV_processMain (
 /execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /summon ArmorStand ~ ~ ~-0.95 {CustomName:"ACV_North",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /summon ArmorStand ~-0.95 ~ ~ {CustomName:"ACV_West",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
-/execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /scoreboard players tag @e[type=ArmorStand,dx=0] add ACV_DV_PARAM
+/execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /scoreboard players tag @e[type=ArmorStand,dy=0] add ACV_DV_PARAM
 /scoreboard players tag @e[type=ArmorStand,name=ACV_Main] remove ACV_DV_PARAM
 
 start ACV_createPortal

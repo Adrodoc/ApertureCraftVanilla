@@ -3,7 +3,7 @@ repeat process ACV_teleportation (
 /scoreboard players reset @e ACV_TP_UNEVEN
 /scoreboard players reset @e ACV_TP_TO
 
-/execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @e[tag=!ACV_TpProof,dx=0] ACV_TP_FROM = @e[r=0,c=1] ACV_COLOR
+/execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @e[tag=!ACV_TpProof,dy=0] ACV_TP_FROM = @e[r=0,c=1] ACV_COLOR
 
 /scoreboard players reset @e[name=ACV_LightBridge] ACV_TP_FROM
 /scoreboard players reset @e[name=ACV_LightBridgeEnd] ACV_TP_FROM

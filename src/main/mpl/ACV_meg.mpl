@@ -1,5 +1,5 @@
 repeat process ACV_meg (
-/execute @e[type=Creeper,name=ACV_MEG] ~ ~ ~ kill @e[name=Weighted_Storage_Cube,dx=0]
+/execute @e[type=Creeper,name=ACV_MEG] ~ ~ ~ kill @e[name=Weighted_Storage_Cube,dy=0]
 
 /scoreboard players tag @a remove ACV_Blue
 /scoreboard players tag @a remove ACV_Orange
@@ -11,7 +11,7 @@ repeat process ACV_meg (
 /scoreboard players tag @a add ACV_Purple {Inventory:[{id:"minecraft:bow",tag:{ench:[{id:48,lvl:8}]}}]}
 /scoreboard players tag @a add ACV_Red {Inventory:[{id:"minecraft:bow",tag:{ench:[{id:48,lvl:9}]}}]}
 
-/execute @e[name=ACV_MEG] ~ ~ ~ /scoreboard players tag @a[dx=0] add ACV_megDeletePortal_PARAM
+/execute @e[name=ACV_MEG] ~ ~ ~ /scoreboard players tag @a[dy=0] add ACV_megDeletePortal_PARAM
 conditional: /setblock ${this + 1} redstone_block
 
 skip
