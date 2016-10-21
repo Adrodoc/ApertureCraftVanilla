@@ -1,21 +1,21 @@
-# Description:
-# Params: AS-ACV_Main, ASwT-ACV_DV_PARAM, SCV-color-Color
-# Return: dASwT-ACV_DV_RESULT
+// Description:
+// Params: AS-ACV_Main, ASwT-ACV_DV_PARAM, SCV-color-Color
+// Return: dASwT-ACV_DV_RESULT
 
 
 
-process ACV_validateDirections (
+impulse process ACV_validateDirections {
 /scoreboard players set DV_DIRECTION_MASK ACV_Internal 0
 /summon ArmorStand ${this + 2} {CustomName:"ACV_validateDirections_for",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[name=ACV_validateDirections_for] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 skip
 
 
-# Description: Validates all Direction given by ASwT-ACV_DV_PARAM.
-#              Invalid directions are killed.
-#              Valid directions survive and are added to SCV-directionMask-DV_DIRECTION_MASK
-# Params: AS-ACV_Main, ASwT-ACV_DV_PARAM, SCV-color-Color
-# Return: SCV-directionMask-DV_DIRECTION_MASK, dAS
+// Description: Validates all Direction given by ASwT-ACV_DV_PARAM.
+//              Invalid directions are killed.
+//              Valid directions survive and are added to SCV-directionMask-DV_DIRECTION_MASK
+// Params: AS-ACV_Main, ASwT-ACV_DV_PARAM, SCV-color-Color
+// Return: SCV-directionMask-DV_DIRECTION_MASK, dAS
 // for {
 
 repeat: /scoreboard players tag @e remove ACV_DV_CURRENT
@@ -27,8 +27,8 @@ conditional: start ACV_validateDirections_for_return
 
 /scoreboard players set DV_VALID ACV_Internal 0
 
-# Params: AS-ACV_Main, ASwT-ACV_DV_CURRENT
-# Return: AS-ACV_LowerBlock, AS-ACV_UpperBlock
+// Params: AS-ACV_Main, ASwT-ACV_DV_CURRENT
+// Return: AS-ACV_LowerBlock, AS-ACV_UpperBlock
 // SET-SURFACE_VALIDATION-PARAMS {
 
 /execute @e[tag=ACV_DV_CURRENT,name=ACV_Up] ~ ~ ~ /execute @e[name=ACV_Main] ~ ~ ~ /summon ArmorStand ~ ~-1 ~ {CustomName:"ACV_LowerBlock",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
@@ -51,12 +51,14 @@ conditional: start ACV_validateDirections_for_return
 
 // SET-SURFACE_VALIDATION-PARAMS }
 
-# Description: Checks if both ACV_LowerBlock and ACV_UpperBlock are valid block.
-#              They are if they are non air, and either listed by the Block_Option or the Block_Option is empty
-# Params: AS-ACV_LowerBlock, AS-ACV_UpperBlock
-# Return: SCV-bool-DV_SV_VALID
+// Description: Checks if both ACV_LowerBlock and ACV_UpperBlock are valid block.
+//              They are if they are non air, and either listed by the Block_Option or the Block_Option is empty
+// Params: AS-ACV_LowerBlock, AS-ACV_UpperBlock
+// Return: SCV-bool-DV_SV_VALID
 // SURFACE_VALIDATION {
 /scoreboard players set DV_SV_VALID ACV_Internal 0
+
+ACV_loadChunks()
 
 /scoreboard players set DV_SV_LOWER ACV_Internal 0
 /execute @e[name=ACV_LowerBlock] ~ ~ ~ /testforblocks ~ ~ ~ ~ ~ ~ 0 1 1
@@ -132,13 +134,13 @@ conditional: /scoreboard players set DV_SV_VALID ACV_Internal 0
 /kill @e[name=ACV_LowerBlock]
 /kill @e[name=ACV_UpperBlock]
 
-# /scoreboard players test DV_SV_VALID 1 1
-# conditional: /execute @e[name=ACV_SV_RETURN] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+// /scoreboard players test DV_SV_VALID 1 1
+// conditional: /execute @e[name=ACV_SV_RETURN] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 // SURFACE_VALIDATION }
 
-# Description: Checks if there is already a Portal that would overlap
-# Params: AS-ACV_Main, AS-ACV_DV_CURRENT, SCV-color-Color
-# Return: SCV-bool-DV_PV_VALID
+// Description: Checks if there is already a Portal that would overlap
+// Params: AS-ACV_Main, AS-ACV_DV_CURRENT, SCV-color-Color
+// Return: SCV-bool-DV_PV_VALID
 // PORTAL_VALIDATION {
 
 /scoreboard players set DV_PV_VALID ACV_Internal 1
@@ -166,9 +168,9 @@ conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=ItemFrame,nam
 
 // PORTAL_VALIDATION }
 
-# Description: Checks if there is air below a non floor Portal, returning true if so.
-# Params: AS-ACV_Main, AS-ACV_DV_CURRENT
-# Return: SCV-bool-DV_NFV_VALID
+// Description: Checks if there is air below a non floor Portal, returning true if so.
+// Params: AS-ACV_Main, AS-ACV_DV_CURRENT
+// Return: SCV-bool-DV_NFV_VALID
 // NOT_FLOOR_VALIDATION {
 /execute @e[tag=ACV_DV_CURRENT,name=ACV_Up] ~ ~ ~ /scoreboard players set DV_NFV_VALID ACV_Internal 1
 /execute @e[tag=ACV_DV_CURRENT,name=!ACV_Up] ~ ~ ~ /scoreboard players set DV_NFV_VALID ACV_Internal 0
@@ -190,9 +192,9 @@ invert: /kill @e[tag=ACV_DV_CURRENT]
 
 
 
-# TODO: Portal Überlappung verhindern
-#/execute @e[type=ArmorStand,name=ACV_Main] ~ ~-1 ~ /execute @e[type=ItemFrame,r=0] ~ ~ ~ /kill @e[type=ArmorStand,name=ACV_Main]
-#/execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /execute @e[type=ItemFrame,r=0] ~ ~ ~ /kill @e[type=ArmorStand,name=ACV_Main]
+// TODO: Portal Überlappung verhindern
+///execute @e[type=ArmorStand,name=ACV_Main] ~ ~-1 ~ /execute @e[type=ItemFrame,r=0] ~ ~ ~ /kill @e[type=ArmorStand,name=ACV_Main]
+///execute @e[type=ArmorStand,name=ACV_Main] ~ ~ ~ /execute @e[type=ItemFrame,r=0] ~ ~ ~ /kill @e[type=ArmorStand,name=ACV_Main]
 
 // for }
-)
+}

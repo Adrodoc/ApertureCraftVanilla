@@ -1,6 +1,6 @@
-repeat process ACV_antiBridges (
+repeat process ACV_antiBridges {
 
-# Wake up all idle anti bridges
+// Wake up all idle anti bridges
 /execute @e[type=ArmorStand,name=ACV_AntiBridge_Stopping] ~ ~ ~ entitydata @e[name=ACV_AntiBridge_Idle,dy=0] {CustomName:"ACV_AntiBridge"}
 
 /kill @e[type=ArmorStand,name=ACV_AntiBridge_Stopping]
@@ -14,7 +14,7 @@ repeat process ACV_antiBridges (
 /execute @e[type=ArmorStand,name=ACV_AntiBridge] ~ ~ ~ kill @e[name=ACV_BridgeCross,dy=0,c=1]
 /execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~ ~ kill @e[name=ACV_BridgeBelow,dy=0]
 /execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~1 ~ kill @e[name=ACV_BridgeBelow,dy=0]
-# /setblock ~ ~ ~ minecraft:piston_extension Not: /fill ~ ~ ~ ~ ~ ~ minecraft:piston_extension 0 replace minecraft:carpet 3 due to https://bugs.mojang.com/browse/MC-61864
+///setblock ~ ~ ~ minecraft:piston_extension Not: /fill ~ ~ ~ ~ ~ ~ minecraft:piston_extension 0 replace minecraft:carpet 3 due to https://bugs.mojang.com/browse/MC-61864
 /execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~ ~ execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=ACV_Keep36,r=0,c=1] ~ ~ ~ setblock ~ ~ ~ minecraft:piston_extension
 /execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~ ~ fill ~ ~ ~ ~ ~ ~ minecraft:air 0 replace minecraft:carpet 3
 /execute @e[type=ArmorStand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~ ~ fill ~ ~-1 ~ ~ ~-1 ~ minecraft:air 0 replace minecraft:piston_extension
@@ -24,4 +24,4 @@ repeat process ACV_antiBridges (
 /tp @e[type=ArmorStand,name=ACV_AntiBridge,rym=-45,ry=45] ~ ~ ~1
 
 /execute @e[type=ArmorStand,name=ACV_AntiBridge] ~ ~ ~ kill @e[name=ACV_LightBridgeEnd,dy=0]
-)
+}

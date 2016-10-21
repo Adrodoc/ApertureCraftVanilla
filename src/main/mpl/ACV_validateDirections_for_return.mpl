@@ -1,4 +1,4 @@
-process ACV_validateDirections_for_return (
+impulse process ACV_validateDirections_for_return {
 /scoreboard players test DV_DIRECTION_MASK ACV_Internal 32 63
 conditional: /scoreboard players tag @e[name=ACV_Up] add ACV_DV_RESULT
 /scoreboard players test DV_DIRECTION_MASK ACV_Internal 16 31
@@ -21,4 +21,4 @@ conditional: /scoreboard players tag @e[name=ACV_West] add ACV_DV_RESULT
 
 /execute @e[name=ACV_validateDirections_return] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 /kill @e[name=ACV_validateDirections_return]
-)
+}

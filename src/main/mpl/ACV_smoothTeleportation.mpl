@@ -1,4 +1,4 @@
-repeat process ACV_smoothTeleportation (
+repeat process ACV_smoothTeleportation {
 /scoreboard players reset @e ACV_TP_FROM
 /scoreboard players reset @e ACV_TP_UNEVEN
 /scoreboard players reset @e ACV_TP_TO
@@ -8,7 +8,7 @@ repeat process ACV_smoothTeleportation (
 
 /execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @e[tag=!ACV_TpProof,dy=0] ACV_TP_FROM = @e[r=0,c=1] ACV_COLOR
 
-# Only idle bridges and stopping anti bridges may be teleported
+// Only idle bridges and stopping anti bridges may be teleported
 /scoreboard players reset @e[name=ACV_LightBridge] ACV_TP_FROM
 /scoreboard players reset @e[name=ACV_LightBridgeEnd] ACV_TP_FROM
 /scoreboard players reset @e[name=ACV_AntiBridge] ACV_TP_FROM
@@ -30,7 +30,7 @@ repeat process ACV_smoothTeleportation (
 /scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=-55,ry=-33] ACV_TP_ER 14
 /scoreboard players set @e[score_ACV_TP_FROM_min=0,rym=-32,ry=-11] ACV_TP_ER 15
 
-# Calulate the target portal
+// Calulate the target portal
 /execute @e[score_ACV_TP_FROM_min=0] ~ ~ ~ /scoreboard players operation @e[r=0,c=1] ACV_TP_TO = @e[r=0,c=1] ACV_TP_FROM
 /execute @e[score_ACV_TP_FROM_min=0] ~ ~ ~ /scoreboard players operation @e[r=0,c=1] ACV_TP_UNEVEN = @e[r=0,c=1] ACV_TP_FROM
 /scoreboard players operation @e[score_ACV_TP_FROM_min=0] ACV_TP_UNEVEN %= 2 ACV_CONSTANT
@@ -39,19 +39,19 @@ repeat process ACV_smoothTeleportation (
 
 
 
-# Assign In-Rotation
+// Assign In-Rotation
 /execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @e[score_ACV_TP_TO_min=0,tag=!ACV_TpProof,dy=0] ACV_TP_IR = @e[r=0,c=1] ACV_DIRECTION
 
-# Assign Out-Rotation
+// Assign Out-Rotation
 
-# Bug Workaround: https://bugs.mojang.com/browse/MC-89667
-# /tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_TO=0] @e[name=ACV_PortalOut,score_ACV_COLOR_min=0,score_ACV_COLOR=0]
-# /tp @e[score_ACV_TP_TO_min=1,score_ACV_TP_TO=1] @e[name=ACV_PortalOut,score_ACV_COLOR_min=1,score_ACV_COLOR=1]
-# /tp @e[score_ACV_TP_TO_min=2,score_ACV_TP_TO=2] @e[name=ACV_PortalOut,score_ACV_COLOR_min=2,score_ACV_COLOR=2]
-# /tp @e[score_ACV_TP_TO_min=3,score_ACV_TP_TO=3] @e[name=ACV_PortalOut,score_ACV_COLOR_min=3,score_ACV_COLOR=3]
+// Bug Workaround: https://bugs.mojang.com/browse/MC-89667
+// /tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_TO=0] @e[name=ACV_PortalOut,score_ACV_COLOR_min=0,score_ACV_COLOR=0]
+// /tp @e[score_ACV_TP_TO_min=1,score_ACV_TP_TO=1] @e[name=ACV_PortalOut,score_ACV_COLOR_min=1,score_ACV_COLOR=1]
+// /tp @e[score_ACV_TP_TO_min=2,score_ACV_TP_TO=2] @e[name=ACV_PortalOut,score_ACV_COLOR_min=2,score_ACV_COLOR=2]
+// /tp @e[score_ACV_TP_TO_min=3,score_ACV_TP_TO=3] @e[name=ACV_PortalOut,score_ACV_COLOR_min=3,score_ACV_COLOR=3]
 
-# Bug Workaround: https://bugs.mojang.com/browse/MC-89667
-#/execute @e[name=ACV_PortalOut] ~ ~ ~ /scoreboard players operation @e[score_ACV_TP_TO_min=0,tag=!ACV_TpProof,dy=0] ACV_TP_OR = @e[r=0,c=1] ACV_DIRECTION
+// Bug Workaround: https://bugs.mojang.com/browse/MC-89667
+///execute @e[name=ACV_PortalOut] ~ ~ ~ /scoreboard players operation @e[score_ACV_TP_TO_min=0,tag=!ACV_TpProof,dy=0] ACV_TP_OR = @e[r=0,c=1] ACV_DIRECTION
 /scoreboard players operation @e[score_ACV_TP_TO_min=0,score_ACV_TP_TO=0] ACV_TP_OR = @e[name=ACV_PortalOut,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ACV_DIRECTION
 /scoreboard players operation @e[score_ACV_TP_TO_min=1,score_ACV_TP_TO=1] ACV_TP_OR = @e[name=ACV_PortalOut,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ACV_DIRECTION
 /scoreboard players operation @e[score_ACV_TP_TO_min=2,score_ACV_TP_TO=2] ACV_TP_OR = @e[name=ACV_PortalOut,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ACV_DIRECTION
@@ -59,28 +59,28 @@ repeat process ACV_smoothTeleportation (
 
 
 
-# Rotation Calculation
+// Rotation Calculation
 
-# wenn id < 3 & od < 3
-# rotdiff = pd - id + 6 mod 4
-# wenn id > 3 & od < 3
-# rotdiff = 0
-# wenn od > 3
-# rot = pd
+// wenn id < 3 & od < 3
+// rotdiff = pd - id + 6 mod 4
+// wenn id > 3 & od < 3
+// rotdiff = 0
+// wenn od > 3
+// rot = pd
 /execute @e[score_ACV_TP_IR_min=0,score_ACV_TP_OR_min=0] ~ ~ ~ /scoreboard players operation @e[r=0,c=1] ACV_TP_ER -= @e[r=0,c=1] ACV_TP_IR
 /execute @e[score_ACV_TP_IR_min=0,score_ACV_TP_OR_min=0] ~ ~ ~ /scoreboard players add @e[r=0,c=1] ACV_TP_ER 24
 /execute @e[score_ACV_TP_IR_min=0,score_ACV_TP_OR_min=0] ~ ~ ~ /scoreboard players operation @e[r=0,c=1] ACV_TP_ER %= 16 ACV_CONSTANT
-# when IR is up or down, but not OR
+// when IR is up or down, but not OR
 /execute @e[score_ACV_TP_IR=-1,score_ACV_TP_OR_min=0] ~ ~ ~ /scoreboard players set @e[r=0,c=1] ACV_TP_ER 0
 
-# Lightbridges may not be rotated, because the idle bridge is a fresh summon that always looks south
+// Lightbridges may not be rotated, because the idle bridge is a fresh summon that always looks south
 /scoreboard players set @e[tag=ACV_RotationProof] ACV_TP_ER 0
 
 
 
-# Teleport the entity to the other portal
+// Teleport the entity to the other portal
 
-# Bug Workaround: https://bugs.mojang.com/browse/MC-89667
+// Bug Workaround: https://bugs.mojang.com/browse/MC-89667
 /tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_TO=0] @e[name=ACV_PortalOut,score_ACV_COLOR_min=0,score_ACV_COLOR=0]
 /tp @e[score_ACV_TP_TO_min=1,score_ACV_TP_TO=1] @e[name=ACV_PortalOut,score_ACV_COLOR_min=1,score_ACV_COLOR=1]
 /tp @e[score_ACV_TP_TO_min=2,score_ACV_TP_TO=2] @e[name=ACV_PortalOut,score_ACV_COLOR_min=2,score_ACV_COLOR=2]
@@ -88,9 +88,9 @@ repeat process ACV_smoothTeleportation (
 
 
 
-# Rotate the entity
+// Rotate the entity
 
-#/tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_ER_min=0,score_ACV_TP_ER=0] ~ ~ ~ ~0 ~
+///tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_ER_min=0,score_ACV_TP_ER=0] ~ ~ ~ ~0 ~
 /tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_ER_min=1,score_ACV_TP_ER=1] ~ ~ ~ ~22.5 ~
 /tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_ER_min=2,score_ACV_TP_ER=2] ~ ~ ~ ~45 ~
 /tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_ER_min=3,score_ACV_TP_ER=3] ~ ~ ~ ~67.5 ~
@@ -107,4 +107,4 @@ repeat process ACV_smoothTeleportation (
 /tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_ER_min=14,score_ACV_TP_ER=14] ~ ~ ~ ~-45 ~
 /tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_ER_min=15,score_ACV_TP_ER=15] ~ ~ ~ ~-22.5 ~
 
-)
+}

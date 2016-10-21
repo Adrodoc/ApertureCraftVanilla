@@ -1,43 +1,43 @@
 Befehle der Version 8.1.0
 
-# Param & Return Types:
-# AS = ArmorStand
-# SCV = Scoreboard Value
-# SC = Scoreboard
-# ASwS = ArmorStands with Score
-# ASwT = ArmorStands with Tag
-# dAS = Directional ArmorStand
-# IF = ItemFrame
+// Param & Return Types:
+// AS = ArmorStand
+// SCV = Scoreboard Value
+// SC = Scoreboard
+// ASwS = ArmorStands with Score
+// ASwT = ArmorStands with Tag
+// dAS = Directional ArmorStand
+// IF = ItemFrame
 
-# TODO: alle ASwS durch ASwT ersetzen
+// TODO: alle ASwS durch ASwT ersetzen
 
-# direction:
-# 5 = Floor Portal
-# 4 = Ceiling Portal
-# 3 = North Portal
-# 2 = West Portal
-# 1 = South Portal
-# 0 = East Portal
+// direction:
+// 5 = Floor Portal
+// 4 = Ceiling Portal
+// 3 = North Portal
+// 2 = West Portal
+// 1 = South Portal
+// 0 = East Portal
 
-# directionMask:
-# 32-63 = Floor Portal
-# 16-32 = Ceiling Portal
-# 8-15 = North Portal
-# 4-7 = West Portal
-# 2-3 = South Portal
-# 1 = East Portal
+// directionMask:
+// 32-63 = Floor Portal
+// 16-32 = Ceiling Portal
+// 8-15 = North Portal
+// 4-7 = West Portal
+// 2-3 = South Portal
+// 1 = East Portal
 
-# bool:
-# <= 0 = false
-# >= 1 = true
+// bool:
+// <= 0 = false
+// >= 1 = true
 
-# color:
-# 0 = Blue
-# 1 = Orange
-# 2 = Purple
-# 3 = Red
+// color:
+// 0 = Blue
+// 1 = Orange
+// 2 = Purple
+// 3 = Red
 
-# /scoreboard objectives add Portal dummy
+// /scoreboard objectives add Portal dummy
 
 
 

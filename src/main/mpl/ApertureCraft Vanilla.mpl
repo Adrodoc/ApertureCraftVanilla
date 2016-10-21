@@ -1,20 +1,16 @@
-project ACV (
-
-orientation "zyx"
-
-# Setup
+// Setup
 include "ACV_setupScoreboards.mpl"
 include "ACV_deleteScoreboards.mpl"
 
-# Main
+// Main
 include "ACV_online.mpl"
 
-# Remote
+// Remote
 include "ACV_remote_deletePortals.mpl"
 include "ACV_remote_deleteAllPortals.mpl"
 include "ACV_remote_createPortal.mpl"
 
-# Extra
+// Extra
 include "ACV_teleportation.mpl"
 include "ACV_smoothTeleportation.mpl"
 include "ACV_lightBridges.mpl"
@@ -23,15 +19,18 @@ include "ACV_cubes.mpl"
 include "ACV_lasers.mpl"
 include "ACV_meg.mpl"
 include "ACV_gels.mpl"
-)
 
-install (
+project ACV {
+  orientation "zyx"
+}
+
+install {
 /gamerule commandBlockOutput false
 /gamerule logAdminCommands false
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"red","extra":[{"text":"Starting Installation","color":"yellow"}]}
 
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"gold","extra":[{"text":"Setting up Scoreboards","color":"yellow"}]}
-start ACV_setupScoreboards
+ACV_setupScoreboards()
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"gold","extra":[{"text":"Enabling UI","color":"yellow"}]}
 /fill ${origin + (9 1 -7)} ${origin + (15 3 -6)} lever 12 replace barrier
 /fill ${origin + (9 1 -6)} ${origin + (15 3 -5)} stained_hardened_clay 10 replace redstone_block 0
@@ -42,16 +41,15 @@ start ACV_setupScoreboards
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"gold","extra":[{"text":"Setting up Block-Option","color":"yellow"}]}
 /setblock ${origin + (6 4 -4)} redstone_block
 /setblock ${origin + (6 4 -4)} stone
-)
+}
 
 
 
-uninstall (
+uninstall {
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"red","extra":[{"text":"Starting Uninstallation","color":"yellow"}]}
 
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"gold","extra":[{"text":"Deleting Portals","color":"yellow"}]}
-start ACV_remote_deleteAllPortals
-waitfor
+ACV_remote_deleteAllPortals()
 
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"gold","extra":[{"text":"Disabling UI","color":"yellow"}]}
 /fill ${origin + (9 1 -7)} ${origin + (15 3 -6)} barrier 0 replace lever
@@ -60,21 +58,21 @@ waitfor
 /setblock ${origin + (7 3 -12)} wall_sign 3 replace {Text1:"{\"text\":\"\"}",Text2:"{\"text\":\"[Install]\",\"color\":\"dark_red\",\"bold\":\"true\"}",Text3:"{\"text\":\"\"}",Text4:"{\"text\":\"\"}"}
 /fill ${origin + (6 1 -13)} ${origin + (9 3 -13)} stained_hardened_clay 14 replace stained_hardened_clay 13
 
-#/tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"gold","extra":[{"text":"Interrupt all Interface calls","color":"yellow"}]}
-#/execute @e[tag=ACV_remote_interface] ~ ~ ~ /setblock ~ ~ ~ stone
-#/execute @e[tag=ACV_internal_interface] ~ ~ ~ /setblock ~ ~ ~ stone
+///tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"gold","extra":[{"text":"Interrupt all Interface calls","color":"yellow"}]}
+///execute @e[tag=ACV_remote_interface] ~ ~ ~ /setblock ~ ~ ~ stone
+///execute @e[tag=ACV_internal_interface] ~ ~ ~ /setblock ~ ~ ~ stone
 
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"gold","extra":[{"text":"Deleting Scoreboards","color":"yellow"}]}
-start ACV_deleteScoreboards
+ACV_deleteScoreboards()
 
-# 2 tick delay
+// 2 tick delay
 /setblock ${this+1} redstone_block
 skip
 impulse: /setblock ${this-1} stone
 /setblock ${this+1} redstone_block
 skip
 impulse: /setblock ${this-1} stone
-# 2 tick delay end
+// 2 tick delay end
 
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"gold","extra":[{"text":"Deleting Interfaces","color":"yellow"}]}
-)
+}

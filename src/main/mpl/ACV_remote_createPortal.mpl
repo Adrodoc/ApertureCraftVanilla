@@ -1,10 +1,10 @@
-# Description: Creates a Portal specified by SCV-color-Color-ACV_Interface
-# Params: AS-ACV_remote_createPortal_PARAM, SCV-color-Color-ACV_Interface
-# Return:
+// Description: Creates a Portal specified by SCV-color-Color-ACV_Interface
+// Params: AS-ACV_remote_createPortal_PARAM, SCV-color-Color-ACV_Interface
+// Return:
 
 
 
-process ACV_remote_createPortal (
+impulse process ACV_remote_createPortal {
 /execute @e[name=ACV_online] ~ ~ ~ /testforblock ~ ~ ~ redstone_block
 conditional: /setblock ${this + 4} redstone_block
 /execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ stone
@@ -32,4 +32,4 @@ impulse: /setblock ${this - 1} stone
 /scoreboard players tag @e[name=ACV_East] add ACV_DV_PARAM
 /scoreboard players tag @e[name=ACV_North] add ACV_DV_PARAM
 /scoreboard players tag @e[name=ACV_West] add ACV_DV_PARAM
-)
+}

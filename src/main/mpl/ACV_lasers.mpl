@@ -1,5 +1,5 @@
-# /entitydata @e[name=Weighted_Storage_Cube] {Rotation:[1:0.0f]}
-repeat process ACV_lasers (
+// /entitydata @e[name=Weighted_Storage_Cube] {Rotation:[1:0.0f]}
+repeat process ACV_lasers {
 /tp @e[name=Weighted_Storage_Cube] ~ ~ ~ ~ 0
 
 /scoreboard players tag @e[name=ACV_Laser] remove ACV_InCube
@@ -38,4 +38,4 @@ repeat process ACV_lasers (
 /execute @e[name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ stained_glass_pane -1 scoreboard players tag @e[r=1,c=1] add ACV_InAir
 /execute @e[name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ iron_bars -1 scoreboard players tag @e[r=1,c=1] add ACV_InAir
 /kill @e[name=ACV_Laser,tag=!ACV_InAir]
-)
+}

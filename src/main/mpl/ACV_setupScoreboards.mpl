@@ -1,4 +1,4 @@
-process ACV_setupScoreboards (
+process ACV_setupScoreboards {
 /scoreboard objectives add ACV_Internal dummy
 /scoreboard objectives add ACV_Interface dummy
 /scoreboard objectives add ACV_COLOR dummy
@@ -15,4 +15,4 @@ process ACV_setupScoreboards (
 /scoreboard objectives add ACV_TP_ER dummy
 /scoreboard objectives add ACV_CUBE_ID dummy
 /scoreboard objectives add OnGround dummy
-)
+}

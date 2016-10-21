@@ -1,4 +1,4 @@
-process ACV_deleteScoreboards (
+process ACV_deleteScoreboards {
 /scoreboard objectives remove ACV_Internal
 /scoreboard objectives remove ACV_Interface
 /scoreboard objectives remove ACV_COLOR
@@ -12,4 +12,4 @@ process ACV_deleteScoreboards (
 /scoreboard objectives remove ACV_TP_ER
 /scoreboard objectives remove ACV_CUBE_ID
 /scoreboard objectives remove OnGround
-)
+}

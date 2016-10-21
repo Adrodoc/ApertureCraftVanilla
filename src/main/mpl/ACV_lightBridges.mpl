@@ -1,4 +1,4 @@
-repeat process ACV_lightBridges (
+repeat process ACV_lightBridges {
 /kill @e[type=ArmorStand,name=ACV_LightBridge,rxm=-90,rx=-1]
 /kill @e[type=ArmorStand,name=ACV_LightBridge,rxm=1,rx=90]
 /scoreboard players tag @e[type=ArmorStand,name=ACV_LightBridge] remove ACV_InAir
@@ -20,6 +20,6 @@ conditional: start ACV_calculateLightBridges
 /tp @e[type=ArmorStand,name=ACV_LightBridge,rym=-135,ry=-45] ~1 ~ ~
 /tp @e[type=ArmorStand,name=ACV_LightBridge,rym=-45,ry=45] ~ ~ ~1
 
-# Wake up all idle light bridges
+// Wake up all idle light bridges
 /entitydata @e[name=ACV_LightBridge_Idle] {CustomName:"ACV_LightBridge"}
-)
+}

@@ -1,10 +1,7 @@
-# Description:
-# Params: AS-ACV_Main, SCV-color-Color
-# Return:
-
-
-
-process ACV_createPortalFailed (
+// Description:
+// Params: AS-ACV_Main, SCV-color-Color
+// Return:
+impulse process ACV_createPortalFailed {
 
 start ACV_online
 /scoreboard players test Color ACV_Internal 0 0
@@ -16,5 +13,5 @@ conditional: /execute @e[name=ACV_Main] ~ ~ ~ /particle iconcrack ~ ~ ~ 0.1 0.1 
 /scoreboard players test Color ACV_Internal 3 3
 conditional: /execute @e[name=ACV_Main] ~ ~ ~ /particle iconcrack ~ ~ ~ 0.1 0.1 0.1 0 20 force @a 159 14
 
-# TODO: playsound
-)
+// TODO: playsound
+}
