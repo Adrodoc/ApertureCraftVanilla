@@ -1,5 +1,5 @@
 repeat process ACV_meg {
-/execute @e[type=Creeper,name=ACV_MEG] ~ ~ ~ kill @e[name=Weighted_Storage_Cube,dy=0]
+/execute @e[type=creeper,name=ACV_MEG] ~ ~ ~ kill @e[name=Weighted_Storage_Cube,dy=0]
 
 /scoreboard players tag @a remove ACV_Blue
 /scoreboard players tag @a remove ACV_Orange
@@ -18,10 +18,10 @@ skip
 
 impulse: /setblock ${this - 1} stone
 
-/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Blue,r=0] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM_blue",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Orange,r=0] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM_orange",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Purple,r=0] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM_purple",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Red,r=0] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM_red",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Blue,r=0] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM_blue",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Orange,r=0] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM_orange",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Purple,r=0] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM_purple",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Red,r=0] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM_red",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /scoreboard players tag @a remove ACV_megDeletePortal_PARAM
 /execute @e[name=ACV_remote_deletePortals] ~ ~ ~ setblock ~ ~ ~ redstone_block
 }

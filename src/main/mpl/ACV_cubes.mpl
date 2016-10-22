@@ -50,8 +50,8 @@ repeat process ACV_cubes {
 /execute @a[rym=124,ry=146,score_ACV_CUBE_ID_min=1] ~ ~ ~ tp @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=1,r=1,c=1] ~-1.4142135623730950488016887242097 ~-0.25 ~-1.4142135623730950488016887242097
 /execute @a[rym=147,ry=168,score_ACV_CUBE_ID_min=1] ~ ~ ~ tp @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=1,r=1,c=1] ~-0.7653668647301795434569199680608 ~-0.25 ~-1.8477590650225735122563663787936
 
-/kill @e[type=ArmorStand,name=cube_update]
-/execute @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ summon ArmorStand ~ ~ ~ {CustomName:"cube_update",Invisible:1b,Invulnerable:1b,Marker:1b}
+/kill @e[type=armor_stand,name=cube_update]
+/execute @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"cube_update",Invisible:1b,Invulnerable:1b,Marker:1b}
 
 // /scoreboard players tag @a remove ACV_CanPickupCube
 // /scoreboard players tag @a add ACV_CanPickupCube {SelectedItem:{id:"minecraft:arrow",tag:{display:{Name:"Picking up Cubes"}}}}

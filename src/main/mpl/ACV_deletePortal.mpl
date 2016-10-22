@@ -20,10 +20,10 @@ process ACV_deletePortal {
 /execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ kill @e[score_ACV_COLOR_min=3,score_ACV_COLOR=3]
 
 // Light the remaining Floor/Ceiling Portals
-/execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ execute @e[type=ArmorStand,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ setblock ~ ~2 ~ barrier
-/execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=ArmorStand,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ setblock ~ ~2 ~ barrier
-/execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ execute @e[type=ArmorStand,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ setblock ~ ~2 ~ barrier
-/execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=ArmorStand,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ setblock ~ ~2 ~ barrier
+/execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ setblock ~ ~2 ~ barrier
+/execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ setblock ~ ~2 ~ barrier
+/execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ setblock ~ ~2 ~ barrier
+/execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ setblock ~ ~2 ~ barrier
 
 // Kill the Params
 /kill @e[tag=ACV_deletePortal_PARAM]

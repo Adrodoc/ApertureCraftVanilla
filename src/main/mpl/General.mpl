@@ -1,12 +1,12 @@
 Befehle der Version 8.1.0
 
 // Param & Return Types:
-// AS = ArmorStand
+// AS = armor_stand
 // SCV = Scoreboard Value
 // SC = Scoreboard
-// ASwS = ArmorStands with Score
-// ASwT = ArmorStands with Tag
-// dAS = Directional ArmorStand
+// ASwS = armor_stands with Score
+// ASwT = armor_stands with Tag
+// dAS = Directional armor_stand
 // IF = ItemFrame
 
 // TODO: alle ASwS durch ASwT ersetzen
@@ -37,21 +37,12 @@ Befehle der Version 8.1.0
 // 2 = Purple
 // 3 = Red
 
-// /scoreboard objectives add Portal dummy
-
-
-
-/summon ArmorStand ~ ~ ~2 {CustomName:"ACV_online",Tags:["ACV_internal_interface"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/summon ArmorStand ~ ~ ~2 {CustomName:"ACV_remote_deletePortals",Tags:["ACV_remote_interface"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-
-/say @e[tag=ACV_remote_interface]
-
 Gel Placement:
 /summon Item ~-1 ~-1 ~-1 {CustomName:"ACV_BlueGel",Age:-32768,PickupDelay:32767,Item:{Count:1,Damage:11,id:"minecraft:wool"}}
 /summon Item ~ ~-2 ~ {CustomName:"ACV_OrangeGel",Age:-32768,PickupDelay:32767,Item:{Count:1,Damage:1,id:"minecraft:wool"}}
 
 Portal Spawner:
-/summon ArmorStand ~ ~-1 ~ {CustomName:"ACV_remote_createPortal_PARAM",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/summon armor_stand ~ ~-1 ~ {CustomName:"ACV_remote_createPortal_PARAM",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /scoreboard players set Color ACV_Interface 0
 /execute @e[name=ACV_remote_createPortal] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 
@@ -221,11 +212,11 @@ Kill_all_Cubes {
 Kill_all_Cubes}
 
 Spawn_normal_Cube {
-/summon ArmorStand ~ ~-0.6 ~1 {CustomName:"Weighted_Storage_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{Damage:6,id:"stone"}],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
+/summon armor_stand ~ ~-0.6 ~1 {CustomName:"Weighted_Storage_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{Damage:6,id:"stone"}],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
 Spawn_normal_Cube}
 
 Spawn_redirecting_Cube {
-/summon ArmorStand ~ ~-0.6 ~1 {CustomName:"Weighted_Storage_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{id:"dispenser"}],Tags:["ACV_Redirecting"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
+/summon armor_stand ~ ~-0.6 ~1 {CustomName:"Weighted_Storage_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{id:"dispenser"}],Tags:["ACV_Redirecting"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
 Spawn_redirecting_Cube}
 
 Special_Thanks {
