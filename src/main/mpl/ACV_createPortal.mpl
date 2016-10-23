@@ -100,9 +100,9 @@ ACV_deletePortal()
 /execute @e[name=ACV_Up] ~ ~ ~ /scoreboard players set @e[score_ACV_COLOR=-1,type=armor_stand] ACV_DIRECTION -1
 /execute @e[name=ACV_Down] ~ ~ ~ /scoreboard players set @e[score_ACV_COLOR=-1,type=armor_stand] ACV_DIRECTION -2
 /execute @e[name=ACV_South] ~ ~ ~ /scoreboard players set @e[score_ACV_COLOR=-1,type=armor_stand] ACV_DIRECTION 0
-/execute @e[name=ACV_East] ~ ~ ~ /scoreboard players set @e[score_ACV_COLOR=-1,type=armor_stand] ACV_DIRECTION 12
-/execute @e[name=ACV_North] ~ ~ ~ /scoreboard players set @e[score_ACV_COLOR=-1,type=armor_stand] ACV_DIRECTION 8
-/execute @e[name=ACV_West] ~ ~ ~ /scoreboard players set @e[score_ACV_COLOR=-1,type=armor_stand] ACV_DIRECTION 4
+/execute @e[name=ACV_East] ~ ~ ~ /scoreboard players set @e[score_ACV_COLOR=-1,type=armor_stand] ACV_DIRECTION 3
+/execute @e[name=ACV_North] ~ ~ ~ /scoreboard players set @e[score_ACV_COLOR=-1,type=armor_stand] ACV_DIRECTION 2
+/execute @e[name=ACV_West] ~ ~ ~ /scoreboard players set @e[score_ACV_COLOR=-1,type=armor_stand] ACV_DIRECTION 1
 
 
 
