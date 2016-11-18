@@ -4,6 +4,7 @@ repeat process ACV_smoothTeleportation {
 /scoreboard players reset @e ACV_TP_TO
 /scoreboard players reset @e ACV_TP_IR
 /scoreboard players reset @e ACV_TP_OR
+/scoreboard players reset @e ACV_TP_RD
 
 /execute @e[name=ACV_PortalIn] ~ ~ ~ scoreboard players operation @e[tag=!ACV_TpProof,dy=0] ACV_TP_FROM = @e[r=0,c=1] ACV_COLOR
 
@@ -74,7 +75,7 @@ repeat process ACV_smoothTeleportation {
 
 // Rotate the entity
 
-///tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_ER_min=0,score_ACV_TP_ER=0] ~ ~ ~ ~0 ~
+///tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_RD_min=0,score_ACV_TP_RD=0] ~ ~ ~ ~0 ~
 /tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_RD_min=1,score_ACV_TP_RD=1] ~ ~ ~ ~90 ~
 /tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_RD_min=2,score_ACV_TP_RD=2] ~ ~ ~ ~180 ~
 /tp @e[score_ACV_TP_TO_min=0,score_ACV_TP_RD_min=3,score_ACV_TP_RD=3] ~ ~ ~ ~-90 ~
