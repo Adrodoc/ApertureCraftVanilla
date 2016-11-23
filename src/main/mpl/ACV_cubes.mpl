@@ -1,5 +1,5 @@
 repeat process ACV_cubes {
-/execute @e[type=armor_stand,name=Weighted_Storage_Cube] ~ ~ ~ detect ~ ~1 ~ minecraft:lava * kill @e[r=0,c=1]
+/execute @e[type=armor_stand,name=Weighted_Storage_Cube] ~ ~ ~ detect ~ ~1 ~ minecraft:lava * kill @e[type=armor_stand,name=Weighted_Storage_Cube,r=0,c=1]
 
 /execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:air * tp @e[type=armor_stand,name=Weighted_Storage_Cube,r=0,c=1] ~ ~-0.25 ~
 /execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:stone_pressure_plate * tp @e[type=armor_stand,name=Weighted_Storage_Cube,r=0,c=1] ~ ~-0.25 ~
