@@ -1,13 +1,13 @@
 repeat process ACV_cubes {
-/execute @e[name=Weighted_Storage_Cube] ~ ~ ~ detect ~ ~1 ~ minecraft:lava -1 kill @e[r=0,c=1]
+/execute @e[type=armor_stand,name=Weighted_Storage_Cube] ~ ~ ~ detect ~ ~1 ~ minecraft:lava * kill @e[r=0,c=1]
 
-/execute @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:air 0 tp @e[r=0,c=1] ~ ~-0.25 ~
-/execute @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:stone_pressure_plate -1 tp @e[r=0,c=1] ~ ~-0.25 ~
-/execute @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:carpet -1 tp @e[r=0,c=1] ~ ~-0.25 ~
-///execute @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:carpet 9 tp @e[r=0,c=1] ~ ~-0.25 ~
+/execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:air * tp @e[type=armor_stand,name=Weighted_Storage_Cube,r=0,c=1] ~ ~-0.25 ~
+/execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:stone_pressure_plate * tp @e[type=armor_stand,name=Weighted_Storage_Cube,r=0,c=1] ~ ~-0.25 ~
+/execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:carpet * tp @e[type=armor_stand,name=Weighted_Storage_Cube,r=0,c=1] ~ ~-0.25 ~
+///execute @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:carpet color=cyan tp @e[type=armor_stand,name=Weighted_Storage_Cube,r=0,c=1] ~ ~-0.25 ~
 
 /scoreboard players add @a ACV_CUBE_ID 0
-/scoreboard players add @e[name=Weighted_Storage_Cube] ACV_CUBE_ID 0
+/scoreboard players add @e[type=armor_stand,name=Weighted_Storage_Cube] ACV_CUBE_ID 0
 /scoreboard players tag @a remove ACV_HoldingArrow
 /scoreboard players tag @a add ACV_HoldingArrow {SelectedItem:{id:"minecraft:arrow",tag:{display:{Name:"Picking up Cubes"}}}}
 /scoreboard players set @a[score_ACV_CUBE_ID_min=1,tag=!ACV_HoldingArrow] ACV_CUBE_ID 0
@@ -51,7 +51,7 @@ repeat process ACV_cubes {
 /execute @a[rym=147,ry=168,score_ACV_CUBE_ID_min=1] ~ ~ ~ tp @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=1,r=1,c=1] ~-0.7653668647301795434569199680608 ~-0.25 ~-1.8477590650225735122563663787936
 
 /kill @e[type=armor_stand,name=cube_update]
-/execute @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"cube_update",Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ summon armor_stand ~ ~1.25 ~ {CustomName:"cube_update",Invisible:1b,Invulnerable:1b,Marker:1b}
 
 // /scoreboard players tag @a remove ACV_CanPickupCube
 // /scoreboard players tag @a add ACV_CanPickupCube {SelectedItem:{id:"minecraft:arrow",tag:{display:{Name:"Picking up Cubes"}}}}
