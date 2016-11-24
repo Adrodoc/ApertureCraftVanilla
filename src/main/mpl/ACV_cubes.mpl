@@ -18,11 +18,11 @@ repeat process ACV_cubes {
 
 /scoreboard players tag @a remove ACV_CubeLinked
 /scoreboard players tag @e[type=armor_stand,name=Weighted_Storage_Cube] remove ACV_CubeLinked
-/execute @p[score_ACV_CUBE_ID_min=1,score_ACV_CUBE_ID=1] ~ ~ ~ execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=1,score_ACV_CUBE_ID=1] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=1,score_ACV_CUBE_ID=1] add ACV_CubeLinked
-/execute @p[score_ACV_CUBE_ID_min=2,score_ACV_CUBE_ID=2] ~ ~ ~ execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=2,score_ACV_CUBE_ID=2] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=2,score_ACV_CUBE_ID=2] add ACV_CubeLinked
-/execute @p[score_ACV_CUBE_ID_min=3,score_ACV_CUBE_ID=3] ~ ~ ~ execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=3,score_ACV_CUBE_ID=3] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=3,score_ACV_CUBE_ID=3] add ACV_CubeLinked
-/execute @p[score_ACV_CUBE_ID_min=4,score_ACV_CUBE_ID=4] ~ ~ ~ execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=4,score_ACV_CUBE_ID=4] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=4,score_ACV_CUBE_ID=4] add ACV_CubeLinked
-/execute @p[score_ACV_CUBE_ID_min=5,score_ACV_CUBE_ID=5] ~ ~ ~ execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=5,score_ACV_CUBE_ID=5] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=5,score_ACV_CUBE_ID=5] add ACV_CubeLinked
+/execute @p[score_ACV_CUBE_ID_min=1,score_ACV_CUBE_ID=1] ~ ~ ~ execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=1,score_ACV_CUBE_ID=1] ~ ~ ~ scoreboard players tag @e[score_ACV_CUBE_ID_min=1,score_ACV_CUBE_ID=1] add ACV_CubeLinked
+/execute @p[score_ACV_CUBE_ID_min=2,score_ACV_CUBE_ID=2] ~ ~ ~ execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=2,score_ACV_CUBE_ID=2] ~ ~ ~ scoreboard players tag @e[score_ACV_CUBE_ID_min=2,score_ACV_CUBE_ID=2] add ACV_CubeLinked
+/execute @p[score_ACV_CUBE_ID_min=3,score_ACV_CUBE_ID=3] ~ ~ ~ execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=3,score_ACV_CUBE_ID=3] ~ ~ ~ scoreboard players tag @e[score_ACV_CUBE_ID_min=3,score_ACV_CUBE_ID=3] add ACV_CubeLinked
+/execute @p[score_ACV_CUBE_ID_min=4,score_ACV_CUBE_ID=4] ~ ~ ~ execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=4,score_ACV_CUBE_ID=4] ~ ~ ~ scoreboard players tag @e[score_ACV_CUBE_ID_min=4,score_ACV_CUBE_ID=4] add ACV_CubeLinked
+/execute @p[score_ACV_CUBE_ID_min=5,score_ACV_CUBE_ID=5] ~ ~ ~ execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID_min=5,score_ACV_CUBE_ID=5] ~ ~ ~ scoreboard players tag @e[score_ACV_CUBE_ID_min=5,score_ACV_CUBE_ID=5] add ACV_CubeLinked
 
 /scoreboard players set @e[type=armor_stand,name=Weighted_Storage_Cube,tag=!ACV_CubeLinked] ACV_CUBE_ID 0
 /execute @a[tag=!ACV_CubeLinked] ~ ~ ~ /scoreboard players operation @e[type=armor_stand,name=Weighted_Storage_Cube,r=3,c=1] ACV_CUBE_ID += @p[tag=!ACV_CubeLinked] ACV_CUBE_ID
