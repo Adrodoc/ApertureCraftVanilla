@@ -22,13 +22,22 @@ surfaceValidation()
 
 
 
+install {
+  /scoreboard objectives add ACV_HEIGHT_VALIDATION dummy
+}
+
+uninstall {
+  /scoreboard objectives remove ACV_HEIGHT_VALIDATION
+}
+
 // Checks if there is air below a non floor Portal
 // If there is not, all directions of the affected creation are killed except for ACV_Up
 process heightValidation {
-/scoreboard players tag @e[type=armor_stand,name=ACV_Up] add ACV_HeightValidation
-/execute @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction] ~ ~ ~ detect ~ ~-1 ~ air * scoreboard players tag @e[type=armor_stand,tag=ACV_Direction,r=0,c=1] add ACV_HeightValidation
-/execute @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction] ~ ~ ~ detect ~ ~-1 ~ carpet * scoreboard players tag @e[type=armor_stand,tag=ACV_Direction,r=0,c=1] add ACV_HeightValidation
-/kill @e[type=armor_stand,tag=ACV_Direction,tag!=ACV_HeightValidation]
+/scoreboard players set @e[type=armor_stand,tag=ACV_Direction] ACV_HEIGHT_VALIDATION 0
+/scoreboard players set @e[type=armor_stand,name=ACV_Up] ACV_HEIGHT_VALIDATION 1
+/execute @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction] ~ ~ ~ detect ~ ~-1 ~ air * scoreboard players set @e[type=armor_stand,tag=ACV_Direction,r=0,c=1] ACV_HEIGHT_VALIDATION 1
+/execute @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction] ~ ~ ~ detect ~ ~-1 ~ carpet * scoreboard players set @e[type=armor_stand,tag=ACV_Direction,r=0,c=1] ACV_HEIGHT_VALIDATION 1
+/kill @e[type=armor_stand,tag=ACV_Direction,score_ACV_HEIGHT_VALIDATION=0]
 }
 
 
