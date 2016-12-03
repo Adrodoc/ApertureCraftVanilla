@@ -1,3 +1,13 @@
+install {
+  /scoreboard objectives add ACV_SURFACE_VALIDATION dummy
+  /scoreboard objectives add ACV_SURFACE_VALIDATION_STAT dummy
+}
+
+uninstall {
+  /scoreboard objectives remove ACV_SURFACE_VALIDATION
+  /scoreboard objectives remove ACV_SURFACE_VALIDATION_STAT
+}
+
 // Description:
 // Params: AS-ACV_Main, ASwT-ACV_DV_PARAM, SCV-color-Color
 // Return: dASwT-ACV_DV_RESULT
@@ -6,6 +16,134 @@
 
 impulse process ACV_validateDirections {
 /scoreboard players set DV_DIRECTION_MASK ACV_Internal 0
+
+
+// Description: Checks if both ACV_LowerBlock and ACV_UpperBlock are valid blocks.
+//              They are if they are non air, and either listed by the Block_Option or the Block_Option is empty.
+//              Invalid directions are killed.
+// SURFACE_VALIDATION {
+/execute @e[name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~-1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_Up],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~-1 ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_Up],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+
+/execute @e[name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_Down],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~1 ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_Down],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+
+/execute @e[name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~-1 ~-1 {CustomName:"ACV_LowerBlock",Tags:[ACV_South],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~ ~-1 {CustomName:"ACV_UpperBlock",Tags:[ACV_South],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+
+/execute @e[name=ACV_Main] ~ ~ ~ summon armor_stand ~-1 ~-1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_East],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[name=ACV_Main] ~ ~ ~ summon armor_stand ~-1 ~ ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_East],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+
+/execute @e[name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~-1 ~1 {CustomName:"ACV_LowerBlock",Tags:[ACV_North],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~ ~1 {CustomName:"ACV_UpperBlock",Tags:[ACV_North],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+
+/execute @e[name=ACV_Main] ~ ~ ~ summon armor_stand ~1 ~-1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_West],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[name=ACV_Main] ~ ~ ~ summon armor_stand ~1 ~ ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_West],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+
+
+/execute @e[type=armor_stand,name=ACV_LowerBlock] set SuccessCount @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] set SuccessCount @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+
+
+ACV_loadChunks()
+
+
+/scoreboard players set @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION 0
+/scoreboard players set @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION 0
+/testforblocks 0 1 1 6 2 1 0 1 2
+conditional: /scoreboard players set @e[type=armor_stand,tag=ACV_LowerBlock] ACV_SURFACE_VALIDATION 1
+conditional: /scoreboard players set @e[type=armor_stand,tag=ACV_UpperBlock] ACV_SURFACE_VALIDATION 1
+
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 0 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 1 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 2 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 3 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 4 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 5 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 6 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 0 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 1 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 2 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 3 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 4 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 5 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 6 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 0 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 1 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 2 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 3 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 4 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 5 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 6 1 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 0 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 1 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 2 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 3 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 4 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 5 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 6 2 1
+/scoreboard players operations @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURFACE_VALIDATION += @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
+
+
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ detect ~ ~ ~ air * scoreboard players set @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION 0
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ detect ~ ~ ~ air * scoreboard players set @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURFACE_VALIDATION 0
+
+
+/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_Up,score_ACV_SURFACE_VALIDATION=0] ~ ~1 ~ kill @e[type=armor_stand,name=ACV_Up,dy=0]
+/execute @e[type=armor_stand,name=ACV_UpperBlock,tag=ACV_Up,score_ACV_SURFACE_VALIDATION=0] ~ ~1 ~ kill @e[type=armor_stand,name=ACV_Up,dy=0]
+
+/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_Down,score_ACV_SURFACE_VALIDATION=0] ~ ~-1 ~ kill @e[type=armor_stand,name=ACV_Down,dy=0]
+/execute @e[type=armor_stand,name=ACV_UpperBlock,tag=ACV_Down,score_ACV_SURFACE_VALIDATION=0] ~ ~-1 ~ kill @e[type=armor_stand,name=ACV_Down,dy=0]
+
+/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_South,score_ACV_SURFACE_VALIDATION=0] ~ ~ ~1 kill @e[type=armor_stand,name=ACV_South,dy=0]
+/execute @e[type=armor_stand,name=ACV_UpperBlock,tag=ACV_South,score_ACV_SURFACE_VALIDATION=0] ~ ~ ~1 kill @e[type=armor_stand,name=ACV_South,dy=0]
+
+/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_East,score_ACV_SURFACE_VALIDATION=0] ~1 ~ ~ kill @e[type=armor_stand,name=ACV_East,dy=0]
+/execute @e[type=armor_stand,name=ACV_UpperBlock,tag=ACV_East,score_ACV_SURFACE_VALIDATION=0] ~1 ~ ~ kill @e[type=armor_stand,name=ACV_East,dy=0]
+
+/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_North,score_ACV_SURFACE_VALIDATION=0] ~ ~ ~-1 kill @e[type=armor_stand,name=ACV_North,dy=0]
+/execute @e[type=armor_stand,name=ACV_UpperBlock,tag=ACV_North,score_ACV_SURFACE_VALIDATION=0] ~ ~ ~-1 kill @e[type=armor_stand,name=ACV_North,dy=0]
+
+/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_West,score_ACV_SURFACE_VALIDATION=0] ~-1 ~ ~ kill @e[type=armor_stand,name=ACV_West,dy=0]
+/execute @e[type=armor_stand,name=ACV_UpperBlock,tag=ACV_West,score_ACV_SURFACE_VALIDATION=0] ~-1 ~ ~ kill @e[type=armor_stand,name=ACV_West,dy=0]
+
+
+/kill @e[name=ACV_LowerBlock]
+/kill @e[name=ACV_UpperBlock]
+
+// SURFACE_VALIDATION }
+
+
+
+
 /summon armor_stand ${this + 2} {CustomName:"ACV_validateDirections_for",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[name=ACV_validateDirections_for] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 skip
