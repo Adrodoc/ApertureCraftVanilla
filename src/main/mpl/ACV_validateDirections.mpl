@@ -146,23 +146,23 @@ conditional: /scoreboard players set DV_SV_VALID ACV_Internal 0
 /scoreboard players set DV_PV_VALID ACV_Internal 1
 /execute @e[name=ACV_Main] ~ ~ ~ /summon armor_stand ~ ~-1 ~ {CustomName:"ACV_PV_Frame",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[name=ACV_Main] ~ ~ ~ /summon armor_stand ~ ~ ~ {CustomName:"ACV_PV_Frame",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=!ACV_PortalDisplay,r=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
+/execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=!ACV_PortalDisplay,dy=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
 /scoreboard players test Color ACV_Internal 0 0
-conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=-1,r=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
+conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=-1,dy=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
 /scoreboard players test Color ACV_Internal 0 0
-conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,r=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
+conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,dy=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
 /scoreboard players test Color ACV_Internal 1 1
-conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=0,r=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
+conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=0,dy=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
 /scoreboard players test Color ACV_Internal 1 1
-conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,r=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
+conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,dy=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
 /scoreboard players test Color ACV_Internal 2 2
-conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=1,r=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
+conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=1,dy=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
 /scoreboard players test Color ACV_Internal 2 2
-conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,r=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
+conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,dy=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
 /scoreboard players test Color ACV_Internal 3 3
-conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=2,r=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
+conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=2,dy=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
 /scoreboard players test Color ACV_Internal 3 3
-conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=4,r=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
+conditional: /execute @e[name=ACV_PV_Frame] ~ ~ ~ /execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=4,dy=0,c=1] ~ ~ ~ /scoreboard players set DV_PV_VALID ACV_Internal 0
 
 /kill @e[name=ACV_PV_Frame]
 
@@ -189,12 +189,6 @@ invert: /kill @e[tag=ACV_DV_CURRENT]
 /execute @e[tag=ACV_DV_CURRENT,name=ACV_East] ~ ~ ~ /scoreboard players add DV_DIRECTION_MASK ACV_Internal 4
 /execute @e[tag=ACV_DV_CURRENT,name=ACV_North] ~ ~ ~ /scoreboard players add DV_DIRECTION_MASK ACV_Internal 2
 /execute @e[tag=ACV_DV_CURRENT,name=ACV_West] ~ ~ ~ /scoreboard players add DV_DIRECTION_MASK ACV_Internal 1
-
-
-
-// TODO: Portal Überlappung verhindern
-///execute @e[type=armor_stand,name=ACV_Main] ~ ~-1 ~ /execute @e[type=item_frame,r=0] ~ ~ ~ /kill @e[type=armor_stand,name=ACV_Main]
-///execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ /execute @e[type=item_frame,r=0] ~ ~ ~ /kill @e[type=armor_stand,name=ACV_Main]
 
 // for }
 }
