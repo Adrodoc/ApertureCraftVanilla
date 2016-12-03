@@ -23,6 +23,7 @@ impulse process ACV_validateDirections {
 //              If there is, all directions of the affected creation are killed
 // PORTAL_VALIDATION {
 
+/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=painting,dy=1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=!ACV_PortalDisplay,dy=1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
 /scoreboard players test Color ACV_Internal 0 0
 conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=-1,dy=1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
