@@ -18,11 +18,19 @@ impulse process ACV_validateDirections {
 /scoreboard players set DV_DIRECTION_MASK ACV_Internal 0
 
 
+// Description: Checks if there is air below a non floor Portal
+//              If there is not, all directions of the affected creation are killed except for ACV_Up
+// HEIGHT_VALIDATION {
+/scoreboard players tag @e[type=armor_stand,name=ACV_Up] add ACV_HeightValidation
+/execute @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction] ~ ~ ~ detect ~ ~-1 ~ air * scoreboard players tag @e[type=armor_stand,tag=ACV_Direction,r=0,c=1] add ACV_HeightValidation
+/execute @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction] ~ ~ ~ detect ~ ~-1 ~ carpet * scoreboard players tag @e[type=armor_stand,tag=ACV_Direction,r=0,c=1] add ACV_HeightValidation
+/kill @e[type=armor_stand,tag=ACV_Direction,tag!=ACV_HeightValidation]
+// HEIGHT_VALIDATION }
+
 
 // Description: Checks if there is already a Portal of a different color or an item frame or painting that would overlap
 //              If there is, all directions of the affected creation are killed
 // PORTAL_VALIDATION {
-
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=painting,dy=1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=!ACV_PortalDisplay,dy=1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
 /scoreboard players test Color ACV_Internal 0 0
@@ -41,14 +49,11 @@ conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=i
 conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=2,dy=0,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
 /scoreboard players test Color ACV_Internal 3 3
 conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=4,dy=0,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
-
-/kill @e[name=ACV_PortalValidationFrame]
-
 // PORTAL_VALIDATION }
 
 
 
-// Description: Checks if both ACV_LowerBlock and ACV_UpperBlock are valid blocks.
+// Description: Checks if both the upper and lower block is valid.
 //              They are if they are non air, and either listed by the Block_Option or the Block_Option is empty.
 //              Invalid directions are killed.
 // SURFACE_VALIDATION {
