@@ -106,8 +106,9 @@ ACV_loadChunks()
 
 
 /testforblocks 0 1 1 6 2 1 0 1 2
-conditional: /scoreboard players tag @e[type=armor_stand,tag=ACV_LowerBlock] add ACV_SurfaceValid
-conditional: /scoreboard players tag @e[type=armor_stand,tag=ACV_UpperBlock] add ACV_SurfaceValid
+conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_LowerBlock] add ACV_SurfaceValid
+conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_UpperBlock] add ACV_SurfaceValid
+
 
 /execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ testforblocks ~ ~ ~ ~ ~ ~ 0 1 1
 /execute @e[type=armor_stand,name=ACV_LowerBlock,score_ACV_SURFACE_VALIDATION_STAT_min=1] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] add ACV_SurfaceValid
