@@ -18,6 +18,35 @@ impulse process ACV_validateDirections {
 /scoreboard players set DV_DIRECTION_MASK ACV_Internal 0
 
 
+
+// Description: Checks if there is already a Portal of a different color or an item frame or painting that would overlap
+//              If there is, all directions of the affected creation are killed
+// PORTAL_VALIDATION {
+
+/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=!ACV_PortalDisplay,dy=1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
+/scoreboard players test Color ACV_Internal 0 0
+conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=-1,dy=1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
+/scoreboard players test Color ACV_Internal 0 0
+conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,dy=0,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
+/scoreboard players test Color ACV_Internal 1 1
+conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=0,dy=0,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
+/scoreboard players test Color ACV_Internal 1 1
+conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,dy=0,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
+/scoreboard players test Color ACV_Internal 2 2
+conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=1,dy=0,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
+/scoreboard players test Color ACV_Internal 2 2
+conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,dy=0,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
+/scoreboard players test Color ACV_Internal 3 3
+conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=2,dy=0,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
+/scoreboard players test Color ACV_Internal 3 3
+conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=4,dy=0,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=-1]
+
+/kill @e[name=ACV_PortalValidationFrame]
+
+// PORTAL_VALIDATION }
+
+
+
 // Description: Checks if both ACV_LowerBlock and ACV_UpperBlock are valid blocks.
 //              They are if they are non air, and either listed by the Block_Option or the Block_Option is empty.
 //              Invalid directions are killed.
@@ -138,7 +167,6 @@ conditional: /scoreboard players set @e[type=armor_stand,tag=ACV_UpperBlock] ACV
 
 /kill @e[name=ACV_LowerBlock]
 /kill @e[name=ACV_UpperBlock]
-
 // SURFACE_VALIDATION }
 
 
