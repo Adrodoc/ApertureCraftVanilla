@@ -172,6 +172,10 @@ conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_UpperBlock] ad
 /execute @e[type=armor_stand,name=ACV_UpperBlock,score_ACV_SURF_VALID_S_min=1] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] add ACV_SurfaceValid
 
 
+/execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ detect ~ ~ ~ piston_extension * scoreboard players tag @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] add ACV_SurfaceValid
+/execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ detect ~ ~ ~ piston_extension * scoreboard players tag @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] add ACV_SurfaceValid
+
+
 /execute @e[type=armor_stand,name=ACV_LowerBlock] ~ ~ ~ detect ~ ~ ~ air * scoreboard players tag @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] remove ACV_SurfaceValid
 /execute @e[type=armor_stand,name=ACV_UpperBlock] ~ ~ ~ detect ~ ~ ~ air * scoreboard players tag @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] remove ACV_SurfaceValid
 
