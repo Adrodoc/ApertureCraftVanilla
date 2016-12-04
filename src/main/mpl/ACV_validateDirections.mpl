@@ -99,8 +99,10 @@ process surfaceValidation {
 /execute @e[type=armor_stand,name=ACV_West] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~1 ~ ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_West],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
 
-/execute @e[type=armor_stand,name=ACV_LowerBlock] set SuccessCount @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURF_VALID_S
-/execute @e[type=armor_stand,name=ACV_UpperBlock] set SuccessCount @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURF_VALID_S
+/scoreboard players add @e[type=armor_stand,name=ACV_LowerBlock] ACV_SURF_VALID_S 0
+/scoreboard players add @e[type=armor_stand,name=ACV_UpperBlock] ACV_SURF_VALID_S 0
+/stats entity @e[type=armor_stand,name=ACV_LowerBlock] set SuccessCount @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURF_VALID_S
+/stats entity @e[type=armor_stand,name=ACV_UpperBlock] set SuccessCount @e[type=armor_stand,name=ACV_UpperBlock,r=0,c=1] ACV_SURF_VALID_S
 
 
 ACV_loadChunks()
