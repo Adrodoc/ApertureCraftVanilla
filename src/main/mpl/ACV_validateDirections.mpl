@@ -182,16 +182,16 @@ conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_UpperBlock] ad
 /execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_Down,tag=!ACV_SurfaceValid] ~ ~-1 ~ kill @e[type=armor_stand,name=ACV_Down,dy=0]
 /execute @e[type=armor_stand,name=ACV_UpperBlock,tag=ACV_Down,tag=!ACV_SurfaceValid] ~ ~-1 ~ kill @e[type=armor_stand,name=ACV_Down,dy=0]
 
-/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_South,tag=!ACV_SurfaceValid] ~ ~ ~1 kill @e[type=armor_stand,name=ACV_South,dy=0]
+/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_South,tag=!ACV_SurfaceValid] ~ ~1 ~1 kill @e[type=armor_stand,name=ACV_South,dy=0]
 /execute @e[type=armor_stand,name=ACV_UpperBlock,tag=ACV_South,tag=!ACV_SurfaceValid] ~ ~ ~1 kill @e[type=armor_stand,name=ACV_South,dy=0]
 
-/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_East,tag=!ACV_SurfaceValid] ~1 ~ ~ kill @e[type=armor_stand,name=ACV_East,dy=0]
+/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_East,tag=!ACV_SurfaceValid] ~1 ~1 ~ kill @e[type=armor_stand,name=ACV_East,dy=0]
 /execute @e[type=armor_stand,name=ACV_UpperBlock,tag=ACV_East,tag=!ACV_SurfaceValid] ~1 ~ ~ kill @e[type=armor_stand,name=ACV_East,dy=0]
 
-/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_North,tag=!ACV_SurfaceValid] ~ ~ ~-1 kill @e[type=armor_stand,name=ACV_North,dy=0]
+/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_North,tag=!ACV_SurfaceValid] ~ ~1 ~-1 kill @e[type=armor_stand,name=ACV_North,dy=0]
 /execute @e[type=armor_stand,name=ACV_UpperBlock,tag=ACV_North,tag=!ACV_SurfaceValid] ~ ~ ~-1 kill @e[type=armor_stand,name=ACV_North,dy=0]
 
-/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_West,tag=!ACV_SurfaceValid] ~-1 ~ ~ kill @e[type=armor_stand,name=ACV_West,dy=0]
+/execute @e[type=armor_stand,name=ACV_LowerBlock,tag=ACV_West,tag=!ACV_SurfaceValid] ~-1 ~1 ~ kill @e[type=armor_stand,name=ACV_West,dy=0]
 /execute @e[type=armor_stand,name=ACV_UpperBlock,tag=ACV_West,tag=!ACV_SurfaceValid] ~-1 ~ ~ kill @e[type=armor_stand,name=ACV_West,dy=0]
 
 
