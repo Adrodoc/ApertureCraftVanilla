@@ -7,7 +7,7 @@
 // * ACV_East
 // * ACV_North
 // * ACV_West
-impulse process ACV_validateDirections {
+process ACV_validateDirections {
 ACV_spaceValidation()
 ACV_portalValidation()
 ACV_surfaceValidation()
