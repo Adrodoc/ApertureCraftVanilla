@@ -8,9 +8,9 @@
 // * ACV_North
 // * ACV_West
 impulse process ACV_validateDirections {
-heightValidation()
-portalValidation()
-surfaceValidation()
+ACV_heightValidation()
+ACV_portalValidation()
+ACV_surfaceValidation()
 
 /execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction]
 /execute @e[type=armor_stand,name=ACV_Down] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_Down,tag=ACV_Direction]
@@ -32,7 +32,7 @@ uninstall {
 
 // Checks if there is air below a non floor Portal
 // If there is not, all directions of the affected creation are killed except for ACV_Up
-process heightValidation {
+process ACV_heightValidation {
 /scoreboard players set @e[type=armor_stand,tag=ACV_Direction] ACV_HEIGHT_VALID 0
 /scoreboard players set @e[type=armor_stand,name=ACV_Up] ACV_HEIGHT_VALID 1
 /execute @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction] ~ ~ ~ detect ~ ~-1 ~ air * scoreboard players set @e[type=armor_stand,tag=ACV_Direction,r=0,c=1] ACV_HEIGHT_VALID 1
@@ -44,7 +44,7 @@ process heightValidation {
 
 // Checks if there is already a Portal of a different color or an item frame or painting that would overlap
 // If there is, all directions of the affected creation are killed
-process portalValidation {
+process ACV_portalValidation {
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=painting,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=!ACV_PortalDisplay,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
 /scoreboard players test Color ACV_Internal 0 0
@@ -79,7 +79,7 @@ uninstall {
 // Checks if both the upper and lower block is valid.
 // They are if they are non air, and either listed by the Block_Option or the Block_Option is empty.
 // Invalid directions are killed.
-process surfaceValidation {
+process ACV_surfaceValidation {
 /execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~ ~-1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_Up],NoGravity:1b,Invisible:1b,Invulnerable:1b}
 /execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~ ~-1 ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_Up],NoGravity:1b,Invisible:1b,Invulnerable:1b}
 
