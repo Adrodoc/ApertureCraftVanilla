@@ -113,9 +113,7 @@ Control_Panel {
 Block_Option {
 /setblock ~ ~3 ~ standing_sign 8 replace {Text1:"{\"text\":\"\"}",Text2:"{\"text\":\"Block-Option\",\"color\":\"black\",\"bold\":\"true\"}",Text3:"{\"text\":\"\"}",Text4:"{\"text\":\"\"}"}
 
-/clone ~-3 ~-2 ~-1 ~3 ~-1 ~-1 0 1 1
-/fill 0 1 2 6 2 2 minecraft:air
-/tellraw @a [{"text":"[","color":"gold"},{"text":"Info","color":"gold","italic":"true"},{"text":"] ","color":"gold"},{"text":"Block-Option confirmed","color":"yellow"}]
+/execute @e[name=ACV_confirmBlockOption] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 Block_Option }
 
 Smooth_Teleport {

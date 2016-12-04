@@ -11,6 +11,7 @@ include "ACV_remote_deleteAllPortals.mpl"
 include "ACV_remote_createPortal.mpl"
 
 // Extra
+include "ACV_confirmBlockOption.mpl"
 include "ACV_teleportation.mpl"
 include "ACV_smoothTeleportation.mpl"
 include "ACV_lightBridges.mpl"
@@ -39,8 +40,7 @@ ACV_setupScoreboards()
 /fill ${origin + (6 1 -13)} ${origin + (9 3 -13)} stained_hardened_clay 13 replace stained_hardened_clay 14
 
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"gold","extra":[{"text":"Setting up Block-Option","color":"yellow"}]}
-/setblock ${origin + (6 4 -4)} redstone_block
-/setblock ${origin + (6 4 -4)} stone
+ACV_confirmBlockOption()
 }
 
 
