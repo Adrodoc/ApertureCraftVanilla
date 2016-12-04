@@ -2,11 +2,8 @@
 // Params: AS-ACV_Main, dASwT-ACV_DV_PARAM, SCV-color-Color
 // Return: ASwS-ACV_COLOR, IFwS-ACV_COLOR
 impulse process ACV_createPortal {
-start ACV_validateDirections
-/summon armor_stand ${this + 1} {CustomName:"ACV_validateDirections_return",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-skip
-impulse: /setblock ${this - 1} stone
-if not: /testfor @e[type=armor_stand,tag=ACV_DV_RESULT]
+ACV_validateDirections()
+if not: /testfor @e[type=armor_stand,tag=ACV_Direction]
 then {
   start ACV_createPortalFailed
 } else {
