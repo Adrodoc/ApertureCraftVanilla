@@ -8,7 +8,7 @@
 // * ACV_North
 // * ACV_West
 impulse process ACV_validateDirections {
-ACV_heightValidation()
+ACV_spaceValidation()
 ACV_portalValidation()
 ACV_surfaceValidation()
 
@@ -30,9 +30,9 @@ uninstall {
   /scoreboard objectives remove ACV_HEIGHT_VALID
 }
 
-// Checks if there is air below a non floor Portal
+// Checks if there is enough space to create the portal (is there air or carpet below a non floor Portal)
 // If there is not, all directions of the affected creation are killed except for ACV_Up
-process ACV_heightValidation {
+process ACV_spaceValidation {
 /scoreboard players set @e[type=armor_stand,tag=ACV_Direction] ACV_HEIGHT_VALID 0
 /scoreboard players set @e[type=armor_stand,name=ACV_Up] ACV_HEIGHT_VALID 1
 /execute @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction] ~ ~ ~ detect ~ ~-1 ~ air * scoreboard players set @e[type=armor_stand,tag=ACV_Direction,r=0,c=1] ACV_HEIGHT_VALID 1
