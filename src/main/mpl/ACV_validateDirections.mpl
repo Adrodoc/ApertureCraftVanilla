@@ -79,23 +79,23 @@ uninstall {
 // They are if they are non air, and either listed by the Block_Option or the Block_Option is empty.
 // Invalid directions are killed.
 process surfaceValidation {
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~-1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_Up],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~-1 ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_Up],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~ ~-1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_Up],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~ ~-1 ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_Up],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_Down],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~1 ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_Down],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_Down] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~ ~1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_Down],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_Down] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~ ~1 ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_Down],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~-1 ~-1 {CustomName:"ACV_LowerBlock",Tags:[ACV_South],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~ ~-1 {CustomName:"ACV_UpperBlock",Tags:[ACV_South],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_South] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~ ~-1 ~-1 {CustomName:"ACV_LowerBlock",Tags:[ACV_South],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_South] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~ ~ ~-1 {CustomName:"ACV_UpperBlock",Tags:[ACV_South],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~-1 ~-1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_East],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~-1 ~ ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_East],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_East] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~-1 ~-1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_East],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_East] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~-1 ~ ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_East],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~-1 ~1 {CustomName:"ACV_LowerBlock",Tags:[ACV_North],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~ ~1 {CustomName:"ACV_UpperBlock",Tags:[ACV_North],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_North] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~ ~-1 ~1 {CustomName:"ACV_LowerBlock",Tags:[ACV_North],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_North] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~ ~ ~1 {CustomName:"ACV_UpperBlock",Tags:[ACV_North],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~1 ~-1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_West],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~1 ~ ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_West],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_West] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~1 ~-1 ~ {CustomName:"ACV_LowerBlock",Tags:[ACV_West],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_West] ~ ~ ~ execute @e[type=armor_stand,name=ACV_Main,dy=0] ~ ~ ~ summon armor_stand ~1 ~ ~ {CustomName:"ACV_UpperBlock",Tags:[ACV_West],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
 
 /execute @e[type=armor_stand,name=ACV_LowerBlock] set SuccessCount @e[type=armor_stand,name=ACV_LowerBlock,r=0,c=1] ACV_SURFACE_VALIDATION_STAT
