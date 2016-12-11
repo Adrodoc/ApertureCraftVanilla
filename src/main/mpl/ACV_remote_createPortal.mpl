@@ -27,7 +27,11 @@ impulse: /setblock ${this - 1} stone
 /execute @e[name=ACV_remote_createPortal_PARAM] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_North",Tags:[ACV_Direction],NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
 /execute @e[name=ACV_remote_createPortal_PARAM] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_West",Tags:[ACV_Direction],NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
 /execute @e[name=ACV_remote_createPortal_PARAM] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_Main",NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
+
+/execute @e[name=ACV_remote_createPortal_PARAM,tag=ACV_Blue] ~ ~ ~ scoreboard players set @e[type=armor_stand,name=ACV_Main,r=0] ACV_COLOR 0
+/execute @e[name=ACV_remote_createPortal_PARAM,tag=ACV_Orange] ~ ~ ~ scoreboard players set @e[type=armor_stand,name=ACV_Main,r=0] ACV_COLOR 1
+/execute @e[name=ACV_remote_createPortal_PARAM,tag=ACV_Purple] ~ ~ ~ scoreboard players set @e[type=armor_stand,name=ACV_Main,r=0] ACV_COLOR 2
+/execute @e[name=ACV_remote_createPortal_PARAM,tag=ACV_Red] ~ ~ ~ scoreboard players set @e[type=armor_stand,name=ACV_Main,r=0] ACV_COLOR 3
 /kill @e[name=ACV_remote_createPortal_PARAM]
-/scoreboard players operation @e[type=armor_stand,name=ACV_Main] ACV_COLOR = Color ACV_Interface
-start ACV_createPortal
+ACV_createPortal()
 }
