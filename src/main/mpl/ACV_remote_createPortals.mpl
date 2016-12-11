@@ -1,9 +1,6 @@
-// Description: Creates a Portal specified by SCV-color-Color-ACV_Interface
-// Params: AS-ACV_remote_createPortals_PARAM, SCV-color-Color-ACV_Interface
-// Return:
-
-
-
+// Creates a portal for each entity with the name ACV_remote_createPortals_PARAM
+// The color is specified by tagging the entity with one of: ACV_Blue, ACV_Orange, ACV_Purple or ACV_Red
+// Params: entity named ACV_remote_createPortals_PARAM
 impulse process ACV_remote_createPortals {
 /execute @e[name=ACV_online] ~ ~ ~ /testforblock ~ ~ ~ redstone_block
 conditional: /setblock ${this + 4} redstone_block
