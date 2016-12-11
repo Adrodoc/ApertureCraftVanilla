@@ -6,7 +6,7 @@ repeat process ACV_lightBridges {
 /execute @e[type=armor_stand,name=ACV_LightBridge] ~ ~ ~ detect ~ ~ ~ minecraft:carpet 3 scoreboard players tag @e[r=0,c=1] add ACV_InAir
 /execute @e[type=armor_stand,name=ACV_LightBridge] ~ ~ ~ detect ~ ~ ~ minecraft:piston_extension -1 execute @e[r=0,c=1] ~ ~ ~ detect ~ ~1 ~ minecraft:carpet 3 scoreboard players tag @e[r=0,c=1] add ACV_InAir
 
-/execute @e[type=armor_stand,name=ACV_LightBridge,tag=!ACV_InAir] ~ ~ ~ scoreboard players tag @e[name=ACV_PortalIn,dy=0] add ACV_CLB_PARAM
+/execute @e[type=armor_stand,name=ACV_LightBridge,tag=!ACV_InAir] ~ ~ ~ scoreboard players tag @e[name=ACV_PortalIn,dy=0] add ACV_calculateLightBridges_PARAM
 /entitydata @e[type=armor_stand,name=ACV_LightBridge,tag=!ACV_InAir] {CustomName:"ACV_LightBridgeEnd"}
 conditional: start ACV_calculateLightBridges
 
