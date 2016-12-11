@@ -44,8 +44,8 @@ ACV_deletePortal()
 /execute @e[type=armor_stand,name=ACV_East] ~ ~ ~ summon item_frame ~ ~-1 ~ {CustomName:"ACV_PortalMain",Tags:[ACV_East],Facing:3b,Invulnerable:1b}
 /execute @e[type=armor_stand,name=ACV_North] ~ ~ ~ summon item_frame ~ ~-1 ~ {CustomName:"ACV_PortalMain",Tags:[ACV_North],Facing:2b,Invulnerable:1b}
 /execute @e[type=armor_stand,name=ACV_West] ~ ~ ~ summon item_frame ~ ~-1 ~ {CustomName:"ACV_PortalMain",Tags:[ACV_West],Facing:1b,Invulnerable:1b}
-/scoreboard players operation @e[type=item_frame,name=ACV_PortalMain] ACV_COLOR = @e[type=armor_stand,name=ACV_Main,dy=1] ACV_COLOR
-/scoreboard players operation @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ACV_COLOR = @e[type=armor_stand,name=ACV_Main,dy=-1] ACV_COLOR
+/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ scoreboard players operation @e[type=item_frame,name=ACV_PortalMain,dy=-1] ACV_COLOR = @e[type=armor_stand,name=ACV_Main,r=0,c=1] ACV_COLOR
+/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ scoreboard players operation @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down,dy=1] ACV_COLOR = @e[type=armor_stand,name=ACV_Main,r=0,c=1] ACV_COLOR
 
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~0.46875 summon armor_stand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],Rotation:[0:0f,1:-90f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~0.46875 summon armor_stand ~ ~ ~ {CustomName:"ACV_PortalIn",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
@@ -90,15 +90,15 @@ ACV_deletePortal()
 /scoreboard players set @e[tag=ACV_West] ACV_DIRECTION 1
 
 // Set the color scores
-/scoreboard players operation @e[type=armor_stand,name=ACV_PortalOut] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,dy=0] ACV_COLOR
-/scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,dy=0] ACV_COLOR
-/scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn,tag=ACV_South] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_South,dz=1] ACV_COLOR
-/scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn,tag=ACV_East] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_East,dx=1] ACV_COLOR
-/scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn,tag=ACV_North] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_North,dz=-1] ACV_COLOR
-/scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn,tag=ACV_West] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_West,dx=-1] ACV_COLOR
-/scoreboard players operation @e[type=item_frame,name=ACV_PortalDisplay] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,dy=-1] ACV_COLOR
-/scoreboard players operation @e[type=armor_stand,name=ACV_PortalDisplay,tag=ACV_Up] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up,dy=2] ACV_COLOR
-/scoreboard players operation @e[type=armor_stand,name=ACV_PortalDisplay,tag=ACV_Down] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down,dy=2] ACV_COLOR
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalOut,dy=0] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,r=0,c=1] ACV_COLOR
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn,dy=0] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,r=0,c=1] ACV_COLOR
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_South] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn,tag=ACV_South,dz=-1] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_South,r=0,c=1] ACV_COLOR
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_East] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn,tag=ACV_East,dx=-1] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_East,r=0,c=1] ACV_COLOR
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_North] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn,tag=ACV_North,dz=1] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_North,r=0,c=1] ACV_COLOR
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_West] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn,tag=ACV_West,dx=1] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_West,r=0,c=1] ACV_COLOR
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ scoreboard players operation @e[type=item_frame,name=ACV_PortalDisplay,dy=1] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain] ACV_COLOR
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalDisplay,tag=ACV_Up,dy=-2] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ACV_COLOR
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalDisplay,tag=ACV_Down,dy=-2] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ACV_COLOR
 
 // Teleport the new ACV_PortalOut to it's final position
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~-0.43 ~0.46875 /tp @e[type=armor_stand,name=ACV_PortalOut,tag=ACV_Up,dy=0] ~ ~2 ~
