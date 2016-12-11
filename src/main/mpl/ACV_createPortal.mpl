@@ -36,10 +36,10 @@ ACV_openConnections()
 ACV_createPortalSucceeded()
 
 /scoreboard players test Color ACV_Internal 0 1
-conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=1] add ACV_calculateLightBridges_PARAM
+conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=1] add ACV_createLightBridges_PARAM
 /scoreboard players test Color ACV_Internal 2 3
-conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=3] add ACV_calculateLightBridges_PARAM
-start ACV_calculateLightBridges
+conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=3] add ACV_createLightBridges_PARAM
+start ACV_createLightBridges
 }
 
 
