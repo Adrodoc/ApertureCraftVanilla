@@ -42,9 +42,8 @@ Gel Placement:
 /summon Item ~ ~-2 ~ {CustomName:"ACV_OrangeGel",Age:-32768,PickupDelay:32767,Item:{Count:1,Damage:1,id:"minecraft:wool"}}
 
 Portal Spawner:
-/summon armor_stand ~ ~-1 ~ {CustomName:"ACV_remote_createPortal_PARAM",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/scoreboard players set Color ACV_Interface 0
-/execute @e[name=ACV_remote_createPortal] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/summon armor_stand ~ ~-1 ~ {CustomName:"ACV_remote_createPortals_PARAM",Tags:["ACV_Blue"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[name=ACV_remote_createPortals] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 
 MEG_SPAWN_DELETE {
 /give @p minecraft:spawn_egg 1 0 {EntityTag:{id:"Squid"},display:{Name:"spawnMeg",Lore:["Use this to spawn","a Material Emancipation Grid"]}}
