@@ -33,7 +33,8 @@ conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,score
 conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=3] add ACV_createLightBridges_PARAM
 start ACV_createLightBridges
 
-ACV_createPortalSucceeded()
+ACV_handleSuccessfulPortals()
+/kill @e[name=ACV_Main]
 }
 
 
