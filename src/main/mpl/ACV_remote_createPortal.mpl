@@ -17,19 +17,17 @@ impulse: /setblock ${this - 1} stone
 /kill @e[name=ACV_online,r=2]
 /kill @e[name=ACV_Main]
 /entitydata @e[name=ACV_online_intercepted] {CustomName:"ACV_online"}
-/scoreboard players operation Color ACV_Internal = Color ACV_Interface
-/entitydata @e[name=ACV_remote_createPortal_PARAM] {CustomName:"ACV_Main"}
-/execute @e[name=ACV_processMain] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-/summon armor_stand ${this + 1} {CustomName:"ACV_createPortal",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 
-skip
+/kill @e[type=armor_stand,tag=ACV_Direction]
 
-impulse: /setblock ${this - 1} stone
-/kill @e[name=ACV_createPortal,r=2]
-/scoreboard players tag @e[name=ACV_Up] add ACV_DV_PARAM
-/scoreboard players tag @e[name=ACV_Down] add ACV_DV_PARAM
-/scoreboard players tag @e[name=ACV_South] add ACV_DV_PARAM
-/scoreboard players tag @e[name=ACV_East] add ACV_DV_PARAM
-/scoreboard players tag @e[name=ACV_North] add ACV_DV_PARAM
-/scoreboard players tag @e[name=ACV_West] add ACV_DV_PARAM
+/execute @e[name=ACV_remote_createPortal_PARAM] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_Up",Tags:[ACV_Direction],NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
+/execute @e[name=ACV_remote_createPortal_PARAM] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_Down",Tags:[ACV_Direction],NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
+/execute @e[name=ACV_remote_createPortal_PARAM] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_South",Tags:[ACV_Direction],NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
+/execute @e[name=ACV_remote_createPortal_PARAM] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_East",Tags:[ACV_Direction],NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
+/execute @e[name=ACV_remote_createPortal_PARAM] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_North",Tags:[ACV_Direction],NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
+/execute @e[name=ACV_remote_createPortal_PARAM] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_West",Tags:[ACV_Direction],NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
+/execute @e[name=ACV_remote_createPortal_PARAM] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_Main",Tags:[ACV_Direction],NoGravity:1,Invisible:1,Invulnerable:1,Marker:1}
+/kill @e[name=ACV_remote_createPortal_PARAM]
+/scoreboard players operation @e[type=armor_stand,name=ACV_Main] ACV_COLOR = Color ACV_Interface
+start ACV_createPortal
 }
