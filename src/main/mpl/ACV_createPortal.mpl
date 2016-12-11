@@ -151,21 +151,13 @@ ACV_deletePortal()
 // Params: SCV-color-Color
 // Return:
 //OPEN_CONNECTION {
-/scoreboard players test Color ACV_Internal 0 1
-conditional: /testfor @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=0]
-conditional: /testfor @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=1,score_ACV_COLOR=1]
-conditional: /execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ fill ~ ~ ~ ~ ~1 ~ piston_extension
-// If only one of the portals exists set the surface to barrier if is a horizontal portal
-invert: /scoreboard players test Color ACV_Internal 0 1
-conditional: /execute @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ setblock ~ ~2 ~ barrier
+/execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ fill ~ ~ ~ ~ ~1 ~ piston_extension
+// If only one of the portals exists set the surface of horizontal portals to barrier
+invert: /execute @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ setblock ~ ~2 ~ barrier
 
-/scoreboard players test Color ACV_Internal 2 3
-conditional: /testfor @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=2]
-conditional: /testfor @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=3,score_ACV_COLOR=3]
-conditional: /execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ fill ~ ~ ~ ~ ~1 ~ piston_extension
-// If only one of the portals exists set the surface to barrier if is a horizontal portal
-invert: /scoreboard players test Color ACV_Internal 2 3
-conditional: /execute @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ setblock ~ ~2 ~ barrier
+/execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ fill ~ ~ ~ ~ ~1 ~ piston_extension
+// If only one of the portals exists set the surface of horizontal portals to barrier
+invert: /execute @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ setblock ~ ~2 ~ barrier
 //OPEN_CONNECTION }
 
 
