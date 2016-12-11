@@ -38,12 +38,12 @@ ACV_deletePortal()
 // Params: AS-ACV_Main, dAS, SCV-color-Color
 // Return: AS-ACV_PortalOut, AS-ACV_PortalIn, AS-ACV_PortalDisplay, IF-ACV_PortalDisplay
 //CREATE_PORTAL {
-/execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ /execute @e[type=armor_stand,name=ACV_Main] ~ ~-1 ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalMain",Facing:0b,Invulnerable:1b}
-/execute @e[type=armor_stand,name=ACV_Down] ~ ~ ~ /execute @e[type=armor_stand,name=ACV_Main] ~ ~1 ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalMain",Facing:0b,Invulnerable:1b}
-/execute @e[type=armor_stand,name=ACV_South] ~ ~ ~ /execute @e[type=armor_stand,name=ACV_Main] ~ ~-1 ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalMain",Facing:0b,Invulnerable:1b}
-/execute @e[type=armor_stand,name=ACV_East] ~ ~ ~ /execute @e[type=armor_stand,name=ACV_Main] ~ ~-1 ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalMain",Facing:3b,Invulnerable:1b}
-/execute @e[type=armor_stand,name=ACV_North] ~ ~ ~ /execute @e[type=armor_stand,name=ACV_Main] ~ ~-1 ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalMain",Facing:2b,Invulnerable:1b}
-/execute @e[type=armor_stand,name=ACV_West] ~ ~ ~ /execute @e[type=armor_stand,name=ACV_Main] ~ ~-1 ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalMain",Facing:1b,Invulnerable:1b}
+/execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ summon item_frame ~ ~-1 ~ {CustomName:"ACV_PortalMain",Facing:0b,Invulnerable:1b}
+/execute @e[type=armor_stand,name=ACV_Down] ~ ~ ~ summon item_frame ~ ~1 ~ {CustomName:"ACV_PortalMain",Facing:0b,Invulnerable:1b}
+/execute @e[type=armor_stand,name=ACV_South] ~ ~ ~ summon item_frame ~ ~-1 ~ {CustomName:"ACV_PortalMain",Facing:0b,Invulnerable:1b}
+/execute @e[type=armor_stand,name=ACV_East] ~ ~ ~ summon item_frame ~ ~-1 ~ {CustomName:"ACV_PortalMain",Facing:3b,Invulnerable:1b}
+/execute @e[type=armor_stand,name=ACV_North] ~ ~ ~ summon item_frame ~ ~-1 ~ {CustomName:"ACV_PortalMain",Facing:2b,Invulnerable:1b}
+/execute @e[type=armor_stand,name=ACV_West] ~ ~ ~ summon item_frame ~ ~-1 ~ {CustomName:"ACV_PortalMain",Facing:1b,Invulnerable:1b}
 
 /execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~0.46875 summon armor_stand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_TpProof],Rotation:[0:0f,1:-90f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~0.46875 summon armor_stand ~ ~ ~ {CustomName:"ACV_PortalIn",Tags:[ACV_TpProof],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
