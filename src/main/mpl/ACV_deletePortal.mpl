@@ -1,6 +1,6 @@
 // Deletes all portals whose color is specified by an entity tagged with ACV_deletePortal_PARAM
 // Params: entities with tag ACV_deletePortal_PARAM and a score of ACV_COLOR
-process ACV_deletePortal {
+process ACV_deletePortals {
   triggerAntiBridges()
   closeConnections()
   killPortals()

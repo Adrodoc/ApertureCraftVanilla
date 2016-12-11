@@ -11,33 +11,11 @@ then {
 }
 }
 
-install {
-  /scoreboard teams add ACV_BluePortal
-  /scoreboard teams add ACV_OrangePortal
-  /scoreboard teams add ACV_PurplePortal
-  /scoreboard teams add ACV_RedPortal
-  /scoreboard teams option ACV_BluePortal color aqua
-  /scoreboard teams option ACV_OrangePortal color gold
-  /scoreboard teams option ACV_PurplePortal color dark_blue
-  /scoreboard teams option ACV_RedPortal color dark_red
-}
-
-uninstall {
-  /scoreboard teams remove ACV_BluePortal
-  /scoreboard teams remove ACV_OrangePortal
-  /scoreboard teams remove ACV_PurplePortal
-  /scoreboard teams remove ACV_RedPortal
-}
-
 impulse process ACV_createNewPortal {
 /summon armor_stand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /scoreboard players operation @e[type=armor_stand,name=ACV_deletePortal_PARAM] ACV_COLOR = Color ACV_Internal
-ACV_deletePortal()
+ACV_deletePortals()
 
-// Description: Creates a Portal
-// Params: AS-ACV_Main, dAS, SCV-color-Color
-// Return: AS-ACV_PortalOut, AS-ACV_PortalIn, AS-ACV_PortalDisplay, IF-ACV_PortalDisplay
-//CREATE_PORTAL {
 /execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ summon item_frame ~ ~-1 ~ {CustomName:"ACV_PortalMain",Tags:[ACV_Up],Facing:0b,Invulnerable:1b}
 /execute @e[type=armor_stand,name=ACV_Down] ~ ~ ~ summon item_frame ~ ~1 ~ {CustomName:"ACV_PortalMain",Tags:[ACV_Down],Facing:0b,Invulnerable:1b}
 /execute @e[type=armor_stand,name=ACV_South] ~ ~ ~ summon item_frame ~ ~-1 ~ {CustomName:"ACV_PortalMain",Tags:[ACV_South],Facing:0b,Invulnerable:1b}
@@ -46,7 +24,27 @@ ACV_deletePortal()
 /execute @e[type=armor_stand,name=ACV_West] ~ ~ ~ summon item_frame ~ ~-1 ~ {CustomName:"ACV_PortalMain",Tags:[ACV_West],Facing:1b,Invulnerable:1b}
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ scoreboard players operation @e[type=item_frame,name=ACV_PortalMain,dy=-1] ACV_COLOR = @e[type=armor_stand,name=ACV_Main,r=0,c=1] ACV_COLOR
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ scoreboard players operation @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down,dy=1] ACV_COLOR = @e[type=armor_stand,name=ACV_Main,r=0,c=1] ACV_COLOR
+ACV_spawnPortals()
+ACV_texturePortals()
+/kill @e[type=item_frame,name=ACV_PortalMain]
 
+ACV_openConnections()
+
+ACV_createPortalSucceeded()
+
+/scoreboard players test Color ACV_Internal 0 1
+conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=1] add ACV_CLB_PARAM
+/scoreboard players test Color ACV_Internal 2 3
+conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=3] add ACV_CLB_PARAM
+start ACV_calculateLightBridges
+}
+
+
+
+// Spawn the armorstands and itemframes of a portal for each direction armorstand
+// Params: AS-ACV_PortalMain
+// Return: AS-ACV_PortalIn, AS-ACV_PortalOut, AS-ACV_PortalDisplay, IF-ACV_PortalDisplay
+process ACV_spawnPortals {
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~0.46875 summon armor_stand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],Rotation:[0:0f,1:-90f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~0.46875 summon armor_stand ~ ~ ~ {CustomName:"ACV_PortalIn",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~ summon armor_stand ~-0.21 ~-1.51 ~0.7 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],Rotation:[0:-90f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
@@ -103,8 +101,31 @@ ACV_deletePortal()
 // Teleport the new ACV_PortalOut to it's final position
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~-0.43 ~0.46875 /tp @e[type=armor_stand,name=ACV_PortalOut,tag=ACV_Up,dy=0] ~ ~2 ~
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~-0.43 ~0.46875 /tp @e[type=armor_stand,name=ACV_PortalOut,tag=ACV_Down,dy=0] ~ ~-2 ~
+}
 
-//TEXTURE PORTALS {
+
+
+install {
+  /scoreboard teams add ACV_BluePortal
+  /scoreboard teams add ACV_OrangePortal
+  /scoreboard teams add ACV_PurplePortal
+  /scoreboard teams add ACV_RedPortal
+  /scoreboard teams option ACV_BluePortal color aqua
+  /scoreboard teams option ACV_OrangePortal color gold
+  /scoreboard teams option ACV_PurplePortal color dark_blue
+  /scoreboard teams option ACV_RedPortal color dark_red
+}
+
+uninstall {
+  /scoreboard teams remove ACV_BluePortal
+  /scoreboard teams remove ACV_OrangePortal
+  /scoreboard teams remove ACV_PurplePortal
+  /scoreboard teams remove ACV_RedPortal
+}
+
+// Texture the armorstands and itemframes of the portals and join them to their color team
+// Params: AS-ACV_PortalMain, AS-ACV_PortalDisplay
+process ACV_texturePortals {
 // texture blue portal
 /execute @e[type=item_frame,name=ACV_PortalMain] ~ ~-2 ~ entitydata @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0,dy=0] {ArmorItems:[{},{},{},{id:"minecraft:skull",Count:1,Damage:3,tag:{SkullOwner:{Id:"cc01bc38-881f-420e-86d9-2308d28b5840",Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmRhNmZiN2RlNzFhZjMyNTZhNjEzNWRjNjQ0NDRiNTY1ZGQ5YjkxMjM5NGUyNTU0MzViOWI3ZmQxYzU4MGFiIn19fQ=="}]}}}}]}
 /execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0,dy=0] {Item:{Damage:0,id:"minecraft:filled_map",Count:1}}
@@ -128,44 +149,34 @@ ACV_deletePortal()
 /execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3,dy=0] {Item:{Damage:6,id:"minecraft:filled_map",Count:1}}
 /execute @e[type=item_frame,name=ACV_PortalMain] ~ ~1 ~ entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3,dy=0] {Item:{Damage:7,id:"minecraft:filled_map",Count:1}}
 /execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ scoreboard teams join ACV_RedPortal @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3,dy=1]
-//TEXTURE PORTALS }
-
-/kill @e[type=item_frame,name=ACV_PortalMain]
-//CREATE_PORTAL }
+}
 
 
 
-// Description: Saves the blocks that will be replaced by the portal
-// Params: AS-ACV_PortalIn, SCV-color-Color
-// Return:
-//SAVE_BLOCK_SURFACE {
+// Save the blocks that will be replaced by the portal connection
+// Params: AS-ACV_Main, AS-ACV_PortalIn
+process ACV_saveSurfaceBlocks {
+ACV_loadChunks()
 /execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ clone ~ ~ ~ ~ ~1 ~ 0 1 0
 /execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ clone ~ ~ ~ ~ ~1 ~ 1 1 0
 /execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ clone ~ ~ ~ ~ ~1 ~ 2 1 0
 /execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ clone ~ ~ ~ ~ ~1 ~ 3 1 0
-//SAVE_BLOCK_SURFACE }
+}
 
 
 
-// Description: Opens the connection between the two portals specified by the color if both exist
-// Params: SCV-color-Color
-// Return:
-//OPEN_CONNECTION {
+// Open the connection between the two portals if both exist (regardless weather they are currently beeing created)
+// Params: AS-ACV_Main, AS-ACV_PortalIn, ACV_PortalDisplay
+process ACV_openConnections {
+ACV_saveSurfaceBlocks()
+
+// blue and orange
 /execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ fill ~ ~ ~ ~ ~1 ~ piston_extension
 // If only one of the portals exists set the surface of horizontal portals to barrier
 invert: /execute @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ setblock ~ ~2 ~ barrier
 
+// purple and red
 /execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ fill ~ ~ ~ ~ ~1 ~ piston_extension
 // If only one of the portals exists set the surface of horizontal portals to barrier
 invert: /execute @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ setblock ~ ~2 ~ barrier
-//OPEN_CONNECTION }
-
-
-
-ACV_createPortalSucceeded()
-/scoreboard players test Color ACV_Internal 0 1
-conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=1] add ACV_CLB_PARAM
-/scoreboard players test Color ACV_Internal 2 3
-conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=3] add ACV_CLB_PARAM
-start ACV_calculateLightBridges
 }
