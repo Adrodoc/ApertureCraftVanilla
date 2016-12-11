@@ -139,14 +139,10 @@ ACV_deletePortal()
 // Params: AS-ACV_PortalIn, SCV-color-Color
 // Return:
 //SAVE_BLOCK_SURFACE {
-/scoreboard players test Color ACV_Internal 0 0
-conditional: /execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ clone ~ ~ ~ ~ ~1 ~ 0 1 0
-/scoreboard players test Color ACV_Internal 1 1
-conditional: /execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ clone ~ ~ ~ ~ ~1 ~ 1 1 0
-/scoreboard players test Color ACV_Internal 2 2
-conditional: /execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ clone ~ ~ ~ ~ ~1 ~ 2 1 0
-/scoreboard players test Color ACV_Internal 3 3
-conditional: /execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ clone ~ ~ ~ ~ ~1 ~ 3 1 0
+/execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ clone ~ ~ ~ ~ ~1 ~ 0 1 0
+/execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ clone ~ ~ ~ ~ ~1 ~ 1 1 0
+/execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ clone ~ ~ ~ ~ ~1 ~ 2 1 0
+/execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ clone ~ ~ ~ ~ ~1 ~ 3 1 0
 //SAVE_BLOCK_SURFACE }
 
 
