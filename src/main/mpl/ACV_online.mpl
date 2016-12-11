@@ -8,6 +8,6 @@ conditional: start ACV_processMain
 /scoreboard players set @e[type=arrow,c=1] ACV_COLOR 1 {inGround:1b,damage:6.0}
 /scoreboard players set @e[type=arrow,c=1] ACV_COLOR 2 {inGround:1b,damage:6.5}
 /scoreboard players set @e[type=arrow,c=1] ACV_COLOR 3 {inGround:1b,damage:7.0}
-/scoreboard players operation Color ACV_Internal = @e[type=arrow,score_ACV_COLOR_min=0,c=1] ACV_COLOR
+/testfor @e[type=arrow,score_ACV_COLOR_min=0]
 conditional: stop
 }
