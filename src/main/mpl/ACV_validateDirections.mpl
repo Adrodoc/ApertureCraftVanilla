@@ -1,5 +1,5 @@
-// Check if a Portal can be spawned in any direction at the location of ACV_Main
-// All Armorstands with tag ACV_Direction that would result in an invalid Portal are killed.
+// Check if a portal can be spawned in any direction at the location of ACV_Main.
+// All armorstands with tag ACV_Direction that would result in an invalid portal are killed.
 // Of the remaining directions exactly one is retained with the following priority:
 // * ACV_Up
 // * ACV_Down
@@ -12,12 +12,12 @@ ACV_spaceValidation()
 ACV_portalValidation()
 ACV_surfaceValidation()
 
-/execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction]
-/execute @e[type=armor_stand,name=ACV_Down] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_Down,tag=ACV_Direction]
-/execute @e[type=armor_stand,name=ACV_South] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_South,tag=ACV_Direction]
-/execute @e[type=armor_stand,name=ACV_East] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_East,tag=ACV_Direction]
-/execute @e[type=armor_stand,name=ACV_North] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_North,tag=ACV_Direction]
-/execute @e[type=armor_stand,name=ACV_West] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_West,tag=ACV_Direction]
+/execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction,dy=0]
+/execute @e[type=armor_stand,name=ACV_Down] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_Down,tag=ACV_Direction,dy=0]
+/execute @e[type=armor_stand,name=ACV_South] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_South,tag=ACV_Direction,dy=0]
+/execute @e[type=armor_stand,name=ACV_East] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_East,tag=ACV_Direction,dy=0]
+/execute @e[type=armor_stand,name=ACV_North] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_North,tag=ACV_Direction,dy=0]
+/execute @e[type=armor_stand,name=ACV_West] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_West,tag=ACV_Direction,dy=0]
 }
 
 
