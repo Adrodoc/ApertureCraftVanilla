@@ -106,28 +106,28 @@ ACV_deletePortal()
 
 //TEXTURE PORTALS {
 // texture blue portal
-/entitydata @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0] {ArmorItems:[{},{},{},{id:"minecraft:skull",Count:1,Damage:3,tag:{SkullOwner:{Id:"cc01bc38-881f-420e-86d9-2308d28b5840",Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmRhNmZiN2RlNzFhZjMyNTZhNjEzNWRjNjQ0NDRiNTY1ZGQ5YjkxMjM5NGUyNTU0MzViOWI3ZmQxYzU4MGFiIn19fQ=="}]}}}}]}
-/entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0] {Item:{Damage:0,id:"minecraft:filled_map",Count:1}}
-/entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0] {Item:{Damage:1,id:"minecraft:filled_map",Count:1}}
-/scoreboard teams join ACV_BluePortal @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0]
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~-2 ~ entitydata @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0,dy=0] {ArmorItems:[{},{},{},{id:"minecraft:skull",Count:1,Damage:3,tag:{SkullOwner:{Id:"cc01bc38-881f-420e-86d9-2308d28b5840",Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmRhNmZiN2RlNzFhZjMyNTZhNjEzNWRjNjQ0NDRiNTY1ZGQ5YjkxMjM5NGUyNTU0MzViOWI3ZmQxYzU4MGFiIn19fQ=="}]}}}}]}
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0,dy=0] {Item:{Damage:0,id:"minecraft:filled_map",Count:1}}
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~1 ~ entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0,dy=0] {Item:{Damage:1,id:"minecraft:filled_map",Count:1}}
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ scoreboard teams join ACV_BluePortal @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0,dy=1]
 
 // texture orange portal
-/entitydata @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,score_ACV_COLOR=1] {ArmorItems:[{},{},{},{id:"minecraft:skull",Count:1,Damage:3,tag:{SkullOwner:{Id:"ff0f945d-8ef9-46f8-914d-53e0b5182a9e",Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWFlOTlhMjllYTc0YzUzOTdjOTQ3YWE5ZWQyMWE2NGYxMzUxMzIzNGZjYzFkYThmZDkwYjc5NWZkOTA4NSJ9fX0="}]}}}}]}
-/entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,score_ACV_COLOR=1] {Item:{Damage:2,id:"minecraft:filled_map",Count:1}}
-/entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,score_ACV_COLOR=1] {Item:{Damage:3,id:"minecraft:filled_map",Count:1}}
-/scoreboard teams join ACV_OrangePortal @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,score_ACV_COLOR=1]
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~-2 ~ entitydata @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,score_ACV_COLOR=1,dy=0] {ArmorItems:[{},{},{},{id:"minecraft:skull",Count:1,Damage:3,tag:{SkullOwner:{Id:"ff0f945d-8ef9-46f8-914d-53e0b5182a9e",Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWFlOTlhMjllYTc0YzUzOTdjOTQ3YWE5ZWQyMWE2NGYxMzUxMzIzNGZjYzFkYThmZDkwYjc5NWZkOTA4NSJ9fX0="}]}}}}]}
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,score_ACV_COLOR=1,dy=0] {Item:{Damage:2,id:"minecraft:filled_map",Count:1}}
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~1 ~ entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,score_ACV_COLOR=1,dy=0] {Item:{Damage:3,id:"minecraft:filled_map",Count:1}}
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ scoreboard teams join ACV_OrangePortal @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,score_ACV_COLOR=1,dy=1]
 
 // texture purple portal
-/entitydata @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=2] {ArmorItems:[{},{},{},{id:"minecraft:skull",Count:1,Damage:3,tag:{SkullOwner:{Id:"f6937a89-7e05-4eb0-9928-ec8664e3d21a",Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTlmODI4ODgyYjIyOTZmNzU1ZjY2YjY5NWM5YjQ4NGZkMjQzYzFiZmNmMjMxMzdmMTlhYzVhNTIxN2FmZGYifX19"}]}}}}]}
-/entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=2] {Item:{Damage:4,id:"minecraft:filled_map",Count:1}}
-/entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=2] {Item:{Damage:5,id:"minecraft:filled_map",Count:1}}
-/scoreboard teams join ACV_PurplePortal @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=2]
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~-2 ~ entitydata @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=2,dy=0] {ArmorItems:[{},{},{},{id:"minecraft:skull",Count:1,Damage:3,tag:{SkullOwner:{Id:"f6937a89-7e05-4eb0-9928-ec8664e3d21a",Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTlmODI4ODgyYjIyOTZmNzU1ZjY2YjY5NWM5YjQ4NGZkMjQzYzFiZmNmMjMxMzdmMTlhYzVhNTIxN2FmZGYifX19"}]}}}}]}
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=2,dy=0] {Item:{Damage:4,id:"minecraft:filled_map",Count:1}}
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~1 ~ entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=2,dy=0] {Item:{Damage:5,id:"minecraft:filled_map",Count:1}}
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ scoreboard teams join ACV_PurplePortal @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,score_ACV_COLOR=2,dy=1]
 
 // texture red portal
-/entitydata @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3] {ArmorItems:[{},{},{},{id:"minecraft:skull",Count:1,Damage:3,tag:{SkullOwner:{Id:"409b8064-7097-4059-b208-99f53f7d6bc3",Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTIxYzg5YWM0ODI4YjcyNzllMmJlZWZkZWI1NzVjZmQ3YzEyNTU1M2VhMmMzZjZiNTNhNjUxODRlNTY4NTYifX19"}]}}}}]}
-/entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3] {Item:{Damage:6,id:"minecraft:filled_map",Count:1}}
-/entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3] {Item:{Damage:7,id:"minecraft:filled_map",Count:1}}
-/scoreboard teams join ACV_RedPortal @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3]
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~-2 ~ entitydata @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3,dy=0] {ArmorItems:[{},{},{},{id:"minecraft:skull",Count:1,Damage:3,tag:{SkullOwner:{Id:"409b8064-7097-4059-b208-99f53f7d6bc3",Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTIxYzg5YWM0ODI4YjcyNzllMmJlZWZkZWI1NzVjZmQ3YzEyNTU1M2VhMmMzZjZiNTNhNjUxODRlNTY4NTYifX19"}]}}}}]}
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3,dy=0] {Item:{Damage:6,id:"minecraft:filled_map",Count:1}}
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~1 ~ entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3,dy=0] {Item:{Damage:7,id:"minecraft:filled_map",Count:1}}
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ scoreboard teams join ACV_RedPortal @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,score_ACV_COLOR=3,dy=1]
 //TEXTURE PORTALS }
 
 /kill @e[type=item_frame,name=ACV_PortalMain]
