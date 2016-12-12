@@ -9,6 +9,7 @@ repeat process ACV_lightBridges {
 /execute @e[type=armor_stand,name=ACV_LightBridge] ~ ~ ~ detect ~ ~ ~ piston_extension * execute @e[type=armor_stand,name=ACV_LightBridge,r=0,c=1] ~ ~ ~ detect ~ ~1 ~ carpet 3 scoreboard players tag @e[type=armor_stand,name=ACV_LightBridge,r=0,c=1] add ACV_InAir
 
 /execute @e[type=armor_stand,name=ACV_LightBridge,tag=!ACV_InAir] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,dy=0] add ACV_createLightBridges_PARAM
+/scoreboard players tag @e[type=armor_stand,name=ACV_LightBridge,tag=!ACV_InAir] add ACV_TpProof
 /entitydata @e[type=armor_stand,name=ACV_LightBridge,tag=!ACV_InAir] {CustomName:"ACV_LightBridgeEnd"}
 conditional: start ACV_createLightBridges
 
@@ -25,5 +26,7 @@ conditional: start ACV_createLightBridges
 /tp @e[type=armor_stand,name=ACV_LightBridge,rym=-45,ry=45] ~ ~ ~1
 
 // Wake up all idle light bridges
-/entitydata @e[name=ACV_LightBridge_Idle] {CustomName:"ACV_LightBridge"}
+/entitydata @e[type=armor_stand,name=ACV_LightBridge_Idle] {CustomName:"ACV_LightBridge"}
+
+/scoreboard players tag @e[type=armor_stand,name=ACV_LightBridge] add ACV_TpProof
 }

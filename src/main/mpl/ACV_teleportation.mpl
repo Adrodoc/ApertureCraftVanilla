@@ -5,10 +5,6 @@ repeat process ACV_teleportation {
 
 /execute @e[name=ACV_PortalIn] ~ ~ ~ /scoreboard players operation @e[tag=!ACV_TpProof,dy=0] ACV_TP_FROM = @e[r=0,c=1] ACV_COLOR
 
-/scoreboard players reset @e[name=ACV_LightBridge] ACV_TP_FROM
-/scoreboard players reset @e[name=ACV_LightBridgeEnd] ACV_TP_FROM
-/scoreboard players reset @e[name=ACV_AntiBridge] ACV_TP_FROM
-
 // Calulate the target portal
 /execute @e[score_ACV_TP_FROM_min=0] ~ ~ ~ /scoreboard players operation @e[r=0,c=1] ACV_TP_TO = @e[r=0,c=1] ACV_TP_FROM
 /execute @e[score_ACV_TP_FROM_min=0] ~ ~ ~ /scoreboard players operation @e[r=0,c=1] ACV_TP_UNEVEN = @e[r=0,c=1] ACV_TP_FROM

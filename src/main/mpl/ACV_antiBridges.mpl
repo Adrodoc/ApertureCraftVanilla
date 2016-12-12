@@ -3,12 +3,15 @@ repeat process ACV_antiBridges {
 // Wake up all idle anti bridges
 /execute @e[type=armor_stand,name=ACV_AntiBridge_Stopping] ~ ~ ~ entitydata @e[name=ACV_AntiBridge_Idle,dy=0] {CustomName:"ACV_AntiBridge"}
 
+/scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge] add ACV_TpProof
+
 /kill @e[type=armor_stand,name=ACV_AntiBridge_Stopping]
 
 /scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge,tag=ACV_InCarpet] remove ACV_InCarpet
 /execute @e[type=armor_stand,name=ACV_AntiBridge] ~ ~ ~ detect ~ ~ ~ carpet 3 scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge,r=0,c=1] add ACV_InCarpet
 
 /entitydata @e[type=armor_stand,name=ACV_AntiBridge,tag=!ACV_InCarpet] {CustomName:"ACV_AntiBridge_Stopping"}
+/scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge_Stopping] remove ACV_TpProof
 
 /scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge,tag=ACV_KeepCarpet] remove ACV_KeepCarpet
 /scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge,tag=ACV_KeepPistonExtension] remove ACV_KeepPistonExtension
