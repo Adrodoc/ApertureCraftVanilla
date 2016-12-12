@@ -1,6 +1,4 @@
 process ACV_deleteScoreboards {
-/scoreboard objectives remove ACV_Internal
-/scoreboard objectives remove ACV_Interface
 /scoreboard objectives remove ACV_COLOR
 /scoreboard objectives remove ACV_DIRECTION
 /scoreboard objectives remove ACV_CONSTANT

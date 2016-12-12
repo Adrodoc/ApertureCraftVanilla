@@ -1,6 +1,6 @@
 // Deletes all portals whose color is specified by an entity tagged with ACV_deletePortal_PARAM
 // Params: entities with tag ACV_deletePortal_PARAM and a score of ACV_COLOR
-process ACV_deletePortal {
+process ACV_deletePortals {
   triggerAntiBridges()
   closeConnections()
   killPortals()
@@ -30,10 +30,10 @@ process closeConnections {
 // Delete the specified portals
 // Params: entities with tag ACV_deletePortal_PARAM and a score of ACV_COLOR
 process killPortals {
-  /execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ kill @e[tag=!ACV_deletePortal_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=0]
-  /execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ kill @e[tag=!ACV_deletePortal_PARAM,score_ACV_COLOR_min=1,score_ACV_COLOR=1]
-  /execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ kill @e[tag=!ACV_deletePortal_PARAM,score_ACV_COLOR_min=2,score_ACV_COLOR=2]
-  /execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ kill @e[tag=!ACV_deletePortal_PARAM,score_ACV_COLOR_min=3,score_ACV_COLOR=3]
+  /execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ kill @e[tag=ACV_Portal,score_ACV_COLOR_min=0,score_ACV_COLOR=0]
+  /execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ kill @e[tag=ACV_Portal,score_ACV_COLOR_min=1,score_ACV_COLOR=1]
+  /execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ kill @e[tag=ACV_Portal,score_ACV_COLOR_min=2,score_ACV_COLOR=2]
+  /execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ kill @e[tag=ACV_Portal,score_ACV_COLOR_min=3,score_ACV_COLOR=3]
 }
 
 // Place barrier blocks at floor and ceiling portals, because otherwise the display turns dark

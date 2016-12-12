@@ -1,6 +1,4 @@
 process ACV_setupScoreboards {
-/scoreboard objectives add ACV_Internal dummy
-/scoreboard objectives add ACV_Interface dummy
 /scoreboard objectives add ACV_COLOR dummy
 /scoreboard objectives add ACV_DIRECTION dummy
 /scoreboard objectives add ACV_CONSTANT dummy

@@ -1,5 +1,5 @@
-// Check if a Portal can be spawned in any direction at the location of ACV_Main
-// All Armorstands with tag ACV_Direction that would result in an invalid Portal are killed.
+// Check if a portal can be spawned in any direction at the location of ACV_Main.
+// All armorstands with tag ACV_Direction that would result in an invalid portal are killed.
 // Of the remaining directions exactly one is retained with the following priority:
 // * ACV_Up
 // * ACV_Down
@@ -9,15 +9,15 @@
 // * ACV_West
 process ACV_validateDirections {
 ACV_spaceValidation()
-ACV_portalValidation()
+ACV_collisionValidation()
 ACV_surfaceValidation()
 
-/execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction]
-/execute @e[type=armor_stand,name=ACV_Down] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_Down,tag=ACV_Direction]
-/execute @e[type=armor_stand,name=ACV_South] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_South,tag=ACV_Direction]
-/execute @e[type=armor_stand,name=ACV_East] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_East,tag=ACV_Direction]
-/execute @e[type=armor_stand,name=ACV_North] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_North,tag=ACV_Direction]
-/execute @e[type=armor_stand,name=ACV_West] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_West,tag=ACV_Direction]
+/execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction,dy=0]
+/execute @e[type=armor_stand,name=ACV_Down] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_Down,tag=ACV_Direction,dy=0]
+/execute @e[type=armor_stand,name=ACV_South] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_South,tag=ACV_Direction,dy=0]
+/execute @e[type=armor_stand,name=ACV_East] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_East,tag=ACV_Direction,dy=0]
+/execute @e[type=armor_stand,name=ACV_North] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_North,tag=ACV_Direction,dy=0]
+/execute @e[type=armor_stand,name=ACV_West] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_West,tag=ACV_Direction,dy=0]
 }
 
 
@@ -30,8 +30,8 @@ uninstall {
   /scoreboard objectives remove ACV_HEIGHT_VALID
 }
 
-// Checks if there is enough space to create the portal (is there air or carpet below a non floor Portal)
-// If there is not, all directions of the affected creation are killed except for ACV_Up
+// Checks if there is enough space to create the portal (is there air or carpet below a non floor Portal),
+// if there is not, all directions of the affected creation are killed except for ACV_Up.
 process ACV_spaceValidation {
 /scoreboard players set @e[type=armor_stand,tag=ACV_Direction] ACV_HEIGHT_VALID 0
 /scoreboard players set @e[type=armor_stand,name=ACV_Up] ACV_HEIGHT_VALID 1
@@ -42,27 +42,19 @@ process ACV_spaceValidation {
 
 
 
-// Checks if there is already a Portal of a different color or an item frame or painting that would overlap
-// If there is, all directions of the affected creation are killed
-process ACV_portalValidation {
+// Checks if there is already a portal of a different color or an item frame or painting that would collide,
+// if there is, all directions of the affected creation are killed.
+process ACV_collisionValidation {
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=painting,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=!ACV_PortalDisplay,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
-/scoreboard players test Color ACV_Internal 0 0
-conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=-1,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
-/scoreboard players test Color ACV_Internal 0 0
-conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
-/scoreboard players test Color ACV_Internal 1 1
-conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=0,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
-/scoreboard players test Color ACV_Internal 1 1
-conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
-/scoreboard players test Color ACV_Internal 2 2
-conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=1,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
-/scoreboard players test Color ACV_Internal 2 2
-conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
-/scoreboard players test Color ACV_Internal 3 3
-conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=2,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
-/scoreboard players test Color ACV_Internal 3 3
-conditional: /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=4,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
+/execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=-1,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
+/execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=1,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
+/execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=0,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
+/execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=2,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
+/execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=1,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
+/execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=3,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
+/execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=2,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
+/execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=4,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
 }
 
 

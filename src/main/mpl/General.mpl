@@ -42,9 +42,8 @@ Gel Placement:
 /summon Item ~ ~-2 ~ {CustomName:"ACV_OrangeGel",Age:-32768,PickupDelay:32767,Item:{Count:1,Damage:1,id:"minecraft:wool"}}
 
 Portal Spawner:
-/summon armor_stand ~ ~-1 ~ {CustomName:"ACV_remote_createPortal_PARAM",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/scoreboard players set Color ACV_Interface 0
-/execute @e[name=ACV_remote_createPortal] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/summon armor_stand ~ ~-1 ~ {CustomName:"ACV_remote_createPortals_PARAM",Tags:["ACV_Blue"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[name=ACV_remote_createPortals] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 
 MEG_SPAWN_DELETE {
 /give @p minecraft:spawn_egg 1 0 {EntityTag:{id:"Squid"},display:{Name:"spawnMeg",Lore:["Use this to spawn","a Material Emancipation Grid"]}}
@@ -127,14 +126,14 @@ Smooth_Teleport {
 /entitydata @e[name=ACV_teleportation] {CustomName:"ACV_simpleTeleportation"}
 /entitydata @e[name=ACV_smoothTeleportation] {CustomName:"ACV_teleportation"}
 
-/execute @e[name=ACV_online] ~ ~ ~ detect ~ ~ ~ redstone_block 0 /execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/execute @e[name=ACV_portals] ~ ~ ~ detect ~ ~ ~ redstone_block 0 /execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 Smooth_Teleport }
 
 Portalsystem_on_off {
-/execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ stone
+/execute @e[name=ACV_portals] ~ ~ ~ /setblock ~ ~ ~ stone
 /execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ stone
 
-/execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/execute @e[name=ACV_portals] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 /execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 /tellraw @a {"text":"","extra":[{"text":"Welcome to","color":"gold"},{"text":" ApertureCraft Vanilla\n","color":"dark_aqua"},{"text":"   Version: ","color":"gold"},{"text":"8.2.0\n","color":"dark_aqua","italic":"true"},{"text":"   made by ","color":"yellow","italic":"true"},{"text":"Adrodoc55\n","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"Click to open YouTube Channel","color":"red"}},"clickEvent":{"action":"open_url","value":"https://www.youtube.com/user/Adrodoc55"}},{"text":"\nVisit me on ","color":"yellow"},{"text":"[Github]","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"Click to open Github","color":"red"}},"clickEvent":{"action":"open_url","value":"https://github.com/Adrodoc55/ApertureCraftVanilla"}},{"text":" to report Bugs and check for Updates\n","color":"yellow"}]}
 /setblock ~ ~ ~ redstone_block

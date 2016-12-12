@@ -7,5 +7,5 @@ impulse process ACV_remote_deletePortals {
 /scoreboard players set @e[name=ACV_remote_deletePortals_PARAM_purple] ACV_COLOR 2
 /scoreboard players set @e[name=ACV_remote_deletePortals_PARAM_red] ACV_COLOR 3
 ACV_loadChunks()
-ACV_deletePortal()
+ACV_deletePortals()
 }
