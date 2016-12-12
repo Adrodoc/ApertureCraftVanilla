@@ -141,14 +141,6 @@ Portalsystem_on_off {
 /tellraw @a {"text":"ApertureCraft Vanilla has been installed. Please restart the System to enable it!","color":"red"}
 Portalsystem_on_off }
 
-Lightbridges_on_off {
-/execute @e[name=ACV_lightBridges] ~ ~ ~ /setblock ~ ~ ~ stone
-/execute @e[name=ACV_antiBridges] ~ ~ ~ /setblock ~ ~ ~ stone
-
-/execute @e[name=ACV_lightBridges] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-/execute @e[name=ACV_antiBridges] ~ ~ ~ /setblock ~ ~ ~ redstone_block
-Lightbridges_on_off }
-
 Mapmaker_Helper {
 /setblock ~ ~3 ~ standing_sign 8 replace {Text1:"{\"text\":\"To create Laser\"}",Text2:"{\"text\":\"and Light Bridges\"}",Text3:"{\"text\":\"you need the\"}",Text4:"{\"text\":\"Mapmaker Helper\",\"color\":\"dark_red\"}"}
 
