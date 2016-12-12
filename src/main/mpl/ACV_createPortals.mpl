@@ -2,7 +2,7 @@
 // For each direction that should be taken into account there must be an armorstand located in the same block.
 // The color is specified by ACV_Mains ACV_COLOR score.
 // Params: armor_stand named ACV_Main, armor_stand tagged with ACV_Direction
-impulse process ACV_createPortal {
+impulse process ACV_createPortals {
 ACV_validateDirections()
 
 

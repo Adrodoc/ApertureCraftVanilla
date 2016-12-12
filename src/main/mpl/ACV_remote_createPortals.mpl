@@ -15,5 +15,5 @@ impulse process ACV_remote_createPortals {
 /execute @e[name=ACV_remote_createPortals_PARAM,tag=ACV_Purple] ~ ~ ~ scoreboard players set @e[type=armor_stand,name=ACV_Main,r=0] ACV_COLOR 2
 /execute @e[name=ACV_remote_createPortals_PARAM,tag=ACV_Red] ~ ~ ~ scoreboard players set @e[type=armor_stand,name=ACV_Main,r=0] ACV_COLOR 3
 /kill @e[name=ACV_remote_createPortals_PARAM]
-ACV_createPortal()
+ACV_createPortals()
 }

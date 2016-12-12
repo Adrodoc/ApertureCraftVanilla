@@ -22,5 +22,5 @@ impulse process ACV_processMain {
 /kill @e[name=ACV_North,tag=!ACV_Direction]
 /kill @e[name=ACV_West,tag=!ACV_Direction]
 
-ACV_createPortal()
+ACV_createPortals()
 }
