@@ -15,6 +15,7 @@ process ACV_deletePortals {
 process triggerAntiBridges {
   /execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalOut,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ entitydata @e[type=armor_stand,name=ACV_AntiBridge_Idle,dy=0] {CustomName:"ACV_AntiBridge"}
   /execute @e[tag=ACV_deletePortal_PARAM,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalOut,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ entitydata @e[type=armor_stand,name=ACV_AntiBridge_Idle,dy=0] {CustomName:"ACV_AntiBridge"}
+  start ACV_antiBridges
 }
 
 // Close the connection between the two portals

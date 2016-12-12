@@ -14,4 +14,5 @@ impulse process ACV_createLightBridges {
 /execute @e[type=armor_stand,name=ACV_LightBridgeEnd,tag=ACV_PurpleRed] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=ACV_LightBridge_Idle,dy=0] add ACV_PurpleRed
 
 /scoreboard players tag @e remove ACV_createLightBridges_PARAM
+start ACV_lightBridges
 }

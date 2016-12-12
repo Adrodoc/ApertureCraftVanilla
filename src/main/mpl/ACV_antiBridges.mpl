@@ -1,9 +1,10 @@
 repeat process ACV_antiBridges {
-
-// Wake up all idle anti bridges
-/execute @e[type=armor_stand,name=ACV_AntiBridge_Stopping] ~ ~ ~ entitydata @e[name=ACV_AntiBridge_Idle,dy=0] {CustomName:"ACV_AntiBridge"}
-
+// Wake up one idle anti bridge after beeing teleported
+/execute @e[type=armor_stand,name=ACV_AntiBridge_Stopping] ~ ~ ~ entitydata @e[name=ACV_AntiBridge_Idle,dy=0,c=1] {CustomName:"ACV_AntiBridge"}
 /scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge] add ACV_TpProof
+
+/testfor @e[type=armor_stand,name=ACV_AntiBridge]
+invert: stop
 
 /kill @e[type=armor_stand,name=ACV_AntiBridge_Stopping]
 

@@ -27,6 +27,8 @@ conditional: start ACV_createLightBridges
 
 // Wake up all idle light bridges
 /entitydata @e[type=armor_stand,name=ACV_LightBridge_Idle] {CustomName:"ACV_LightBridge"}
-
 /scoreboard players tag @e[type=armor_stand,name=ACV_LightBridge] add ACV_TpProof
+
+/testfor @e[type=armor_stand,name=ACV_LightBridge]
+invert: stop
 }
