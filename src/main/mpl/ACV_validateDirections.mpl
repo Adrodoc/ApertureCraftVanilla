@@ -9,7 +9,7 @@
 // * ACV_West
 process ACV_validateDirections {
 ACV_spaceValidation()
-ACV_portalValidation()
+ACV_collisionValidation()
 ACV_surfaceValidation()
 
 /execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ kill @e[type=armor_stand,name=!ACV_Up,tag=ACV_Direction,dy=0]
@@ -30,8 +30,8 @@ uninstall {
   /scoreboard objectives remove ACV_HEIGHT_VALID
 }
 
-// Checks if there is enough space to create the portal (is there air or carpet below a non floor Portal)
-// If there is not, all directions of the affected creation are killed except for ACV_Up
+// Checks if there is enough space to create the portal (is there air or carpet below a non floor Portal),
+// if there is not, all directions of the affected creation are killed except for ACV_Up.
 process ACV_spaceValidation {
 /scoreboard players set @e[type=armor_stand,tag=ACV_Direction] ACV_HEIGHT_VALID 0
 /scoreboard players set @e[type=armor_stand,name=ACV_Up] ACV_HEIGHT_VALID 1
@@ -42,9 +42,9 @@ process ACV_spaceValidation {
 
 
 
-// Checks if there is already a Portal of a different color or an item frame or painting that would overlap
-// If there is, all directions of the affected creation are killed
-process ACV_portalValidation {
+// Checks if there is already a portal of a different color or an item frame or painting that would collide,
+// if there is, all directions of the affected creation are killed.
+process ACV_collisionValidation {
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=painting,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ execute @e[type=item_frame,name=!ACV_PortalDisplay,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
 /execute @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ execute @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR=-1,dy=-1,c=1] ~ ~ ~ kill @e[type=armor_stand,tag=ACV_Direction,dy=1]
