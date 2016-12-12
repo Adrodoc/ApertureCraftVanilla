@@ -3,6 +3,9 @@
 // The color is specified by ACV_Mains ACV_COLOR score.
 // Params: armor_stand named ACV_Main, armor_stand tagged with ACV_Direction
 process ACV_createPortals {
+ACV_deleteRedundantMarkers()
+
+
 ACV_validateDirections()
 
 
@@ -42,6 +45,27 @@ start ACV_createLightBridges
 ACV_handleSuccessfulPortals()
 /kill @e[type=armor_stand,name=ACV_Main]
 /kill @e[type=armor_stand,tag=ACV_Direction]
+}
+
+
+
+// Delete all duplicate ACV_Main and the corresponding directions to prevent simultanious creation of multiple portals with the same color.
+process ACV_deleteRedundantMarkers {
+/scoreboard players tag @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=0,score_ACV_COLOR=0,c=1] add ACV_notRedundant
+/scoreboard players tag @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=1,score_ACV_COLOR=1,c=1] add ACV_notRedundant
+/scoreboard players tag @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=2,score_ACV_COLOR=2,c=1] add ACV_notRedundant
+/scoreboard players tag @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=3,score_ACV_COLOR=3,c=1] add ACV_notRedundant
+/kill @e[type=armor_stand,name=ACV_Main,tag=!ACV_notRedundant]
+
+/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ scoreboard players tag @e[type=armor_stand,tag=ACV_Direction,dy=0] add ACV_notRedundant
+/kill @e[type=armor_stand,name=ACV_Up,tag=!ACV_notRedundant]
+/kill @e[type=armor_stand,name=ACV_Down,tag=!ACV_notRedundant]
+/kill @e[type=armor_stand,name=ACV_South,tag=!ACV_notRedundant]
+/kill @e[type=armor_stand,name=ACV_East,tag=!ACV_notRedundant]
+/kill @e[type=armor_stand,name=ACV_North,tag=!ACV_notRedundant]
+/kill @e[type=armor_stand,name=ACV_West,tag=!ACV_notRedundant]
+
+/scoreboard players tag @e[tag=ACV_notRedundant] remove ACV_notRedundant
 }
 
 
