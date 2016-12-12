@@ -126,14 +126,14 @@ Smooth_Teleport {
 /entitydata @e[name=ACV_teleportation] {CustomName:"ACV_simpleTeleportation"}
 /entitydata @e[name=ACV_smoothTeleportation] {CustomName:"ACV_teleportation"}
 
-/execute @e[name=ACV_online] ~ ~ ~ detect ~ ~ ~ redstone_block 0 /execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/execute @e[name=ACV_portals] ~ ~ ~ detect ~ ~ ~ redstone_block 0 /execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 Smooth_Teleport }
 
 Portalsystem_on_off {
-/execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ stone
+/execute @e[name=ACV_portals] ~ ~ ~ /setblock ~ ~ ~ stone
 /execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ stone
 
-/execute @e[name=ACV_online] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/execute @e[name=ACV_portals] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 /execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 /tellraw @a {"text":"","extra":[{"text":"Welcome to","color":"gold"},{"text":" ApertureCraft Vanilla\n","color":"dark_aqua"},{"text":"   Version: ","color":"gold"},{"text":"8.2.0\n","color":"dark_aqua","italic":"true"},{"text":"   made by ","color":"yellow","italic":"true"},{"text":"Adrodoc55\n","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"Click to open YouTube Channel","color":"red"}},"clickEvent":{"action":"open_url","value":"https://www.youtube.com/user/Adrodoc55"}},{"text":"\nVisit me on ","color":"yellow"},{"text":"[Github]","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"Click to open Github","color":"red"}},"clickEvent":{"action":"open_url","value":"https://github.com/Adrodoc55/ApertureCraftVanilla"}},{"text":" to report Bugs and check for Updates\n","color":"yellow"}]}
 /setblock ~ ~ ~ redstone_block

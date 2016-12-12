@@ -1,4 +1,4 @@
-repeat process ACV_online {
+repeat process ACV_portals {
 /scoreboard players set @e[type=arrow,c=1] ACV_COLOR 0 {inGround:1b,damage:5.5}
 /scoreboard players set @e[type=arrow,c=1] ACV_COLOR 1 {inGround:1b,damage:6.0}
 /scoreboard players set @e[type=arrow,c=1] ACV_COLOR 2 {inGround:1b,damage:6.5}
