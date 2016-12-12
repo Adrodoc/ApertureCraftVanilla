@@ -1,17 +1,21 @@
-// Description:
-// Params: AS-ACV_Main, dASwT-ACV_DV_PARAM, SCV-color-Color
-// Return: ASwS-ACV_COLOR, IFwS-ACV_COLOR
+// Create a portal at each armorstand named ACV_Main if the location is a valid portal location.
+// For each direction that should be taken into account there must be an armorstand located in the same block.
+// The color is specified by ACV_Mains ACV_COLOR score.
+// Params: armor_stand named ACV_Main, armor_stand tagged with ACV_Direction
 impulse process ACV_createPortal {
 ACV_validateDirections()
+
 
 /scoreboard players tag @e[type=armor_stand,name=ACV_Main] add ACV_handleFailedPortals_PARAM
 /execute @e[type=armor_stand,tag=ACV_Direction] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=ACV_Main,dy=0] remove ACV_handleFailedPortals_PARAM
 ACV_handleFailedPortals()
 /kill @e[name=ACV_Main,tag=ACV_handleFailedPortals_PARAM]
 
+
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_deletePortal_PARAM,r=0,c=1] ACV_COLOR = @e[type=armor_stand,name=ACV_Main,r=0,c=1] ACV_COLOR
 ACV_deletePortals()
+
 
 /execute @e[type=armor_stand,name=ACV_Up] ~ ~ ~ summon item_frame ~ ~-1 ~ {CustomName:"ACV_PortalMain",Tags:[ACV_Up],Facing:0b,Invulnerable:1b}
 /execute @e[type=armor_stand,name=ACV_Down] ~ ~ ~ summon item_frame ~ ~1 ~ {CustomName:"ACV_PortalMain",Tags:[ACV_Down],Facing:0b,Invulnerable:1b}
@@ -27,14 +31,17 @@ ACV_texturePortals()
 
 ACV_openConnections()
 
+
 /testfor @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=0,score_ACV_COLOR=1]
 conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=1] add ACV_createLightBridges_PARAM
 /testfor @e[type=armor_stand,name=ACV_Main,score_ACV_COLOR_min=2,score_ACV_COLOR=3]
 conditional: /scoreboard players tag @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=3] add ACV_createLightBridges_PARAM
 start ACV_createLightBridges
 
+
 ACV_handleSuccessfulPortals()
-/kill @e[name=ACV_Main]
+/kill @e[type=armor_stand,name=ACV_Main]
+/kill @e[type=armor_stand,tag=ACV_Direction]
 }
 
 
