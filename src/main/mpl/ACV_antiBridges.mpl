@@ -14,12 +14,18 @@ invert: stop
 /entitydata @e[type=armor_stand,name=ACV_AntiBridge,tag=!ACV_InCarpet] {CustomName:"ACV_AntiBridge_Stopping"}
 /scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge_Stopping] remove ACV_TpProof
 
+// To avoid race conditions, if there are multiple antibridges in the same block one needs to be processed (setblock) after the others, so that it removes the bridge correctly
+/scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge] add ACV_Multiple
+/execute @e[type=armor_stand,name=ACV_AntiBridge,tag=ACV_Multiple] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge,dy=0,c=-1] remove ACV_Multiple
+
+/execute @e[type=armor_stand,name=ACV_AntiBridge,tag=ACV_Multiple] ~ ~ ~ kill @e[type=armor_stand,name=ACV_BridgeCross,dy=0,c=1]
+
 /scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge,tag=ACV_KeepCarpet] remove ACV_KeepCarpet
 /scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge,tag=ACV_KeepPistonExtension] remove ACV_KeepPistonExtension
 /execute @e[type=armor_stand,name=ACV_BridgeCross] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge,dy=0] add ACV_KeepCarpet
 /execute @e[type=armor_stand,name=ACV_BridgeBelow] ~ ~-1 ~ scoreboard players tag @e[type=armor_stand,name=ACV_AntiBridge,dy=0] add ACV_KeepPistonExtension
 
-/execute @e[type=armor_stand,name=ACV_AntiBridge] ~ ~ ~ kill @e[type=armor_stand,name=ACV_BridgeCross,dy=0,c=1]
+/execute @e[type=armor_stand,name=ACV_AntiBridge,tag=!ACV_Multiple] ~ ~ ~ kill @e[type=armor_stand,name=ACV_BridgeCross,dy=0,c=1]
 
 /execute @e[type=armor_stand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~ ~ kill @e[type=armor_stand,name=ACV_BridgeBelow,dy=0]
 /execute @e[type=armor_stand,name=ACV_AntiBridge,tag=!ACV_KeepCarpet] ~ ~1 ~ kill @e[type=armor_stand,name=ACV_BridgeBelow,dy=0]
