@@ -22,12 +22,12 @@ impulse process ACV_processMain {
 
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=!ACV_Main,dy=0] add ACV_Direction
 
-/kill @e[name=ACV_Up,tag=!ACV_Direction]
-/kill @e[name=ACV_Down,tag=!ACV_Direction]
-/kill @e[name=ACV_South,tag=!ACV_Direction]
-/kill @e[name=ACV_East,tag=!ACV_Direction]
-/kill @e[name=ACV_North,tag=!ACV_Direction]
-/kill @e[name=ACV_West,tag=!ACV_Direction]
+/kill @e[type=armor_stand,name=ACV_Up,tag=!ACV_Direction]
+/kill @e[type=armor_stand,name=ACV_Down,tag=!ACV_Direction]
+/kill @e[type=armor_stand,name=ACV_South,tag=!ACV_Direction]
+/kill @e[type=armor_stand,name=ACV_East,tag=!ACV_Direction]
+/kill @e[type=armor_stand,name=ACV_North,tag=!ACV_Direction]
+/kill @e[type=armor_stand,name=ACV_West,tag=!ACV_Direction]
 
 ACV_createPortals()
 }

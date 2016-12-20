@@ -12,7 +12,7 @@ ACV_validateDirections()
 /scoreboard players tag @e[type=armor_stand,name=ACV_Main] add ACV_handleFailedPortals_PARAM
 /execute @e[type=armor_stand,tag=ACV_Direction] ~ ~ ~ scoreboard players tag @e[type=armor_stand,name=ACV_Main,dy=0] remove ACV_handleFailedPortals_PARAM
 ACV_handleFailedPortals()
-/kill @e[name=ACV_Main,tag=ACV_handleFailedPortals_PARAM]
+/kill @e[type=armor_stand,name=ACV_Main,tag=ACV_handleFailedPortals_PARAM]
 
 
 /execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
@@ -65,7 +65,7 @@ process ACV_deleteRedundantMarkers {
 /kill @e[type=armor_stand,name=ACV_North,tag=!ACV_notRedundant]
 /kill @e[type=armor_stand,name=ACV_West,tag=!ACV_notRedundant]
 
-/scoreboard players tag @e[tag=ACV_notRedundant] remove ACV_notRedundant
+/scoreboard players tag @e[type=armor_stand,tag=ACV_notRedundant] remove ACV_notRedundant
 }
 
 

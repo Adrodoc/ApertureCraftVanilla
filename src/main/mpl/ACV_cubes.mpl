@@ -5,7 +5,6 @@ repeat process ACV_cubes {
 /execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:stone_pressure_plate * tp @e[type=armor_stand,name=Weighted_Storage_Cube,r=0,c=1] ~ ~-0.25 ~
 /execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:carpet * tp @e[type=armor_stand,name=Weighted_Storage_Cube,r=0,c=1] ~ ~-0.25 ~
 /execute @e[type=armor_stand,name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:tallgrass * tp @e[type=armor_stand,name=Weighted_Storage_Cube,r=0,c=1] ~ ~-0.25 ~
-///execute @e[name=Weighted_Storage_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ detect ~ ~1 ~ minecraft:carpet color=cyan tp @e[type=armor_stand,name=Weighted_Storage_Cube,r=0,c=1] ~ ~-0.25 ~
 
 /scoreboard players add @a ACV_CUBE_ID 0
 /scoreboard players add @e[type=armor_stand,name=Weighted_Storage_Cube] ACV_CUBE_ID 0
