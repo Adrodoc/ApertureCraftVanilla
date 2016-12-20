@@ -197,15 +197,15 @@ Delete_all_Portals {
 Delete_all_Portals }
 
 Kill_all_Cubes {
-/kill @e[name=Weighted_Storage_Cube]
+/kill @e[name=ACV_Cube]
 Kill_all_Cubes}
 
 Spawn_normal_Cube {
-/summon armor_stand ~ ~-0.6 ~1 {CustomName:"Weighted_Storage_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{Damage:6,id:"stone",Count:1}],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
+/summon armor_stand ~ ~-0.6 ~1 {CustomName:"ACV_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{Damage:6,id:"stone",Count:1}],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
 Spawn_normal_Cube}
 
 Spawn_redirecting_Cube {
-/summon armor_stand ~ ~-0.6 ~1 {CustomName:"Weighted_Storage_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{id:"dispenser",Count:1}],Tags:["ACV_Redirecting"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
+/summon armor_stand ~ ~-0.6 ~1 {CustomName:"ACV_Cube",DisabledSlots:2035728,ArmorItems:[{},{},{},{id:"dispenser",Count:1}],Tags:["ACV_Redirecting"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:0b}
 Spawn_redirecting_Cube}
 
 Special_Thanks {

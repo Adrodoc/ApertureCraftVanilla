@@ -1,5 +1,5 @@
 repeat process ACV_meg {
-/execute @e[type=creeper,name=ACV_MEG] ~ ~ ~ kill @e[type=armor_stand,name=Weighted_Storage_Cube,dy=0]
+/execute @e[type=creeper,name=ACV_MEG] ~ ~ ~ kill @e[type=armor_stand,name=ACV_Cube,dy=0]
 
 /scoreboard players tag @a remove ACV_Blue
 /scoreboard players tag @a remove ACV_Orange
