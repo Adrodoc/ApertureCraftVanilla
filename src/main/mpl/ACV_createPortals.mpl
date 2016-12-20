@@ -15,8 +15,8 @@ ACV_handleFailedPortals()
 /kill @e[type=armor_stand,name=ACV_Main,tag=ACV_handleFailedPortals_PARAM]
 
 
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_deletePortal_PARAM",Tags:["ACV_deletePortal_PARAM"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_deletePortal_PARAM,r=0,c=1] ACV_COLOR = @e[type=armor_stand,name=ACV_Main,r=0,c=1] ACV_COLOR
+/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_deletePortals_PARAM",NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @e[type=armor_stand,name=ACV_Main] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_deletePortals_PARAM,r=0,c=1] ACV_COLOR = @e[type=armor_stand,name=ACV_Main,r=0,c=1] ACV_COLOR
 ACV_deletePortals()
 
 

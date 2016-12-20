@@ -1,4 +1,4 @@
-// Creates a portal for each entity with the name ACV_remote_createPortals_PARAM
+// Create a portal for each entity with the name ACV_remote_createPortals_PARAM
 // The color is specified by tagging the entity with one of: ACV_Blue, ACV_Orange, ACV_Purple or ACV_Red
 // Params: entity named ACV_remote_createPortals_PARAM
 impulse process ACV_remote_createPortals {
