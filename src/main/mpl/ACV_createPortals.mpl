@@ -72,41 +72,25 @@ process ACV_deleteRedundantMarkers {
 
 // Spawn the armorstands and itemframes of a portal for each direction armorstand
 // Params: AS-ACV_PortalMain
-// Return: AS-ACV_PortalIn, AS-ACV_PortalOut, AS-ACV_PortalDisplay, IF-ACV_PortalDisplay
+// Return: AS-ACV_PortalIn, AS-ACV_PortalOut
 process ACV_spawnPortals {
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~0.46875 summon armor_stand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],Rotation:[0:0f,1:-90f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~0.46875 summon armor_stand ~ ~ ~ {CustomName:"ACV_PortalIn",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~ summon armor_stand ~-0.21 ~-1.51 ~0.7 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],Rotation:[0:-90f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~ summon armor_stand ~-0.21 ~-1.51 ~0.25 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],Rotation:[0:0f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~ summon armor_stand ~0.23 ~-1.51 ~0.25 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],Rotation:[0:90f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~ summon armor_stand ~0.23 ~-1.51 ~0.7 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],Rotation:[0:180f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
 
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~0.46875 summon armor_stand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_Portal,ACV_TpProof,ACV_Down],Rotation:[0:0f,1:90f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~0.46875 summon armor_stand ~ ~ ~ {CustomName:"ACV_PortalIn",Tags:[ACV_Portal,ACV_TpProof,ACV_Down],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~ summon armor_stand ~-0.21 ~-1.95 ~0.7 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Down],Rotation:[0:-90f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~ summon armor_stand ~-0.21 ~-1.95 ~0.25 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Down],Rotation:[0:0f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~ summon armor_stand ~0.23 ~-1.95 ~0.25 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Down],Rotation:[0:90f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~ summon armor_stand ~0.23 ~-1.95 ~0.7 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Down],Rotation:[0:180f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
 
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_South] ~ ~ ~0.46875 summon armor_stand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_Portal,ACV_TpProof,ACV_South],Rotation:[0:0f,1:0f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_South] ~ ~ ~0.46875 summon armor_stand ~ ~ ~-1 {CustomName:"ACV_PortalIn",Tags:[ACV_Portal,ACV_TpProof,ACV_South],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_South] ~ ~ ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_South],Facing:0b,Invulnerable:1b,Glowing:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_South] ~ ~ ~ summon item_frame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_South],Facing:0b,Invulnerable:1b,Glowing:1b}
 
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_East] ~0.46875 ~ ~ summon armor_stand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_Portal,ACV_TpProof,ACV_East],Rotation:[0:-90f,1:0f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_East] ~0.46875 ~ ~ summon armor_stand ~-1 ~ ~ {CustomName:"ACV_PortalIn",Tags:[ACV_Portal,ACV_TpProof,ACV_East],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_East] ~ ~ ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_East],Facing:3b,Invulnerable:1b,Glowing:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_East] ~ ~ ~ summon item_frame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_East],Facing:3b,Invulnerable:1b,Glowing:1b}
 
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_North] ~ ~ ~-0.46875 summon armor_stand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_Portal,ACV_TpProof,ACV_North],Rotation:[0:180f,1:0f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_North] ~ ~ ~-0.46875 summon armor_stand ~ ~ ~1 {CustomName:"ACV_PortalIn",Tags:[ACV_Portal,ACV_TpProof,ACV_North],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_North] ~ ~ ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_North],Facing:2b,Invulnerable:1b,Glowing:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_North] ~ ~ ~ summon item_frame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_North],Facing:2b,Invulnerable:1b,Glowing:1b}
 
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_West] ~-0.46875 ~ ~ summon armor_stand ~ ~-0.43 ~ {CustomName:"ACV_PortalOut",Tags:[ACV_Portal,ACV_TpProof,ACV_West],Rotation:[0:90f,1:0f],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_West] ~-0.46875 ~ ~ summon armor_stand ~1 ~ ~ {CustomName:"ACV_PortalIn",Tags:[ACV_Portal,ACV_TpProof,ACV_West],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_West] ~ ~ ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_West],Facing:1b,Invulnerable:1b,Glowing:1b}
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_West] ~ ~ ~ summon item_frame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_West],Facing:1b,Invulnerable:1b,Glowing:1b}
 
 // Set the direction scores
 /scoreboard players set @e[tag=ACV_Up] ACV_DIRECTION -1
@@ -123,13 +107,10 @@ process ACV_spawnPortals {
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_East] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn,tag=ACV_East,dx=-1] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_East,r=0,c=1] ACV_COLOR
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_North] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn,tag=ACV_North,dz=1] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_North,r=0,c=1] ACV_COLOR
 /execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_West] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalIn,tag=ACV_West,dx=1] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_West,r=0,c=1] ACV_COLOR
-/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ scoreboard players operation @e[type=item_frame,name=ACV_PortalDisplay,dy=1] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,r=0,c=1] ACV_COLOR
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalDisplay,tag=ACV_Up,dy=-2] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up,r=0,c=1] ACV_COLOR
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalDisplay,tag=ACV_Down,dy=-2] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down,r=0,c=1] ACV_COLOR
 
 // Teleport the new ACV_PortalOut to it's final position
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~-0.43 ~0.46875 /tp @e[type=armor_stand,name=ACV_PortalOut,tag=ACV_Up,dy=0] ~ ~2 ~
-/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~-0.43 ~0.46875 /tp @e[type=armor_stand,name=ACV_PortalOut,tag=ACV_Down,dy=0] ~ ~-2 ~
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~-0.43 ~0.46875 tp @e[type=armor_stand,name=ACV_PortalOut,tag=ACV_Up,dy=0] ~ ~2 ~
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~-0.43 ~0.46875 tp @e[type=armor_stand,name=ACV_PortalOut,tag=ACV_Down,dy=0] ~ ~-2 ~
 }
 
 
@@ -152,9 +133,38 @@ uninstall {
   /scoreboard teams remove ACV_RedPortal
 }
 
-// Texture the armorstands and itemframes of the portals and join them to their color team
-// Params: AS-ACV_PortalMain, AS-ACV_PortalDisplay
+// Spawn the texture armorstands and itemframes of the portals and join them to their color team
+// Params: AS-ACV_PortalMain
+// Return: AS-ACV_PortalDisplay, IF-ACV_PortalDisplay
 process ACV_texturePortals {
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~ summon armor_stand ~-0.21 ~-1.51 ~0.7 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],Rotation:[0:-90f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~ summon armor_stand ~-0.21 ~-1.51 ~0.25 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],Rotation:[0:0f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~ summon armor_stand ~0.23 ~-1.51 ~0.25 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],Rotation:[0:90f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~ summon armor_stand ~0.23 ~-1.51 ~0.7 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Up],Rotation:[0:180f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
+
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~ summon armor_stand ~-0.21 ~-1.95 ~0.7 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Down],Rotation:[0:-90f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~ summon armor_stand ~-0.21 ~-1.95 ~0.25 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Down],Rotation:[0:0f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~ summon armor_stand ~0.23 ~-1.95 ~0.25 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Down],Rotation:[0:90f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~ summon armor_stand ~0.23 ~-1.95 ~0.7 {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_Down],Rotation:[0:180f,1:0f],DisabledSlots:2035728,NoGravity:1b,Invisible:1b,Invulnerable:1b}
+
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_South] ~ ~ ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_South],Facing:0b,Invulnerable:1b,Glowing:1b}
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_South] ~ ~ ~ summon item_frame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_South],Facing:0b,Invulnerable:1b,Glowing:1b}
+
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_East] ~ ~ ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_East],Facing:3b,Invulnerable:1b,Glowing:1b}
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_East] ~ ~ ~ summon item_frame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_East],Facing:3b,Invulnerable:1b,Glowing:1b}
+
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_North] ~ ~ ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_North],Facing:2b,Invulnerable:1b,Glowing:1b}
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_North] ~ ~ ~ summon item_frame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_North],Facing:2b,Invulnerable:1b,Glowing:1b}
+
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_West] ~ ~ ~ summon item_frame ~ ~ ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_West],Facing:1b,Invulnerable:1b,Glowing:1b}
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_West] ~ ~ ~ summon item_frame ~ ~1 ~ {CustomName:"ACV_PortalDisplay",Tags:[ACV_Portal,ACV_TpProof,ACV_West],Facing:1b,Invulnerable:1b,Glowing:1b}
+
+// Set the color scores
+/execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ scoreboard players operation @e[type=item_frame,name=ACV_PortalDisplay,dy=1] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,r=0,c=1] ACV_COLOR
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalDisplay,tag=ACV_Up,dy=-2] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Up,r=0,c=1] ACV_COLOR
+/execute @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down] ~ ~ ~ scoreboard players operation @e[type=armor_stand,name=ACV_PortalDisplay,tag=ACV_Down,dy=-2] ACV_COLOR = @e[type=item_frame,name=ACV_PortalMain,tag=ACV_Down,r=0,c=1] ACV_COLOR
+
+
 // texture blue portal
 /execute @e[type=item_frame,name=ACV_PortalMain] ~ ~-2 ~ entitydata @e[type=armor_stand,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0,dy=0] {ArmorItems:[{},{},{},{id:"minecraft:skull",Count:1,Damage:3,tag:{SkullOwner:{Id:"cc01bc38-881f-420e-86d9-2308d28b5840",Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmRhNmZiN2RlNzFhZjMyNTZhNjEzNWRjNjQ0NDRiNTY1ZGQ5YjkxMjM5NGUyNTU0MzViOWI3ZmQxYzU4MGFiIn19fQ=="}]}}}}]}
 /execute @e[type=item_frame,name=ACV_PortalMain] ~ ~ ~ entitydata @e[type=item_frame,name=ACV_PortalDisplay,score_ACV_COLOR_min=0,score_ACV_COLOR=0,dy=0] {Item:{Damage:0,id:"minecraft:filled_map",Count:1}}
