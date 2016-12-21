@@ -18,7 +18,7 @@ include "ACV_lightBridges.mpl"
 include "ACV_antiBridges.mpl"
 include "ACV_cubes.mpl"
 include "ACV_lasers.mpl"
-include "ACV_meg.mpl"
+include "ACV_megs.mpl"
 include "ACV_gels.mpl"
 
 project ACV {

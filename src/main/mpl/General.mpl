@@ -170,9 +170,9 @@ Lasers_on_off }
 Meg_on_off {
 /setblock ~ ~4 ~ minecraft:standing_sign 8 replace {Text1:"Material",Text2:"Emancipation Grill",Text3:"{\"text\":\"on\",\"color\":\"dark_green\"}",Text4:"{\"text\":\"off\",\"color\":\"dark_red\"}"}
 
-/execute @e[name=ACV_meg] ~ ~ ~ /setblock ~ ~ ~ stone
+/execute @e[name=ACV_megs] ~ ~ ~ /setblock ~ ~ ~ stone
 
-/execute @e[name=ACV_meg] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+/execute @e[name=ACV_megs] ~ ~ ~ /setblock ~ ~ ~ redstone_block
 Meg_on_off }
 
 Custom_Cursor_() {
