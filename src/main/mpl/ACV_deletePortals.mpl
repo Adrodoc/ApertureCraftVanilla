@@ -13,8 +13,8 @@ process ACV_deletePortals {
 // Triggers the AntiBridges at every specified Portal
 // Params: entities with tag ACV_deletePortals_PARAM and a score of ACV_COLOR
 process triggerAntiBridges {
-  /execute @e[name=ACV_deletePortals_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalOut,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ entitydata @e[type=armor_stand,name=ACV_AntiBridge_Idle,dy=0] {CustomName:"ACV_AntiBridge"}
-  /execute @e[name=ACV_deletePortals_PARAM,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalOut,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ entitydata @e[type=armor_stand,name=ACV_AntiBridge_Idle,dy=0] {CustomName:"ACV_AntiBridge"}
+  /execute @e[name=ACV_deletePortals_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=area_effect_cloud,name=ACV_PortalOut,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ entitydata @e[type=area_effect_cloud,name=ACV_AntiBridge_Idle,dy=0] {CustomName:"ACV_AntiBridge"}
+  /execute @e[name=ACV_deletePortals_PARAM,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=area_effect_cloud,name=ACV_PortalOut,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ entitydata @e[type=area_effect_cloud,name=ACV_AntiBridge_Idle,dy=0] {CustomName:"ACV_AntiBridge"}
   start ACV_antiBridges
 }
 
@@ -22,10 +22,10 @@ process triggerAntiBridges {
 // Params: entities with tag ACV_deletePortals_PARAM and a score of ACV_COLOR
 process closeConnections {
   ACV_loadChunks()
-  /execute @e[name=ACV_deletePortals_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ clone 0 1 0 0 2 0 ~ ~ ~
-  /execute @e[name=ACV_deletePortals_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ clone 1 1 0 1 2 0 ~ ~ ~
-  /execute @e[name=ACV_deletePortals_PARAM,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ clone 2 1 0 2 2 0 ~ ~ ~
-  /execute @e[name=ACV_deletePortals_PARAM,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=armor_stand,name=ACV_PortalIn,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ clone 3 1 0 3 2 0 ~ ~ ~
+  /execute @e[name=ACV_deletePortals_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=area_effect_cloud,name=ACV_PortalIn,score_ACV_COLOR_min=0,score_ACV_COLOR=0] ~ ~ ~ clone 0 1 0 0 2 0 ~ ~ ~
+  /execute @e[name=ACV_deletePortals_PARAM,score_ACV_COLOR_min=0,score_ACV_COLOR=1] ~ ~ ~ execute @e[type=area_effect_cloud,name=ACV_PortalIn,score_ACV_COLOR_min=1,score_ACV_COLOR=1] ~ ~ ~ clone 1 1 0 1 2 0 ~ ~ ~
+  /execute @e[name=ACV_deletePortals_PARAM,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=area_effect_cloud,name=ACV_PortalIn,score_ACV_COLOR_min=2,score_ACV_COLOR=2] ~ ~ ~ clone 2 1 0 2 2 0 ~ ~ ~
+  /execute @e[name=ACV_deletePortals_PARAM,score_ACV_COLOR_min=2,score_ACV_COLOR=3] ~ ~ ~ execute @e[type=area_effect_cloud,name=ACV_PortalIn,score_ACV_COLOR_min=3,score_ACV_COLOR=3] ~ ~ ~ clone 3 1 0 3 2 0 ~ ~ ~
 }
 
 // Delete the specified portals

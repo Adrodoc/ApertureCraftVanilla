@@ -18,10 +18,10 @@ skip
 
 impulse: /setblock ${this - 1} stone
 
-/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Blue,r=0] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM",Tags:["ACV_Blue"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Orange,r=0] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM",Tags:["ACV_Orange"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Purple,r=0] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM",Tags:["ACV_Purple"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
-/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Red,r=0] ~ ~ ~ summon armor_stand ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM",Tags:["ACV_Red"],NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b}
+/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Blue,r=0] ~ ~ ~ summon area_effect_cloud ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM",Tags:["ACV_Blue"],Duration:2147483647}
+/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Orange,r=0] ~ ~ ~ summon area_effect_cloud ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM",Tags:["ACV_Orange"],Duration:2147483647}
+/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Purple,r=0] ~ ~ ~ summon area_effect_cloud ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM",Tags:["ACV_Purple"],Duration:2147483647}
+/execute @p[tag=ACV_megDeletePortal_PARAM] ~ ~ ~ execute @p[tag=ACV_Red,r=0] ~ ~ ~ summon area_effect_cloud ~ ~ ~ {CustomName:"ACV_remote_deletePortals_PARAM",Tags:["ACV_Red"],Duration:2147483647}
 /scoreboard players tag @a remove ACV_megDeletePortal_PARAM
 start ACV_remote_deletePortals
 }
