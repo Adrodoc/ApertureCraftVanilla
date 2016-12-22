@@ -37,13 +37,13 @@ Summon red Portal:
 /execute @e[name=ACV_remote_createPortals] ~ ~ ~ setblock ~ ~ ~ redstone_block
 
 Summon Repulsion Gel:
-/summon item ~ ~ ~ {CustomName:"ACV_BlueGel",PickupDelay:32767,Item:{Count:1,Damage:11,id:"minecraft:wool"}}
+/summon item ~ ~ ~ {CustomName:"ACV_RepulsionGel",PickupDelay:32767,Item:{Count:1,Damage:11,id:"minecraft:wool"}}
 
 Summon Propulsion Gel:
-/summon item ~ ~ ~ {CustomName:"ACV_OrangeGel",PickupDelay:32767,Item:{Count:1,Damage:1,id:"minecraft:wool"}}
+/summon item ~ ~ ~ {CustomName:"ACV_PropulsionGel",PickupDelay:32767,Item:{Count:1,Damage:1,id:"minecraft:wool"}}
 
 Summon Cleansing Gel
-/summon item ~ ~ ~ {CustomName:"ACV_Water",PickupDelay:32767,Item:{Count:1,id:"minecraft:glass"}}
+/summon item ~ ~ ~ {CustomName:"ACV_CleansingGel",PickupDelay:32767,Item:{Count:1,id:"minecraft:glass"}}
 
 Summon Material Emancipation Grill:
 /summon area_effect_cloud ~ ~ ~ {CustomName:ACV_MEG,Duration:2147483647,Passengers:[{id:creeper,CustomName:ACV_MEG,powered:1,ActiveEffects:[{Amplifier:1,Duration:1000000,Id:14,ShowParticles:0b}]}],PersistenceRequired:1,Invulnerable:1,NoAI:1}
