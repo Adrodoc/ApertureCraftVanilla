@@ -52,24 +52,4 @@ repeat process ACV_cubes {
 
 /kill @e[type=armor_stand,name=cube_update]
 /execute @e[type=armor_stand,name=ACV_Cube,score_ACV_CUBE_ID=0] ~ ~ ~ summon armor_stand ~ ~1.25 ~ {CustomName:"cube_update",Invisible:1b,Invulnerable:1b,Marker:1b}
-
-// /scoreboard players tag @a remove ACV_CanPickupCube
-// /scoreboard players tag @a add ACV_CanPickupCube {SelectedItem:{id:"minecraft:arrow",tag:{display:{Name:"Picking up Cubes"}}}}
-// /execute @a[tag=ACV_CanPickupCube] ~ ~ ~ execute @e[name=ACV_Cube,r=2,c=-1] ~ ~ ~ scoreboard players tag @e[r=0,c=1] ACV_HasClosePlayer
-// /execute @e[name=ACV_Cube,tag=ACV_HasClosePlayer] ~ ~ ~ /scoreboard players tag @e[type=Player,tag=ACV_CanPickupCube,r=2,c=-1] ACV_HasCloseCube
-// /execute @e[name=ACV_Cube,tag=ACV_HasClosePlayer] ~ ~ ~ /scoreboard players tag @a[tag=ACV_HasCloseCube,r=2,c=-1] remove ACV_CanPickupCube
-
-// /execute @e[name=ACV_Cube,tag=ACV_HasClosePlayer] ~ ~ ~ /tp @e[r=0,c=1] @e[type=Player,tag=ACV_HasCloseCube,r=2,c=-1]
-// /execute @e[name=ACV_Cube,tag=!ACV_HasClosePlayer] ~ ~ ~ /tp @p[tag=!ACV_HasCloseCube]
-
-
-// /scoreboard players tag @a remove ACV_CanPickupCube
-// /scoreboard players tag @e[name=ACV_Cube] remove ACV_Held
-// /scoreboard players tag @a add ACV_CanPickupCube {SelectedItem:{id:"minecraft:arrow",tag:{display:{Name:"Picking up Cubes"}}}}
-// /execute @a[tag=ACV_CanPickupCube] ~ ~ ~ /scoreboard players tag @e[name=ACV_Cube,tag=!ACV_Held,r=2,c=-1] add ACV_Held
-// /execute @e[name=ACV_Cube,tag=ACV_Held] ~ ~ ~ /scoreboard players tag @a[tag=ACV_CanPickupCube,r=2,c=-1] add ACV_HoldingCube
-// /execute @e[name=ACV_Cube,tag=ACV_Held] ~ ~ ~ /scoreboard players tag @a[tag=ACV_CanPickupCube,r=2,c=-1] remove ACV_CanPickupCube
-// /execute @e[name=ACV_Cube,tag=ACV_Held] ~ ~ ~ /tp @a[tag=ACV_HoldingCube,r=2,c=-1]
-// /entitydata @e[name=ACV_Cube,tag=!ACV_Held] {CustomName:"ACV_Cube_Ground",NoGravity:0}
-// /execute @a[tag=ACV_CanPickupCube] ~ ~ ~ /entitydata @e[name=ACV_Cube_Ground,r=3,c=1] {CustomName:"ACV_Cube"}
 }
