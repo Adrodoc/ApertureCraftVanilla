@@ -63,14 +63,17 @@ ACV_remote_deleteAllPortals()
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"gold","extra":[{"text":"Deleting Scoreboards","color":"yellow"}]}
 ACV_deleteScoreboards()
 
-// 2 tick delay
+// 3 tick delay
 /setblock ${this+1} redstone_block
 skip
 impulse: /setblock ${this-1} stone
 /setblock ${this+1} redstone_block
 skip
 impulse: /setblock ${this-1} stone
-// 2 tick delay end
+/setblock ${this+1} redstone_block
+skip
+impulse: /setblock ${this-1} stone
+// 3 tick delay end
 
 /tellraw @a {"text":"[ApertureCraft Vanilla] ","color":"gold","extra":[{"text":"Deleting Interfaces","color":"yellow"}]}
 }
