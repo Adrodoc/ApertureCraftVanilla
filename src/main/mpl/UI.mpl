@@ -46,7 +46,7 @@ Summon Cleansing Gel
 /summon item ~ ~ ~ {CustomName:"ACV_CleansingGel",PickupDelay:32767,Item:{Count:1,id:"minecraft:glass"}}
 
 Summon Material Emancipation Grill:
-/summon area_effect_cloud ~ ~ ~ {CustomName:ACV_MEG,Duration:2147483647,Passengers:[{id:creeper,CustomName:ACV_MEG,powered:1,ActiveEffects:[{Amplifier:1,Duration:1000000,Id:14,ShowParticles:0b}]}],PersistenceRequired:1,Invulnerable:1,NoAI:1}
+/summon area_effect_cloud ~ ~ ~ {CustomName:ACV_MEG,Duration:2147483647,Passengers:[{id:creeper,CustomName:ACV_MEG,powered:1,ActiveEffects:[{Amplifier:1,Duration:1000000,Id:14,ShowParticles:0b}],PersistenceRequired:1,Invulnerable:1,NoAI:1}]}
 
 Kill Material Emancipation Grill:
 /tp @e[name=ACV_MEG,dy=1] ~ -100 ~
