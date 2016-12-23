@@ -132,55 +132,61 @@ Mapmaker_Helper {
 /tellraw @a [{"text":"Download the ","color":"yellow"},{"text":"Mapmaker Helper","color":"gold"},{"text":" by clicking ","color":"yellow"},{"text":"here","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"Click to open the Download Page","color":"red"}},"clickEvent":{"action":"open_url","value":"https://github.com/Adrodoc55/MapMakerHelper/releases"}}]
 Mapmaker_Helper }
 
-Smooth_Teleport {
-/setblock ~ ~ ~ standing_sign 8 replace {Text1:"{\"text\":\"Smooth Teleport\"}",Text2:"{\"text\":\"on\",\"color\":\"dark_green\"}",Text3:"{\"text\":\"|\",\"color\":\"black\"}",Text4:"{\"text\":\"off\",\"color\":\"dark_red\"}"}
-
-/execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ stone
-/entitydata @e[name=ACV_teleportation] {CustomName:"ACV_smoothTeleportation"}
-/entitydata @e[name=ACV_simpleTeleportation] {CustomName:"ACV_teleportation"}
-
-/execute @e[name=ACV_teleportation] ~ ~ ~ /setblock ~ ~ ~ stone
-/entitydata @e[name=ACV_teleportation] {CustomName:"ACV_simpleTeleportation"}
-/entitydata @e[name=ACV_smoothTeleportation] {CustomName:"ACV_teleportation"}
-
-/execute @e[name=ACV_portals] ~ ~ ~ detect ~ ~ ~ redstone_block * execute @e[name=ACV_teleportation] ~ ~ ~ setblock ~ ~ ~ redstone_block
-Smooth_Teleport }
-
 Portalsystem {
-/execute @e[name=ACV_portals] ~ ~ ~ setblock ~ ~ ~ stone
-/execute @e[name=ACV_teleportation] ~ ~ ~ setblock ~ ~ ~ stone
+/setblock ~ ~ ~ standing_sign 8 replace {Text1:"[{\"text\":\"Portal\",\"color\":\"dark_blue\",\"bold\":true},{\"text\":\"system\",\"color\":\"gold\",\"bold\":true}]",Text2:"{\"text\":\"off\",\"color\":\"dark_red\"}",Text3:"{\"text\":\"|\",\"color\":\"black\"}",Text4:"{\"text\":\"on\",\"color\":\"dark_green\"}"}
 
 /execute @e[name=ACV_portals] ~ ~ ~ setblock ~ ~ ~ redstone_block
 /execute @e[name=ACV_teleportation] ~ ~ ~ setblock ~ ~ ~ redstone_block
 /tellraw @a [{"text":"Welcome to","color":"gold"},{"text":" ApertureCraft Vanilla\n","color":"dark_aqua"},{"text":"   Version: ","color":"gold"},{"text":"8.2.0\n","color":"dark_aqua","italic":"true"},{"text":"   made by ","color":"yellow","italic":"true"},{"text":"Adrodoc55\n","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"Click to open YouTube Channel","color":"red"}},"clickEvent":{"action":"open_url","value":"https://www.youtube.com/user/Adrodoc55"}},{"text":"\nVisit me on ","color":"yellow"},{"text":"[Github]","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"Click to open Github","color":"red"}},"clickEvent":{"action":"open_url","value":"https://github.com/Adrodoc55/ApertureCraftVanilla"}},{"text":" to report Bugs and check for Updates","color":"yellow"}]
+
+/execute @e[name=ACV_portals] ~ ~ ~ setblock ~ ~ ~ stone
+/execute @e[name=ACV_teleportation] ~ ~ ~ setblock ~ ~ ~ stone
 Portalsystem }
 
+Smooth_Teleport {
+/setblock ~ ~ ~ standing_sign 8 replace {Text1:"{\"text\":\"Smooth Teleport\"}",Text2:"{\"text\":\"off\",\"color\":\"dark_red\"}",Text3:"{\"text\":\"|\",\"color\":\"black\"}",Text4:"{\"text\":\"on\",\"color\":\"dark_green\"}"}
+
+/execute @e[name=ACV_teleportation] ~ ~ ~ setblock ~ ~ ~ stone
+/entitydata @e[name=ACV_teleportation] {CustomName:"ACV_simpleTeleportation"}
+/entitydata @e[name=ACV_smoothTeleportation] {CustomName:"ACV_teleportation"}
+
+/execute @e[name=ACV_teleportation] ~ ~ ~ setblock ~ ~ ~ stone
+/entitydata @e[name=ACV_teleportation] {CustomName:"ACV_smoothTeleportation"}
+/entitydata @e[name=ACV_simpleTeleportation] {CustomName:"ACV_teleportation"}
+
+/execute @e[name=ACV_portals] ~ ~ ~ detect ~ ~ ~ redstone_block * execute @e[name=ACV_teleportation] ~ ~ ~ setblock ~ ~ ~ redstone_block
+Smooth_Teleport }
+
 Cubes {
-/execute @e[name=ACV_cubes] ~ ~ ~ setblock ~ ~ ~ stone
+/setblock ~ ~ ~ standing_sign 8 replace {Text1:"{\"text\":\"Cubes\",\"color\":\"dark_gray\",\"bold\":true}",Text2:"{\"text\":\"off\",\"color\":\"dark_red\"}",Text3:"{\"text\":\"|\",\"color\":\"black\"}",Text4:"{\"text\":\"on\",\"color\":\"dark_green\"}"}
 
 /execute @e[name=ACV_cubes] ~ ~ ~ setblock ~ ~ ~ redstone_block
+
+/execute @e[name=ACV_cubes] ~ ~ ~ setblock ~ ~ ~ stone
 Cubes }
 
 Lasers {
-/execute @e[name=ACV_lasers] ~ ~ ~ setblock ~ ~ ~ stone
+/setblock ~ ~ ~ standing_sign 8 replace {Text1:"{\"text\":\"Lasers\",\"color\":\"dark_red\",\"bold\":true}",Text2:"{\"text\":\"off\",\"color\":\"dark_red\"}",Text3:"{\"text\":\"|\",\"color\":\"black\"}",Text4:"{\"text\":\"on\",\"color\":\"dark_green\"}"}
 
 /execute @e[name=ACV_lasers] ~ ~ ~ setblock ~ ~ ~ redstone_block
+
+/execute @e[name=ACV_lasers] ~ ~ ~ setblock ~ ~ ~ stone
 Lasers }
 
 Material Emancipation Grill {
-/setblock ~ ~ ~ minecraft:standing_sign 8 replace {Text1:"Material",Text2:"Emancipation Grill",Text3:"{\"text\":\"on\",\"color\":\"dark_green\"}",Text4:"{\"text\":\"off\",\"color\":\"dark_red\"}"}
-
-/execute @e[name=ACV_megs] ~ ~ ~ setblock ~ ~ ~ stone
+/setblock ~ ~ ~ minecraft:standing_sign 8 replace {Text1:"{\"text\":\"Material\"}",Text2:"{\"text\":\"Emancipation Grill\"}",Text3:"{\"text\":\"off\",\"color\":\"dark_red\"}",Text4:"{\"text\":\"on\",\"color\":\"dark_green\"}"}
 
 /execute @e[name=ACV_megs] ~ ~ ~ setblock ~ ~ ~ redstone_block
+
+/execute @e[name=ACV_megs] ~ ~ ~ setblock ~ ~ ~ stone
 Material Emancipation Grill }
 
 Gels {
-/setblock ~ ~ ~ standing_sign 8 replace {Text1:"{\"text\":\"Gels\",\"color\":\"yellow\",\"bold\":\"true\"}",Text2:"{\"text\":\"on\",\"color\":\"dark_green\"}",Text3:"{\"text\":\"|\",\"color\":\"black\"}",Text4:"{\"text\":\"off\",\"color\":\"dark_red\"}"}
-
-/execute @e[name=ACV_gels] ~ ~ ~ /setblock ~ ~ ~ stone
+/setblock ~ ~ ~ standing_sign 8 replace {Text1:"{\"text\":\"Gels\",\"color\":\"blue\",\"bold\":true}",Text2:"{\"text\":\"off\",\"color\":\"dark_red\"}",Text3:"{\"text\":\"|\",\"color\":\"black\"}",Text4:"{\"text\":\"on\",\"color\":\"dark_green\"}"}
 
 /execute @e[name=ACV_gels] ~ ~ ~ /setblock ~ ~ ~ redstone_block
+
+/execute @e[name=ACV_gels] ~ ~ ~ /setblock ~ ~ ~ stone
 Gels }
 
 Control_Panel }
