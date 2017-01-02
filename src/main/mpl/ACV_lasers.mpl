@@ -3,6 +3,10 @@ repeat process ACV_lasers {
 
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~-500 ~ particle reddust ~ ~ ~ 0.1 0.1 0.1 0 10 force
 
+// Kill redundant laser boats to avoid interlocking
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=-1] add ACV_notRedundant
+/tp @e[type=boat,name=ACV_LaserBoat,tag=!ACV_notRedundant] ~ -100 ~
+
 // Redirection
 /scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_InCube] remove ACV_InCube
 /execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,dy=0] add ACV_InCube
