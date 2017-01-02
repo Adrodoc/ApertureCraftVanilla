@@ -19,9 +19,10 @@ repeat process ACV_lasers {
 /scoreboard players add @e[type=boat,name=ACV_LaserBoat] ACV_redundant 0
 /stats entity @e[type=boat,name=ACV_LaserBoat] set SuccessCount @e[type=boat,name=ACV_LaserBoat,r=0,c=1] ACV_redundant
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ testfor @e[type=boat,name=ACV_LaserBoat,dy=0]
+/stats entity @e[type=boat,name=ACV_LaserBoat] clear SuccessCount
 
-/execute @e[type=boat,name=ACV_LaserBoat,score_ACV_redundant_min=5,c=1] ~ ~500 ~ summon item_frame ~ ~ ~ {CustomName:ACV_LaserFrame}
-/execute @e[type=item_frame,name=ACV_LaserFrame] ~ ~-500 ~ tp @e[type=boat,name=ACV_LaserBoat,score_ACV_redundant_min=5,dy=0,c=4] ~ -100 ~
+/execute @e[type=boat,name=ACV_LaserBoat,score_ACV_redundant_min=5] ~ ~ ~ summon item_frame ~ ~ ~ {CustomName:ACV_LaserFrame}
+/execute @e[type=item_frame,name=ACV_LaserFrame] ~ ~ ~ tp @e[type=boat,name=ACV_LaserBoat,score_ACV_redundant_min=5,dy=0,c=4] ~ -100 ~
 /kill @e[type=item_frame,name=ACV_LaserFrame]
 
 // Redirection
