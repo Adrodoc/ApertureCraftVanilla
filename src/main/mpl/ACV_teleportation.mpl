@@ -17,4 +17,6 @@ repeat process ACV_teleportation {
 /tp @e[score_ACV_TP_TO_min=1,score_ACV_TP_TO=1] @e[type=area_effect_cloud,name=ACV_PortalOut,score_ACV_COLOR_min=1,score_ACV_COLOR=1]
 /tp @e[score_ACV_TP_TO_min=2,score_ACV_TP_TO=2] @e[type=area_effect_cloud,name=ACV_PortalOut,score_ACV_COLOR_min=2,score_ACV_COLOR=2]
 /tp @e[score_ACV_TP_TO_min=3,score_ACV_TP_TO=3] @e[type=area_effect_cloud,name=ACV_PortalOut,score_ACV_COLOR_min=3,score_ACV_COLOR=3]
+
+/tp @e[type=boat,name=ACV_LaserBoat,score_ACV_TP_TO_min=0] ~ ~ ~ 180
 }

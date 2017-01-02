@@ -1,42 +1,43 @@
 repeat process ACV_lasers {
+// Summoning
+/execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ summon boat ~ ~ ~ {CustomName:ACV_LaserBoat,Tags:[ACV_new],NoGravity:1,Invulnerable:1,Passengers:[{id:armor_stand,CustomName:ACV_LaserPassenger1,Tags:[ACV_TpProof]},{id:armor_stand,CustomName:ACV_LaserPassenger2,Tags:[ACV_TpProof]}]}
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ tp @e[type=boat,name=ACV_LaserBoat,r=0,c=1] @e[type=area_effect_cloud,name=ACV_Laser,r=0,c=1]
+/tp @e[type=area_effect_cloud,name=ACV_Laser] ~ ~-100 ~
+/tp @e[type=boat,name=ACV_LaserBoat,tag=ACV_new] ~ ~500 ~ ~180 ~
+/scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_new] remove ACV_new
+
 /tp @e[type=armor_stand,name=ACV_Cube] ~ ~ ~ ~ 0
 
-/scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser] remove ACV_InCube
-/scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser] remove ACV_EnteringCube
-/scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser] remove ACV_InAir
-/execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ particle reddust ~ ~ ~ 0.1 0.1 0.1 0 10 force
-/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~2 ~ scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser,dy=0] add ACV_InCube
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=169,ry=-168,rxm=0,rx=0] ~0 ~ ~-0.5
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=-167,ry=-146,rxm=0,rx=0] ~0.1913417161825448858642299920152 ~ ~-0.46193976625564337806409159469839
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=-145,ry=-123,rxm=0,rx=0] ~0.35355339059327376220042218105242 ~ ~-0.35355339059327376220042218105242
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=-122,ry=-101,rxm=0,rx=0] ~0.46193976625564337806409159469839 ~ ~-0.1913417161825448858642299920152
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=-100,ry=-78,rxm=0,rx=0] ~0.5 ~ ~0
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=-77,ry=-56,rxm=0,rx=0] ~0.46193976625564337806409159469839 ~ ~0.1913417161825448858642299920152
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=-55,ry=-33,rxm=0,rx=0] ~0.35355339059327376220042218105242 ~ ~0.35355339059327376220042218105242
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=-32,ry=-11,rxm=0,rx=0] ~0.1913417161825448858642299920152 ~ ~0.46193976625564337806409159469839
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=-10,ry=11,rxm=0,rx=0] ~0 ~ ~0.5
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=12,ry=33,rxm=0,rx=0] ~-0.1913417161825448858642299920152 ~ ~0.46193976625564337806409159469839
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=34,ry=56,rxm=0,rx=0] ~-0.35355339059327376220042218105242 ~ ~0.35355339059327376220042218105242
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=57,ry=78,rxm=0,rx=0] ~-0.46193976625564337806409159469839 ~ ~0.1913417161825448858642299920152
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=79,ry=101,rxm=0,rx=0] ~-0.5 ~ ~0
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=102,ry=123,rxm=0,rx=0] ~-0.46193976625564337806409159469839 ~ ~-0.1913417161825448858642299920152
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=124,ry=146,rxm=0,rx=0] ~-0.35355339059327376220042218105242 ~ ~-0.35355339059327376220042218105242
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rym=147,ry=168,rxm=0,rx=0] ~-0.1913417161825448858642299920152 ~ ~-0.46193976625564337806409159469839
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rxm=1,rx=90] ~ ~-0.5 ~
-/tp @e[type=area_effect_cloud,name=ACV_Laser,rxm=-90,rx=-1] ~ ~0.5 ~
-/execute @e[type=armor_stand,name=ACV_Cube,tag=!ACV_Redirecting] ~ ~1.5 ~ kill @e[type=area_effect_cloud,name=ACV_Laser,dy=0]
-/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~1.5 ~ scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser,tag=!ACV_InCube,dy=0] add ACV_EnteringCube
-/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~1.5 ~ tp @e[type=area_effect_cloud,name=ACV_Laser,tag=ACV_EnteringCube,dy=0] @e[type=armor_stand,name=ACV_Cube,r=2,c=1]
-/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~ ~ tp @e[type=area_effect_cloud,name=ACV_Laser,tag=ACV_EnteringCube,dy=0] ~ ~1.7 ~
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~-500 ~ particle reddust ~ ~ ~ 0.1 0.1 0.1 0 10 force
 
-/execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ air -1 scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser,r=1,c=1] add ACV_InAir
-/execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ piston_extension -1 scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser,r=1,c=1] add ACV_InAir
-/execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ carpet -1 scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser,r=1,c=1] add ACV_InAir
-/execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ glass -1 scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser,r=1,c=1] add ACV_InAir
-/execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ stained_glass -1 scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser,r=1,c=1] add ACV_InAir
-/execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ glass_pane -1 scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser,r=1,c=1] add ACV_InAir
-/execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ stained_glass_pane -1 scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser,r=1,c=1] add ACV_InAir
-/execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ detect ~ ~ ~ iron_bars -1 scoreboard players tag @e[type=area_effect_cloud,name=ACV_Laser,r=1,c=1] add ACV_InAir
+// Redirection
+/scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_InCube] remove ACV_InCube
+/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,dy=0] add ACV_InCube
 
-/kill @e[type=area_effect_cloud,name=ACV_Laser,tag=!ACV_InAir]
+// Movement
+/scoreboard players tag @e[type=armor_stand,name=ACV_LaserPassenger2,tag=!ACV_VerticalLaser] add ACV_VerticalLaser
+/execute @e[type=boat,name=ACV_LaserBoat,rxm=0,rx=0] ~ ~.7999999 ~ scoreboard players tag @e[type=armor_stand,name=ACV_LaserPassenger2,c=-1,r=1] remove ACV_VerticalLaser
+/execute @e[type=armor_stand,name=ACV_LaserPassenger2,tag=!ACV_VerticalLaser] ~ ~.7999999 ~ teleport @e[type=boat,name=ACV_LaserBoat,c=-1,r=1] ~ ~-.7999999 ~
+/tp @e[type=boat,name=ACV_LaserBoat,rxm=1,rx=90] ~ ~-0.6 ~
+/tp @e[type=boat,name=ACV_LaserBoat,rxm=-90,rx=-1] ~ ~0.6 ~
+
+// Redirection
+/execute @e[type=armor_stand,name=ACV_Cube,tag=!ACV_Redirecting] ~ ~501.5 ~ tp @e[type=boat,name=ACV_LaserBoat,dy=0] ~ -100 ~
+
+/scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube] remove ACV_EnteringCube
+/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=!ACV_InCube,dy=0] add ACV_EnteringCube
+/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ tp @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube,dy=0] @e[type=armor_stand,name=ACV_Cube,rm=501,dy=-500,c=-1]
+/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~ ~ tp @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube,dy=0] ~ ~501.7 ~
+
+// Collission Detection
+/scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_InAir] remove ACV_InAir
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ air * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ piston_extension * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ carpet * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ glass * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ stained_glass * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ glass_pane * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ stained_glass_pane * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ iron_bars * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
+/tp @e[type=boat,name=ACV_LaserBoat,tag=!ACV_InAir] ~ -100 ~
 }
