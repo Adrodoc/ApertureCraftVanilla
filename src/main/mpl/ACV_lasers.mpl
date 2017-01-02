@@ -1,11 +1,4 @@
 repeat process ACV_lasers {
-// Summoning
-/execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ summon boat ~ ~ ~ {CustomName:ACV_LaserBoat,Tags:[ACV_new],NoGravity:1,Invulnerable:1,Passengers:[{id:armor_stand,CustomName:ACV_LaserPassenger1,Tags:[ACV_TpProof]},{id:armor_stand,CustomName:ACV_LaserPassenger2,Tags:[ACV_TpProof]}]}
-/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ tp @e[type=boat,name=ACV_LaserBoat,r=0,c=1] @e[type=area_effect_cloud,name=ACV_Laser,r=0,c=1]
-/tp @e[type=area_effect_cloud,name=ACV_Laser] ~ ~-100 ~
-/tp @e[type=boat,name=ACV_LaserBoat,tag=ACV_new] ~ ~500 ~ ~180 ~
-/scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_new] remove ACV_new
-
 /tp @e[type=armor_stand,name=ACV_Cube] ~ ~ ~ ~ 0
 
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~-500 ~ particle reddust ~ ~ ~ 0.1 0.1 0.1 0 10 force
@@ -39,4 +32,11 @@ repeat process ACV_lasers {
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ stained_glass_pane * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ iron_bars * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
 /tp @e[type=boat,name=ACV_LaserBoat,tag=!ACV_InAir] ~ -100 ~
+
+// Summoning
+/execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ summon boat ~ ~ ~ {CustomName:ACV_LaserBoat,Tags:[ACV_new],NoGravity:1,Invulnerable:1,Passengers:[{id:armor_stand,CustomName:ACV_LaserPassenger1,Tags:[ACV_TpProof]},{id:armor_stand,CustomName:ACV_LaserPassenger2,Tags:[ACV_TpProof]}]}
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ tp @e[type=boat,name=ACV_LaserBoat,r=0,c=1] @e[type=area_effect_cloud,name=ACV_Laser,r=0,c=1]
+/tp @e[type=area_effect_cloud,name=ACV_Laser] ~ ~-100 ~
+/tp @e[type=boat,name=ACV_LaserBoat,tag=ACV_new] ~ ~500 ~ ~180 ~
+/scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_new] remove ACV_new
 }
