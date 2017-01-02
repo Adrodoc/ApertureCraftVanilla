@@ -7,6 +7,7 @@ repeat process ACV_smoothTeleportation {
 /scoreboard players reset @e ACV_TP_RD
 
 /execute @e[type=area_effect_cloud,name=ACV_PortalIn] ~ ~ ~ scoreboard players operation @e[tag=!ACV_TpProof,dy=0] ACV_TP_FROM = @e[type=area_effect_cloud,name=ACV_PortalIn,r=0,c=1] ACV_COLOR
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~-500 ~ scoreboard players operation @e[tag=!ACV_TpProof,rm=500,dy=500] ACV_TP_FROM = @e[type=area_effect_cloud,name=ACV_PortalIn,dy=0,c=1] ACV_COLOR
 
 // Calulate the target portal
 /execute @e[score_ACV_TP_FROM_min=0] ~ ~ ~ scoreboard players operation @e[score_ACV_TP_FROM_min=0,r=0,c=1] ACV_TP_TO = @e[score_ACV_TP_FROM_min=0,r=0,c=1] ACV_TP_FROM
@@ -65,4 +66,7 @@ repeat process ACV_smoothTeleportation {
 // Lightbridges must look also look away from horizontal portals
 /tp @e[tag=ACV_RotationProof,score_ACV_TP_OR_min=-1,score_ACV_TP_OR=-1] ~ ~ ~ ~ -90
 /tp @e[tag=ACV_RotationProof,score_ACV_TP_OR_min=-2,score_ACV_TP_OR=-2] ~ ~ ~ ~ 90
+
+// Laser boats must be 500 blocks above the displayed laser
+/tp @e[type=boat,name=ACV_LaserBoat,score_ACV_TP_TO_min=0] ~ ~500 ~ ~180 ~
 }
