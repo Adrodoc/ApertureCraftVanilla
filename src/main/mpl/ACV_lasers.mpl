@@ -7,6 +7,7 @@ uninstall {
 }
 
 repeat process ACV_lasers {
+// Display
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~-499.7 ~ particle reddust ~ ~ ~ 0.1 0.1 0.1 0 10 force
 
 // Summoning
@@ -45,6 +46,9 @@ repeat process ACV_lasers {
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ stained_glass_pane * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ iron_bars * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
 /tp @e[type=boat,name=ACV_LaserBoat,tag=!ACV_InAir] ~ -100 ~
+
+// Display
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~-499.7 ~ particle reddust ~ ~ ~ 0.1 0.1 0.1 0 10 force
 
 // Redirection
 /execute @e[type=armor_stand,name=ACV_Cube,tag=!ACV_Redirecting] ~ ~501.65 ~ tp @e[type=boat,name=ACV_LaserBoat,dy=0] ~ -100 ~
