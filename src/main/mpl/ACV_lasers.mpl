@@ -1,5 +1,5 @@
 repeat process ACV_lasers {
-/execute @e[type=boat,name=ACV_LaserBoat] ~ ~-500 ~ particle reddust ~ ~ ~ 0.1 0.1 0.1 0 10 force
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~-499.7 ~ particle reddust ~ ~ ~ 0.1 0.1 0.1 0 10 force
 
 // Kill redundant laser boats to avoid interlocking
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=-1] add ACV_notRedundant
@@ -7,7 +7,7 @@ repeat process ACV_lasers {
 
 // Redirection
 /scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_InCube] remove ACV_InCube
-/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,dy=0] add ACV_InCube
+/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.65 ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,dy=0] add ACV_InCube
 
 // Movement
 /scoreboard players tag @e[type=armor_stand,name=ACV_LaserPassenger2,tag=!ACV_VerticalLaser] add ACV_VerticalLaser
@@ -29,16 +29,16 @@ repeat process ACV_lasers {
 /tp @e[type=boat,name=ACV_LaserBoat,tag=!ACV_InAir] ~ -100 ~
 
 // Redirection
-/execute @e[type=armor_stand,name=ACV_Cube,tag=!ACV_Redirecting] ~ ~501.5 ~ tp @e[type=boat,name=ACV_LaserBoat,dy=0] ~ -100 ~
+/execute @e[type=armor_stand,name=ACV_Cube,tag=!ACV_Redirecting] ~ ~501.65 ~ tp @e[type=boat,name=ACV_LaserBoat,dy=0] ~ -100 ~
 
 /scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube] remove ACV_EnteringCube
-/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=!ACV_InCube,dy=0] add ACV_EnteringCube
-/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ teleport @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube,dy=0] ~ ~ ~ ~180 0
+/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.65 ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=!ACV_InCube,dy=0] add ACV_EnteringCube
+/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.65 ~ teleport @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube,dy=0] ~ ~-0.3 ~ ~180 0
 
 // Summoning
 /execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ summon boat ~ ~ ~ {CustomName:ACV_LaserBoat,Tags:[ACV_new],NoGravity:1,Invulnerable:1,Passengers:[{id:armor_stand,CustomName:ACV_LaserPassenger1,Tags:[ACV_TpProof]},{id:armor_stand,CustomName:ACV_LaserPassenger2,Tags:[ACV_TpProof]}]}
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ tp @e[type=boat,name=ACV_LaserBoat,r=0,c=1] @e[type=area_effect_cloud,name=ACV_Laser,r=0,c=1]
 /tp @e[type=area_effect_cloud,name=ACV_Laser] ~ -100 ~
-/tp @e[type=boat,name=ACV_LaserBoat,tag=ACV_new] ~ ~500 ~ ~180 ~
+/tp @e[type=boat,name=ACV_LaserBoat,tag=ACV_new] ~ ~499.7 ~ ~180 ~
 /scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_new] remove ACV_new
 }
