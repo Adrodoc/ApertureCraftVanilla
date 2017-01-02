@@ -1,3 +1,11 @@
+install {
+  /scoreboard objectives add ACV_redundant dummy
+}
+
+uninstall {
+  /scoreboard objectives remove ACV_redundant
+}
+
 repeat process ACV_lasers {
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~-499.7 ~ particle reddust ~ ~ ~ 0.1 0.1 0.1 0 10 force
 
@@ -7,8 +15,11 @@ repeat process ACV_lasers {
 /kill @e[type=area_effect_cloud,name=ACV_Laser]
 
 // Kill redundant laser boats to avoid interlocking
-/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=-1] add ACV_notRedundant
-/tp @e[type=boat,name=ACV_LaserBoat,tag=!ACV_notRedundant] ~ -100 ~
+/scoreboard players add @e[type=boat,name=ACV_LaserBoat] ACV_redundant 0
+/stats entity @e[type=boat,name=ACV_LaserBoat] set SuccessCount @e[type=boat,name=ACV_LaserBoat,r=0,c=1] ACV_redundant
+/execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ testfor @e[type=boat,name=ACV_LaserBoat,dy=0]
+/scoreboard players set @e[type=boat,name=ACV_LaserBoat,score_ACV_redundant_min=2,c=1] ACV_redundant 1
+/tp @e[type=boat,name=ACV_LaserBoat,score_ACV_redundant_min=2] ~ -100 ~
 
 // Redirection
 /scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_InCube] remove ACV_InCube
