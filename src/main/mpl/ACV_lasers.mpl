@@ -26,8 +26,7 @@ repeat process ACV_lasers {
 
 /scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube] remove ACV_EnteringCube
 /execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=!ACV_InCube,dy=0] add ACV_EnteringCube
-/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ tp @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube,dy=0] @e[type=armor_stand,name=ACV_Cube,rm=501,dy=-500,c=-1]
-/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~ ~ tp @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube,dy=0] ~ ~501.7 ~
+/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ teleport @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube,dy=0] ~ ~ ~ ~180 ~
 
 // Collission Detection
 /scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_InAir] remove ACV_InAir
