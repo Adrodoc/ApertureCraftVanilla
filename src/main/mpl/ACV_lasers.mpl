@@ -36,7 +36,7 @@ repeat process ACV_lasers {
 // Summoning
 /execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ summon boat ~ ~ ~ {CustomName:ACV_LaserBoat,Tags:[ACV_new],NoGravity:1,Invulnerable:1,Passengers:[{id:armor_stand,CustomName:ACV_LaserPassenger1,Tags:[ACV_TpProof]},{id:armor_stand,CustomName:ACV_LaserPassenger2,Tags:[ACV_TpProof]}]}
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ tp @e[type=boat,name=ACV_LaserBoat,r=0,c=1] @e[type=area_effect_cloud,name=ACV_Laser,r=0,c=1]
-/tp @e[type=area_effect_cloud,name=ACV_Laser] ~ ~-100 ~
+/tp @e[type=area_effect_cloud,name=ACV_Laser] ~ -100 ~
 /tp @e[type=boat,name=ACV_LaserBoat,tag=ACV_new] ~ ~500 ~ ~180 ~
 /scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_new] remove ACV_new
 }
