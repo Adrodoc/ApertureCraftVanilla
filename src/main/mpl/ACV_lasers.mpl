@@ -1,6 +1,4 @@
 repeat process ACV_lasers {
-/tp @e[type=armor_stand,name=ACV_Cube] ~ ~ ~ ~ 0
-
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~-500 ~ particle reddust ~ ~ ~ 0.1 0.1 0.1 0 10 force
 
 // Kill redundant laser boats to avoid interlocking
@@ -23,7 +21,7 @@ repeat process ACV_lasers {
 
 /scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube] remove ACV_EnteringCube
 /execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=!ACV_InCube,dy=0] add ACV_EnteringCube
-/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ teleport @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube,dy=0] ~ ~ ~ ~180 ~
+/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ teleport @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube,dy=0] ~ ~ ~ ~180 0
 
 // Collission Detection
 /scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_InAir] remove ACV_InAir
