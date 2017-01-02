@@ -16,13 +16,6 @@ repeat process ACV_lasers {
 /tp @e[type=boat,name=ACV_LaserBoat,rxm=1,rx=90] ~ ~-0.6 ~
 /tp @e[type=boat,name=ACV_LaserBoat,rxm=-90,rx=-1] ~ ~0.6 ~
 
-// Redirection
-/execute @e[type=armor_stand,name=ACV_Cube,tag=!ACV_Redirecting] ~ ~501.5 ~ tp @e[type=boat,name=ACV_LaserBoat,dy=0] ~ -100 ~
-
-/scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube] remove ACV_EnteringCube
-/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=!ACV_InCube,dy=0] add ACV_EnteringCube
-/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ teleport @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube,dy=0] ~ ~ ~ ~180 0
-
 // Collission Detection
 /scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_InAir] remove ACV_InAir
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ air * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
@@ -34,6 +27,13 @@ repeat process ACV_lasers {
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ stained_glass_pane * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ detect ~ ~-500 ~ iron_bars * scoreboard players tag @e[type=boat,name=ACV_LaserBoat,r=1,c=1] add ACV_InAir
 /tp @e[type=boat,name=ACV_LaserBoat,tag=!ACV_InAir] ~ -100 ~
+
+// Redirection
+/execute @e[type=armor_stand,name=ACV_Cube,tag=!ACV_Redirecting] ~ ~501.5 ~ tp @e[type=boat,name=ACV_LaserBoat,dy=0] ~ -100 ~
+
+/scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube] remove ACV_EnteringCube
+/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=!ACV_InCube,dy=0] add ACV_EnteringCube
+/execute @e[type=armor_stand,name=ACV_Cube,tag=ACV_Redirecting] ~ ~501.5 ~ teleport @e[type=boat,name=ACV_LaserBoat,tag=ACV_EnteringCube,dy=0] ~ ~ ~ ~180 0
 
 // Summoning
 /execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~ ~ summon boat ~ ~ ~ {CustomName:ACV_LaserBoat,Tags:[ACV_new],NoGravity:1,Invulnerable:1,Passengers:[{id:armor_stand,CustomName:ACV_LaserPassenger1,Tags:[ACV_TpProof]},{id:armor_stand,CustomName:ACV_LaserPassenger2,Tags:[ACV_TpProof]}]}
