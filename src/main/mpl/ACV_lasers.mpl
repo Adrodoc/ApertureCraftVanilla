@@ -14,12 +14,14 @@ repeat process ACV_lasers {
 /execute @e[type=area_effect_cloud,name=ACV_Laser] ~ ~499.7 ~ teleport @e[type=boat,name=ACV_LaserBoat,r=0] ~ ~ ~ ~180 ~
 /kill @e[type=area_effect_cloud,name=ACV_Laser]
 
-// Kill redundant laser boats to avoid interlocking
+// Kill redundant laser boats to avoid interlocking and cycles
 /scoreboard players add @e[type=boat,name=ACV_LaserBoat] ACV_redundant 0
 /stats entity @e[type=boat,name=ACV_LaserBoat] set SuccessCount @e[type=boat,name=ACV_LaserBoat,r=0,c=1] ACV_redundant
 /execute @e[type=boat,name=ACV_LaserBoat] ~ ~ ~ testfor @e[type=boat,name=ACV_LaserBoat,dy=0]
-/scoreboard players set @e[type=boat,name=ACV_LaserBoat,score_ACV_redundant_min=2,c=1] ACV_redundant 1
-/tp @e[type=boat,name=ACV_LaserBoat,score_ACV_redundant_min=2] ~ -100 ~
+
+/execute @e[type=boat,name=ACV_LaserBoat,score_ACV_redundant_min=5,c=1] ~ ~500 ~ summon item_frame ~ ~ ~ {CustomName:ACV_LaserFrame}
+/execute @e[type=item_frame,name=ACV_LaserFrame] ~ ~-500 ~ tp @e[type=boat,name=ACV_LaserBoat,score_ACV_redundant_min=5,dy=0,c=4] ~ -100 ~
+/kill @e[type=item_frame,name=ACV_LaserFrame]
 
 // Redirection
 /scoreboard players tag @e[type=boat,name=ACV_LaserBoat,tag=ACV_InCube] remove ACV_InCube
