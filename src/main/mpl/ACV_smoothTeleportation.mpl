@@ -64,9 +64,13 @@ repeat process ACV_smoothTeleportation {
 /tp @e[score_ACV_TP_IR=-1,score_ACV_TP_OR_min=2,score_ACV_TP_OR=2] ~ ~ ~ 180 ~
 /tp @e[score_ACV_TP_IR=-1,score_ACV_TP_OR_min=3,score_ACV_TP_OR=3] ~ ~ ~ -90 ~
 
-// Lightbridges must look also look away from horizontal portals
+// Lightbridges must also look away from horizontal portals
 /tp @e[tag=ACV_RotationProof,score_ACV_TP_OR_min=-1,score_ACV_TP_OR=-1] ~ ~ ~ ~ -90
 /tp @e[tag=ACV_RotationProof,score_ACV_TP_OR_min=-2,score_ACV_TP_OR=-2] ~ ~ ~ ~ 90
+
+// Lasers must also look away from horizontal portals
+/tp @e[type=boat,name=ACV_LaserBoat,score_ACV_TP_OR_min=-1,score_ACV_TP_OR=-1] ~ ~ ~ ~ -90
+/tp @e[type=boat,name=ACV_LaserBoat,score_ACV_TP_OR_min=-2,score_ACV_TP_OR=-2] ~ ~ ~ ~ 90
 
 // Laser boats must be 500 blocks above the displayed laser
 /tp @e[type=boat,name=ACV_LaserBoat,score_ACV_TP_TO_min=0] ~ ~500 ~ ~ ~
