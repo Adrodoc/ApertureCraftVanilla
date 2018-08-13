@@ -1,5 +1,6 @@
 {
   "values": [
-    "acv:portal/tick"
+    "acv:portal/tick",
+    "acv:teleportation/tick"
   ]
 }
