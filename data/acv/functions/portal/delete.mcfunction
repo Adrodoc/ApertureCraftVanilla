@@ -1,4 +1,4 @@
-function acv:close_connection
+function acv:portal/close_connection
 
 execute if entity @s[scores={acv_color=0}] run kill @e[scores={acv_color=0}]
 execute if entity @s[scores={acv_color=1}] run kill @e[scores={acv_color=1}]
