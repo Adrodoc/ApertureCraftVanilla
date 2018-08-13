@@ -1,4 +1,4 @@
-scoreboard objectives add ACV_COLOR dummy
+scoreboard objectives add acv_color dummy
 scoreboard objectives add acv_delta dummy
 scoreboard objectives add acv_nbt dummy
 team add acv_blue

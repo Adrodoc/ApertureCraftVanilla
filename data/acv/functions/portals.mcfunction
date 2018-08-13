@@ -1,5 +1,5 @@
-tag @e[type=arrow,nbt={inGround:1b,damage:5.5}] add acv_blue
-tag @e[type=arrow,nbt={inGround:1b,damage:6.0}] add acv_orange
-tag @e[type=arrow,nbt={inGround:1b,damage:6.5}] add acv_purple
-tag @e[type=arrow,nbt={inGround:1b,damage:7.0}] add acv_red
-execute as @e[type=arrow,nbt={inGround:1b}] at @s run function acv:process_arrow
+scoreboard players set @e[type=arrow,nbt={inGround:1b,damage:5.5}] acv_color 0
+scoreboard players set @e[type=arrow,nbt={inGround:1b,damage:6.0}] acv_color 1
+scoreboard players set @e[type=arrow,nbt={inGround:1b,damage:6.5}] acv_color 2
+scoreboard players set @e[type=arrow,nbt={inGround:1b,damage:7.0}] acv_color 3
+execute as @e[type=arrow,scores={acv_color=0..3}] at @s run function acv:process_arrow
