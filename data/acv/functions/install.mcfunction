@@ -7,6 +7,7 @@ scoreboard objectives add acv_tmp dummy
 scoreboard objectives add acv_constant dummy
 scoreboard players set 2 acv_constant 2
 scoreboard players set 4 acv_constant 4
+scoreboard players set 8 acv_constant 8
 
 team add acv_blue
 team add acv_orange
