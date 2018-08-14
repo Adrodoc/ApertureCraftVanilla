@@ -1,15 +1,5 @@
-execute if entity @s[tag=acv_ceiling] positioned ~ ~1 ~ run function acv:portal/validate_block
+function acv:portal/summon_portal_in_markers
 
-execute if entity @s[tag=acv_floor] positioned ~ ~-1 ~ run function acv:portal/validate_block
+execute at @e[tag=acv_portal_in,tag=acv_uncolored] run function acv:portal/validate_block
 
-execute if entity @s[tag=acv_south] positioned ~ ~-1 ~1 run function acv:portal/validate_block
-execute if entity @s[tag=acv_south] positioned ~ ~ ~1 run function acv:portal/validate_block
-
-execute if entity @s[tag=acv_north] positioned ~ ~-1 ~-1 run function acv:portal/validate_block
-execute if entity @s[tag=acv_north] positioned ~ ~ ~-1 run function acv:portal/validate_block
-
-execute if entity @s[tag=acv_east] positioned ~1 ~-1 ~ run function acv:portal/validate_block
-execute if entity @s[tag=acv_east] positioned ~1 ~ ~ run function acv:portal/validate_block
-
-execute if entity @s[tag=acv_west] positioned ~-1 ~-1 ~ run function acv:portal/validate_block
-execute if entity @s[tag=acv_west] positioned ~-1 ~ ~ run function acv:portal/validate_block
+execute if entity @s[tag=acv_invalid] run kill @e[tag=acv_portal_in,tag=acv_uncolored]
