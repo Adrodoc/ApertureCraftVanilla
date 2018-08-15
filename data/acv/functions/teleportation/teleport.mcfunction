@@ -23,9 +23,8 @@ execute at @e[tag=acv_portal,tag=acv_outside,scores={acv_portal_id=0}] run telep
 scoreboard players operation @e[tag=acv_portal,tag=acv_outside] acv_portal_id += @s acv_opposite_id
 
 # reset motion
-teleport @s @s
+teleport @s
 
-execute if entity @s[scores={acv_delta=0}] at @s run teleport @s ~ ~ ~ ~ ~
 execute if entity @s[scores={acv_delta=1}] at @s run teleport @s ~ ~ ~ ~90 ~
 execute if entity @s[scores={acv_delta=2}] at @s run teleport @s ~ ~ ~ ~180 ~
 execute if entity @s[scores={acv_delta=3}] at @s run teleport @s ~ ~ ~ ~270 ~
