@@ -1,26 +1,19 @@
-# calculate target color
-scoreboard players operation @s acv_target_color = @s acv_origin_color
-scoreboard players operation @s acv_tmp = @s acv_origin_color
-scoreboard players operation @s acv_tmp %= 2 acv_constant
-scoreboard players remove @s[scores={acv_tmp=0}] acv_target_color 1
-scoreboard players add @s[scores={acv_tmp=1}] acv_target_color 1
+# refer to origin portal
+scoreboard players operation @e[tag=acv_portal,tag=acv_outside] acv_portal_id -= @s acv_portal_id
+execute store result score @s acv_tmp run data get entity @e[tag=acv_portal,tag=acv_outside,scores={acv_portal_id=0},limit=1] Rotation[0] .011111111111111111
+scoreboard players operation @e[tag=acv_portal,tag=acv_outside] acv_portal_id += @s acv_portal_id
 
 scoreboard players set @s acv_delta 6
-
-# refer to origin portal
-scoreboard players operation @e[tag=acv_portal,tag=acv_outside] acv_color -= @s acv_origin_color
-execute store result score @s acv_tmp run data get entity @e[tag=acv_portal,tag=acv_outside,scores={acv_color=0},limit=1] Rotation[0] .011111111111111111
-scoreboard players operation @e[tag=acv_portal,tag=acv_outside] acv_color += @s acv_origin_color
-
 scoreboard players operation @s acv_delta -= @s acv_tmp
+function acv:portal/get_opposite_id
 
 # refer to target portal
-scoreboard players operation @e[tag=acv_portal,tag=acv_outside] acv_color -= @s acv_target_color
-execute store result score @s acv_tmp run data get entity @e[tag=acv_portal,tag=acv_outside,scores={acv_color=0},limit=1] Rotation[0] .011111111111111111
+scoreboard players operation @e[tag=acv_portal,tag=acv_outside] acv_portal_id -= @s acv_opposite_id
+execute store result score @s acv_tmp run data get entity @e[tag=acv_portal,tag=acv_outside,scores={acv_portal_id=0},limit=1] Rotation[0] .011111111111111111
 scoreboard players operation @s acv_delta += @s acv_tmp
 scoreboard players operation @s acv_delta %= 4 acv_constant
-execute at @e[tag=acv_portal,tag=acv_outside,scores={acv_color=0}] run teleport @s ~ ~ ~
-scoreboard players operation @e[tag=acv_portal,tag=acv_outside] acv_color += @s acv_target_color
+execute at @e[tag=acv_portal,tag=acv_outside,scores={acv_portal_id=0}] run teleport @s ~ ~ ~
+scoreboard players operation @e[tag=acv_portal,tag=acv_outside] acv_portal_id += @s acv_opposite_id
 
 # reset motion
 teleport @s @s

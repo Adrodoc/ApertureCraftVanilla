@@ -1,6 +1,6 @@
-scoreboard objectives add acv_color dummy
-scoreboard objectives add acv_origin_color dummy
-scoreboard objectives add acv_target_color dummy
+scoreboard objectives add acv_portal_id dummy
+scoreboard objectives add acv_close_id dummy
+scoreboard objectives add acv_opposite_id dummy
 scoreboard objectives add acv_delta dummy
 scoreboard objectives add acv_storage_id dummy
 scoreboard objectives add acv_tmp dummy

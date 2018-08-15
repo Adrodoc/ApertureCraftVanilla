@@ -1,2 +1,2 @@
-scoreboard players set @s acv_color 3
+scoreboard players set @s acv_portal_id 3
 function acv:portal/delete
