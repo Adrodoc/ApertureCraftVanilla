@@ -2,8 +2,8 @@
 scoreboard players operation @s acv_target_color = @s acv_origin_color
 scoreboard players operation @s acv_tmp = @s acv_origin_color
 scoreboard players operation @s acv_tmp %= 2 acv_constant
-scoreboard players add @s[scores={acv_tmp=0}] acv_target_color 1
-scoreboard players remove @s[scores={acv_tmp=1}] acv_target_color 1
+scoreboard players remove @s[scores={acv_tmp=0}] acv_target_color 1
+scoreboard players add @s[scores={acv_tmp=1}] acv_target_color 1
 
 scoreboard players set @s acv_delta 6
 
