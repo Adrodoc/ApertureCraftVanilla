@@ -14,5 +14,5 @@ scoreboard players operation @s acv_tmp = @s acv_portal_id
 scoreboard players operation @s acv_tmp < @s acv_opposite_id
 
 scoreboard players operation @e[tag=acv_portal,tag=acv_inside] acv_portal_id -= @s acv_tmp
-execute if entity @e[tag=acv_portal,tag=acv_inside,scores={acv_portal_id=0}] if entity @e[tag=acv_portal,tag=acv_inside,scores={acv_portal_id=1}] at @e[tag=acv_portal,tag=acv_inside,scores={acv_portal_id=0..1}] run setblock ~ ~ ~ moving_piston
+execute if entity @e[tag=acv_portal,tag=acv_inside,scores={acv_portal_id=0}] if entity @e[tag=acv_portal,tag=acv_inside,scores={acv_portal_id=1}] at @e[tag=acv_portal,tag=acv_inside,scores={acv_portal_id=0..1}] run function acv:portal/open_inside
 scoreboard players operation @e[tag=acv_portal,tag=acv_inside] acv_portal_id += @s acv_tmp
