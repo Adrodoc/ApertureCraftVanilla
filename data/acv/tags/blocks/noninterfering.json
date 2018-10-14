@@ -1,0 +1,7 @@
+{
+  "values": [
+    "minecraft:air",
+    "#minecraft:impermeable",
+    "#minecraft:flower_pots"
+  ]
+}

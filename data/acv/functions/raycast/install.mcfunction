@@ -1,0 +1,9 @@
+scoreboard objectives add acv_pos_x dummy
+scoreboard objectives add acv_pos_y dummy
+scoreboard objectives add acv_pos_z dummy
+scoreboard objectives add acv_ray_x dummy
+scoreboard objectives add acv_ray_y dummy
+scoreboard objectives add acv_ray_z dummy
+scoreboard objectives add acv_corner_x dummy
+scoreboard objectives add acv_corner_y dummy
+scoreboard objectives add acv_corner_z dummy
