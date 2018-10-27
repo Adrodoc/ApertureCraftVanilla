@@ -7,3 +7,6 @@ scoreboard objectives add acv_ray_z dummy
 scoreboard objectives add acv_corner_x dummy
 scoreboard objectives add acv_corner_y dummy
 scoreboard objectives add acv_corner_z dummy
+scoreboard objectives add acv_blockface_x dummy
+scoreboard objectives add acv_blockface_y dummy
+scoreboard objectives add acv_blockface_z dummy

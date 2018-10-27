@@ -1,5 +1,6 @@
 function acv:force/install
 function acv:motion/install
+function acv:raycast/install
 
 scoreboard objectives add acv_close_id dummy
 scoreboard objectives add acv_delta dummy
@@ -7,6 +8,9 @@ scoreboard objectives add acv_opposite_id dummy
 scoreboard objectives add acv_portal_id dummy
 scoreboard objectives add acv_storage_id dummy
 scoreboard objectives add acv_tmp dummy
+scoreboard objectives add acv_tmp_x dummy
+scoreboard objectives add acv_tmp_y dummy
+scoreboard objectives add acv_tmp_z dummy
 
 scoreboard objectives add acv_constant dummy
 scoreboard players set -1 acv_constant -1
