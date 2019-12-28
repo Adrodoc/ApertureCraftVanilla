@@ -18,6 +18,7 @@ scoreboard players set 2 acv_constant 2
 scoreboard players set 4 acv_constant 4
 scoreboard players set 8 acv_constant 8
 scoreboard players set 16 acv_constant 16
+scoreboard players set 1000 acv_constant 1000
 scoreboard players set 10000 acv_constant 10000
 
 team add acv_blue
