@@ -1,30 +1,9 @@
-execute if score @s acv_delta_x matches 1.. run scoreboard players set @s acv_pos_x 2147483647
-execute if score @s acv_delta_x matches ..0 run scoreboard players set @s acv_pos_x -2147483648
-execute if score @s acv_delta_y matches 1.. run scoreboard players set @s acv_pos_y 2147483647
-execute if score @s acv_delta_y matches ..0 run scoreboard players set @s acv_pos_y -2147483648
-execute if score @s acv_delta_z matches 1.. run scoreboard players set @s acv_pos_z 2147483647
-execute if score @s acv_delta_z matches ..0 run scoreboard players set @s acv_pos_z -2147483648
-
-execute unless score @s acv_delta_x matches 0 if score @s acv_delta_x matches 1.. run scoreboard players operation @s acv_pos_x < @s acv_x_pos_x
-execute unless score @s acv_delta_x matches 0 if score @s acv_delta_y matches 1.. run scoreboard players operation @s acv_pos_y < @s acv_x_pos_y
-execute unless score @s acv_delta_x matches 0 if score @s acv_delta_z matches 1.. run scoreboard players operation @s acv_pos_z < @s acv_x_pos_z
-execute unless score @s acv_delta_x matches 0 if score @s acv_delta_x matches ..0 run scoreboard players operation @s acv_pos_x > @s acv_x_pos_x
-execute unless score @s acv_delta_x matches 0 if score @s acv_delta_y matches ..0 run scoreboard players operation @s acv_pos_y > @s acv_x_pos_y
-execute unless score @s acv_delta_x matches 0 if score @s acv_delta_z matches ..0 run scoreboard players operation @s acv_pos_z > @s acv_x_pos_z
-
-execute unless score @s acv_delta_y matches 0 if score @s acv_delta_x matches 1.. run scoreboard players operation @s acv_pos_x < @s acv_y_pos_x
-execute unless score @s acv_delta_y matches 0 if score @s acv_delta_y matches 1.. run scoreboard players operation @s acv_pos_y < @s acv_y_pos_y
-execute unless score @s acv_delta_y matches 0 if score @s acv_delta_z matches 1.. run scoreboard players operation @s acv_pos_z < @s acv_y_pos_z
-execute unless score @s acv_delta_y matches 0 if score @s acv_delta_x matches ..0 run scoreboard players operation @s acv_pos_x > @s acv_y_pos_x
-execute unless score @s acv_delta_y matches 0 if score @s acv_delta_y matches ..0 run scoreboard players operation @s acv_pos_y > @s acv_y_pos_y
-execute unless score @s acv_delta_y matches 0 if score @s acv_delta_z matches ..0 run scoreboard players operation @s acv_pos_z > @s acv_y_pos_z
-
-execute unless score @s acv_delta_z matches 0 if score @s acv_delta_x matches 1.. run scoreboard players operation @s acv_pos_x < @s acv_z_pos_x
-execute unless score @s acv_delta_z matches 0 if score @s acv_delta_y matches 1.. run scoreboard players operation @s acv_pos_y < @s acv_z_pos_y
-execute unless score @s acv_delta_z matches 0 if score @s acv_delta_z matches 1.. run scoreboard players operation @s acv_pos_z < @s acv_z_pos_z
-execute unless score @s acv_delta_z matches 0 if score @s acv_delta_x matches ..0 run scoreboard players operation @s acv_pos_x > @s acv_z_pos_x
-execute unless score @s acv_delta_z matches 0 if score @s acv_delta_y matches ..0 run scoreboard players operation @s acv_pos_y > @s acv_z_pos_y
-execute unless score @s acv_delta_z matches 0 if score @s acv_delta_z matches ..0 run scoreboard players operation @s acv_pos_z > @s acv_z_pos_z
+execute if score @s acv_delta_x matches 1.. run function acv:raycast/min_pos_x
+execute if score @s acv_delta_x matches ..0 run function acv:raycast/max_pos_x
+execute if score @s acv_delta_y matches 1.. run function acv:raycast/min_pos_y
+execute if score @s acv_delta_y matches ..0 run function acv:raycast/max_pos_y
+execute if score @s acv_delta_z matches 1.. run function acv:raycast/min_pos_z
+execute if score @s acv_delta_z matches ..0 run function acv:raycast/max_pos_z
 
 execute if score @s acv_pos_x = @s acv_x_pos_x if score @s acv_pos_y = @s acv_x_pos_y if score @s acv_pos_z = @s acv_x_pos_z run scoreboard players set @s acv_axis 0
 execute if score @s acv_pos_x = @s acv_y_pos_x if score @s acv_pos_y = @s acv_y_pos_y if score @s acv_pos_z = @s acv_y_pos_z run scoreboard players set @s acv_axis 1
