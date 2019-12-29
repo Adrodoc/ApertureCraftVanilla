@@ -3,7 +3,6 @@
     "acv:force/tick",
     "acv:motion/tick",
     "acv:portal/tick",
-    "acv:raycast/tick",
     "acv:teleportation/tick"
   ]
 }

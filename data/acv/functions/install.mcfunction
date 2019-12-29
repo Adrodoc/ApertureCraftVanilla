@@ -12,6 +12,8 @@ scoreboard objectives add acv_tmp_x dummy
 scoreboard objectives add acv_tmp_y dummy
 scoreboard objectives add acv_tmp_z dummy
 
+scoreboard objectives add acv_shoot minecraft.used:minecraft.carrot_on_a_stick
+
 scoreboard objectives add acv_constant dummy
 scoreboard players set -1 acv_constant -1
 scoreboard players set 2 acv_constant 2

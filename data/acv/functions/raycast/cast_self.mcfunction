@@ -1,14 +1,12 @@
-execute anchored eyes run summon area_effect_cloud ^ ^ ^1 {Tags:[acv_target],Duration:1}
-execute store result score @s acv_delta_x run data get entity @e[tag=acv_target,type=area_effect_cloud,limit=1,distance=..3] Pos[0] 1000
-execute store result score @s acv_delta_y run data get entity @e[tag=acv_target,type=area_effect_cloud,limit=1,distance=..3] Pos[1] 1000
-execute store result score @s acv_delta_z run data get entity @e[tag=acv_target,type=area_effect_cloud,limit=1,distance=..3] Pos[2] 1000
-kill @e[tag=acv_target,type=area_effect_cloud]
+teleport @s ^ ^ ^
+execute store result score @s acv_origin_x run data get entity @s Pos[0] 1000
+execute store result score @s acv_origin_y run data get entity @s Pos[1] 1000
+execute store result score @s acv_origin_z run data get entity @s Pos[2] 1000
 
-execute anchored eyes run summon area_effect_cloud ^ ^ ^ {Tags:[acv_origin],Duration:1}
-execute store result score @s acv_origin_x run data get entity @e[tag=acv_origin,type=area_effect_cloud,limit=1,distance=..2] Pos[0] 1000
-execute store result score @s acv_origin_y run data get entity @e[tag=acv_origin,type=area_effect_cloud,limit=1,distance=..2] Pos[1] 1000
-execute store result score @s acv_origin_z run data get entity @e[tag=acv_origin,type=area_effect_cloud,limit=1,distance=..2] Pos[2] 1000
-kill @e[tag=acv_origin,type=area_effect_cloud]
+teleport @s ^ ^ ^1
+execute store result score @s acv_delta_x run data get entity @s Pos[0] 1000
+execute store result score @s acv_delta_y run data get entity @s Pos[1] 1000
+execute store result score @s acv_delta_z run data get entity @s Pos[2] 1000
 
 scoreboard players operation @s acv_delta_x -= @s acv_origin_x
 scoreboard players operation @s acv_delta_y -= @s acv_origin_y
@@ -39,6 +37,5 @@ execute if score @s acv_delta_z matches 1.. run scoreboard players set @s acv_st
 function acv:raycast/next_z_pos
 execute if score @s acv_delta_z matches ..-1 run scoreboard players set @s acv_step_z -1000
 
-summon area_effect_cloud ~ ~ ~ {Tags:[acv_pos],Duration:1}
-function acv:raycast/step
-kill @e[tag=acv_pos,type=area_effect_cloud]
+function acv:raycast/recursive_step
+tag @s remove acv_raycast_finished

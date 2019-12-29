@@ -1,5 +1,5 @@
 function acv:portal/delete
-function acv:portal/spawn
+function acv:portal/summon_outside
 function acv:portal/texture
 
 scoreboard players add @e[tag=acv_portal] acv_portal_id 0

@@ -12,6 +12,8 @@ scoreboard objectives remove acv_tmp_x
 scoreboard objectives remove acv_tmp_y
 scoreboard objectives remove acv_tmp_z
 
+scoreboard objectives remove acv_shoot
+
 scoreboard objectives remove acv_constant
 
 team remove acv_blue
