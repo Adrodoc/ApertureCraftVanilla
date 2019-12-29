@@ -2,10 +2,6 @@ scoreboard objectives add acv_origin_x dummy
 scoreboard objectives add acv_origin_y dummy
 scoreboard objectives add acv_origin_z dummy
 
-scoreboard objectives add acv_target_x dummy
-scoreboard objectives add acv_target_y dummy
-scoreboard objectives add acv_target_z dummy
-
 scoreboard objectives add acv_delta_x dummy
 scoreboard objectives add acv_delta_y dummy
 scoreboard objectives add acv_delta_z dummy
